@@ -11,6 +11,21 @@
 	height: 10px !important;
 }
 
+.ytp-swatch-background-color {
+	background-color: #b91f1f;
+}
+
+.ytp-scrubber-container {
+	top: -7px;
+}
+
+.ytp-scrubber-button {
+	background: url(https://i.imgur.com/l4RkS6f.png);
+	margin-left: 0px;
+	height: 16px;
+	width: 16px;
+}
+
 .ytp-chrome-bottom {
     width: inherit !important;
     left: unset !important;
