@@ -1,0 +1,47 @@
+.ytp-gradient-bottom {
+	background: none;
+}
+
+.ytp-chapter-hover-container {
+	width: inherit !important;
+	bottom: 4px !important;
+}
+
+.ytp-progress-list {
+	height: 10px;
+}
+
+.ytp-chrome-bottom {
+    width: inherit !important;
+    left: unset !important;
+}
+
+.ytp-left-controls {
+	background: #1b1b1b;
+	height: 100%;
+}
+
+.ytp-right-controls {
+	background: #1b1b1b;
+	height: 100%;
+}
+
+.ytp-volume-slider-handle::before {
+	left: -64px;
+	background: #b91f1f;
+}
+
+.ytp-volume-slider-handle::after {
+	left: 5px;
+	background: rgba(255, 255, 255, .2);
+}
+
+.ytp-volume-slider-handle {
+	position: absolute;
+	top: 50%;
+	width: 5px;
+	height: 14px;
+	border-radius: 0px;
+	margin-top: -5.9px;
+	background: #ddd;
+}
