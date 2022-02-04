@@ -8,7 +8,7 @@
 }
 
 .ytp-progress-list {
-	height: 10px;
+	height: 10px !important;
 }
 
 .ytp-chrome-bottom {
@@ -18,11 +18,13 @@
 
 .ytp-left-controls {
 	background: #1b1b1b;
+	padding-left: 10px;
 	height: 100%;
 }
 
 .ytp-right-controls {
 	background: #1b1b1b;
+	padding-right: 10px;
 	height: 100%;
 }
 
