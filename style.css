@@ -12,18 +12,18 @@
 }
 
 .ytp-swatch-background-color {
-	background-color: #b91f1f;
+	background-color: #b91f1f !important;
 }
 
 .ytp-scrubber-container {
-	top: -7px;
+	top: -7px !important;
 }
 
 .ytp-scrubber-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/scrubber.png);
-	margin-left: 0px;
-	height: 16px;
-	width: 16px;
+	margin-left: 0px !important;
+	height: 16px !important;
+	width: 16px !important;
 }
 
 .ytp-chrome-bottom {
