@@ -1,3 +1,5 @@
+/* PROGRESS BAR */
+
 .ytp-gradient-bottom {
 	background: none;
 }
@@ -10,6 +12,8 @@
 .ytp-progress-list {
 	height: 10px !important;
 }
+
+/* ################################# */
 
 /* SCRUBBER */
 
@@ -28,6 +32,8 @@
 	width: 16px !important;
 }
 
+/* ################################# */
+
 /* BUTTONS BASE */
 
 .ytp-chrome-bottom {
@@ -39,6 +45,8 @@
 	display: none;
 }
 
+/* ################################# */
+
 /* LEFT BUTTONS */
 
 .ytp-left-controls {
@@ -47,15 +55,11 @@
 	height: 100%;
 }
 
-.ytp-play-button {
-	background: url(http://dl.kt5company.com/img/yt-userscript/icons.png) no-repeat;
-	background-position: -126px -443px;
-	background-size: 200px;
-}
+/* PLAY BUTTON */
 
-.ytp-play-button:hover {
+.ytp-play-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
-	background-position: -52px -1328px;
+	background-position: -126px -443px;
 	background-size: 200px;
 }
 
@@ -65,11 +69,7 @@
 	background-size: 200px;
 }
 
-.ytp-play-button[label="Pause (k)"] {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
-	background-position: -126px -443px;
-	background-size: 200px;
-}
+/* NEXT BUTTON */
 
 .ytp-next-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
@@ -77,22 +77,40 @@
 	background-size: 200px;
 }
 
+/* VOLUME BUTTON */
+
+.ytp-mute-button {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background-position: -112px -151px;
+	background-size: 200px;
+}
+
+.ytp-mute-button[title="Unmute (m)"] {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background-position: -154px -996px;
+	background-size: 200px;
+}
+
+/* ################################# */
+
 /* SLIDER */
 
 .ytp-volume-slider-handle {
-	position: absolute;
-	top: 50%;
-	width: 5px;
-	height: 14px;
-	border-radius: 0px;
-	margin-top: -5.9px;
-	background: #ddd;
+	position: absolute !important;
+	top: 50% !important;
+	width: 5px !important;
+	height: 14px !important;
+	border-radius: 0px !important;
+	margin-top: -5.9px !important;
+	background: #ddd !important;
 }
 
 .ytp-volume-slider-handle::before {
-	left: -64px;
-	background: #b91f1f;
+	left: -64px !important;
+	background: #b91f1f !important;
 }
+
+/* ################################# */
 
 /* RIGHT BUTTONS */
 
@@ -100,4 +118,70 @@
 	background: #1b1b1b;
 	padding-right: 10px;
 	height: 100%;
+}
+
+/* SUBTITLES BUTTON */
+
+.ytp-subtitles-button {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background-position: -109px -996px;
+	background-size: 200px;
+	bottom: 5px;
+}
+
+/* SETTINGS BUTTON */
+
+.ytp-settings-button {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background-position: -152px -519px;
+	background-size: 200px;
+	bottom: 5px;
+}
+
+/* THEATER BUTTON */
+
+.ytp-size-button {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background-position: -152px -482px;
+	background-size: 200px;
+	position: relative;
+	bottom: 5px;
+}
+
+.ytp-size-button[title="Default view (t)"] {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background-position: -37px 2px;
+	background-size: 200px;
+	position: relative;
+	bottom: 5px;
+}
+
+/* FULLSCREEN BUTTON */
+
+.ytp-fullscreen-button {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background-position: -109px -519px;
+	background-size: 200px;
+	position: relative;
+	bottom: 5px;
+}
+
+.ytp-fullscreen-button[title="Exit full screen (f)"] {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background-position: -110px -1146px;
+	background-size: 200px;
+	position: relative;
+	bottom: 5px;
+}
+
+/* ################################# */
+
+/* SETTINGS MENU */
+
+.ytp-menuitem-icon {
+	display: none !important;
+}
+
+.ytp-menuitem-label {
+	padding-left: 20px !important;
 }
