@@ -93,7 +93,7 @@
 
 /* ################################# */
 
-/* SLIDER */
+/* VOLUME SLIDER */
 
 .ytp-volume-slider-handle {
 	position: absolute !important;
@@ -108,6 +108,16 @@
 .ytp-volume-slider-handle::before {
 	left: -64px !important;
 	background: #b91f1f !important;
+}
+
+.ytp-big-mode .ytp-volume-slider-handle {
+	position: absolute !important;
+	top: 50% !important;
+	width: 5px !important;
+	height: 14px !important;
+	border-radius: 0px !important;
+	margin-top: -5.9px !important;
+	background: #ddd !important;
 }
 
 /* ################################# */
