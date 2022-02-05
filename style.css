@@ -11,6 +11,8 @@
 	height: 10px !important;
 }
 
+/* SCRUBBER */
+
 .ytp-swatch-background-color {
 	background-color: #b91f1f !important;
 }
@@ -21,15 +23,23 @@
 
 .ytp-scrubber-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/scrubber.png);
-	margin-left: 0px !important;
+	margin-left: 8px !important;
 	height: 16px !important;
 	width: 16px !important;
 }
+
+/* BUTTONS BASE */
 
 .ytp-chrome-bottom {
     width: inherit !important;
     left: unset !important;
 }
+
+.ytp-button svg {
+	display: none;
+}
+
+/* LEFT BUTTONS */
 
 .ytp-left-controls {
 	background: #1b1b1b;
@@ -37,21 +47,37 @@
 	height: 100%;
 }
 
-.ytp-right-controls {
-	background: #1b1b1b;
-	padding-right: 10px;
-	height: 100%;
+.ytp-play-button {
+	background: url(http://dl.kt5company.com/img/yt-userscript/icons.png) no-repeat;
+	background-position: -126px -443px;
+	background-size: 200px;
 }
 
-.ytp-volume-slider-handle::before {
-	left: -64px;
-	background: #b91f1f;
+.ytp-play-button:hover {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background-position: -52px -1328px;
+	background-size: 200px;
 }
 
-.ytp-volume-slider-handle::after {
-	left: 5px;
-	background: rgba(255, 255, 255, .2);
+.ytp-play-button[title="Pause (k)"] {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background-position: -52px -1328px;
+	background-size: 200px;
 }
+
+.ytp-play-button[label="Pause (k)"] {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background-position: -126px -443px;
+	background-size: 200px;
+}
+
+.ytp-next-button {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background-position: 6px -1213px;
+	background-size: 200px;
+}
+
+/* SLIDER */
 
 .ytp-volume-slider-handle {
 	position: absolute;
@@ -61,4 +87,17 @@
 	border-radius: 0px;
 	margin-top: -5.9px;
 	background: #ddd;
+}
+
+.ytp-volume-slider-handle::before {
+	left: -64px;
+	background: #b91f1f;
+}
+
+/* RIGHT BUTTONS */
+
+.ytp-right-controls {
+	background: #1b1b1b;
+	padding-right: 10px;
+	height: 100%;
 }
