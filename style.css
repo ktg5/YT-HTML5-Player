@@ -1,7 +1,7 @@
 /* PROGRESS BAR */
 
 .ytp-gradient-bottom {
-	background: none;
+	background: none !important;
 }
 
 .ytp-chapter-hover-container {
@@ -126,6 +126,15 @@
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
 	background-position: -109px -996px;
 	background-size: 200px;
+	position: relative;
+	bottom: 5px;
+}
+
+.ytp-subtitles-button[title="Subtitles/closed captions unavailable"] {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background-position: 5px -1327px;
+	background-size: 200px;
+	position: relative;
 	bottom: 5px;
 }
 
@@ -135,6 +144,7 @@
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
 	background-position: -152px -519px;
 	background-size: 200px;
+	position: relative;
 	bottom: 5px;
 }
 
@@ -168,7 +178,7 @@
 
 .ytp-fullscreen-button[title="Exit full screen (f)"] {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
-	background-position: -110px -1146px;
+	background-position: -107px -1146px;
 	background-size: 200px;
 	position: relative;
 	bottom: 5px;
