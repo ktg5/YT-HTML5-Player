@@ -1,0 +1,207 @@
+/* PROGRESS BAR */
+
+.ytp-gradient-bottom {
+	background: none !important;
+}
+
+.ytp-chapter-hover-container {
+	width: inherit !important;
+	bottom: 4px !important;
+}
+
+.ytp-progress-list {
+	height: 10px !important;
+}
+
+/* ################################# */
+
+/* SCRUBBER */
+
+.ytp-swatch-background-color {
+	background-color: #b91f1f !important;
+}
+
+.ytp-scrubber-container {
+	top: -7px !important;
+}
+
+.ytp-scrubber-button {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/scrubber.png);
+	margin-left: 8px !important;
+	height: 16px !important;
+	width: 16px !important;
+}
+
+/* ################################# */
+
+/* BUTTONS BASE */
+
+.ytp-chrome-bottom {
+    width: inherit !important;
+    left: unset !important;
+}
+
+.ytp-button svg {
+	display: none;
+}
+
+/* ################################# */
+
+/* LEFT BUTTONS */
+
+.ytp-left-controls {
+	background: #1b1b1b;
+	padding-left: 10px;
+	height: 100%;
+}
+
+/* PLAY BUTTON */
+
+.ytp-play-button {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background-position: -126px -443px;
+	background-size: 200px;
+}
+
+.ytp-play-button[title="Pause (k)"] {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background-position: -52px -1328px;
+	background-size: 200px;
+}
+
+/* NEXT BUTTON */
+
+.ytp-next-button {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background-position: 6px -1213px;
+	background-size: 200px;
+}
+
+/* VOLUME BUTTON */
+
+.ytp-mute-button {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background-position: -112px -151px;
+	background-size: 200px;
+}
+
+.ytp-mute-button[title="Unmute (m)"] {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background-position: -154px -996px;
+	background-size: 200px;
+}
+
+/* ################################# */
+
+/* VOLUME SLIDER */
+
+.ytp-volume-slider-handle {
+	position: absolute !important;
+	top: 50% !important;
+	width: 5px !important;
+	height: 14px !important;
+	border-radius: 0px !important;
+	margin-top: -5.9px !important;
+	background: #ddd !important;
+}
+
+.ytp-volume-slider-handle::before {
+	left: -64px !important;
+	background: #b91f1f !important;
+}
+
+.ytp-big-mode .ytp-volume-slider-handle {
+	position: absolute !important;
+	top: 50% !important;
+	width: 5px !important;
+	height: 14px !important;
+	border-radius: 0px !important;
+	margin-top: -5.9px !important;
+	background: #ddd !important;
+}
+
+/* ################################# */
+
+/* RIGHT BUTTONS */
+
+.ytp-right-controls {
+	background: #1b1b1b;
+	padding-right: 10px;
+	height: 100%;
+}
+
+/* SUBTITLES BUTTON */
+
+.ytp-subtitles-button {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background-position: -109px -996px;
+	background-size: 200px;
+	position: relative;
+	bottom: 5px;
+}
+
+.ytp-subtitles-button[title="Subtitles/closed captions unavailable"] {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background-position: 5px -1327px;
+	background-size: 200px;
+	position: relative;
+	bottom: 5px;
+}
+
+/* SETTINGS BUTTON */
+
+.ytp-settings-button {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background-position: -152px -519px;
+	background-size: 200px;
+	position: relative;
+	bottom: 5px;
+}
+
+/* THEATER BUTTON */
+
+.ytp-size-button {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background-position: -152px -482px;
+	background-size: 200px;
+	position: relative;
+	bottom: 5px;
+}
+
+.ytp-size-button[title="Default view (t)"] {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background-position: -37px 2px;
+	background-size: 200px;
+	position: relative;
+	bottom: 5px;
+}
+
+/* FULLSCREEN BUTTON */
+
+.ytp-fullscreen-button {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background-position: -109px -519px;
+	background-size: 200px;
+	position: relative;
+	bottom: 5px;
+}
+
+.ytp-fullscreen-button[title="Exit full screen (f)"] {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background-position: -107px -1146px;
+	background-size: 200px;
+	position: relative;
+	bottom: 5px;
+}
+
+/* ################################# */
+
+/* SETTINGS MENU */
+
+.ytp-menuitem-icon {
+	display: none !important;
+}
+
+.ytp-menuitem-label {
+	padding-left: 20px !important;
+}
