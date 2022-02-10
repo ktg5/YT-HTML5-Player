@@ -5,16 +5,18 @@
 }
 
 .ytp-chapter-hover-container {
-	bottom: 5.3px !important;
+	bottom: 3px !important;
 }
 
 .ytp-progress-list {
-	height: 12px !important;
+	height: 6px !important;
 	background: rgb(66, 66, 66) !important;
+	-webkit-transform: none;
+	transform: none;
 }
 
 .ytp-progress-bar-container {
-	top: 9px;
+	top: 8px;
 }
 
 /* ################################# */
@@ -26,7 +28,7 @@
 }
 
 .ytp-scrubber-container {
-	top: -7px !important;
+	top: -9px !important;
 }
 
 .ytp-scrubber-button {
@@ -47,6 +49,7 @@
 }
 
 .ytp-chrome-controls {
+	background: #1b1b1b;
 	position: relative;
 	height: 36px;
 	top: 10px;
