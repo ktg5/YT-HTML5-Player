@@ -11,12 +11,12 @@
 .ytp-progress-list {
 	height: 6px !important;
 	background: rgb(66, 66, 66) !important;
-	-webkit-transform: none;
-	transform: none;
+	-webkit-transform: none !important;
+	transform: none !important;
 }
 
 .ytp-progress-bar-container {
-	top: 8px;
+	top: 12px;
 }
 
 /* ################################# */
@@ -28,7 +28,7 @@
 }
 
 .ytp-scrubber-container {
-	top: -9px !important;
+	top: -11px !important;
 }
 
 .ytp-scrubber-button {
@@ -69,9 +69,10 @@
 /* LEFT BUTTONS */
 
 .ytp-left-controls {
-	background: #1b1b1b;
+	bottom: 4px;
+	position: relative;
 	padding-left: 10px;
-	height: 100%;
+	height: 100%;	
 }
 
 /* PREV BUTTON */
@@ -91,9 +92,7 @@
 }
 
 .ytp-play-button[title="Pause (k)"] {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
 	background-position: -52px -1328px;
-	background-size: 200px;
 }
 
 /* NEXT BUTTON */
@@ -112,10 +111,16 @@
 	background-size: 200px;
 }
 
-.ytp-mute-button[title="Unmute (m)"] {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
+.ytp-mute-button:hover {
 	background-position: -154px -996px;
-	background-size: 200px;
+}
+
+.ytp-mute-button[title="Unmute (m)"] {
+	background-position: -154px -996px;
+}
+
+.ytp-mute-button[title="Unmute (m)"]:hover {
+	background-position: -112px -151px;
 }
 
 /* DISPLAY NONE OF THESE */
@@ -174,7 +179,8 @@
 /* RIGHT BUTTONS */
 
 .ytp-right-controls {
-	background: #1b1b1b;
+	bottom: 4px;
+	position: relative;
 	padding-right: 10px;
 	position: initial;
 	height: 100%;
@@ -191,11 +197,7 @@
 }
 
 .ytp-subtitles-button[title="Subtitles/closed captions unavailable"] {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
 	background-position: 5px -1327px;
-	bottom: 5px !important;
-	background-size: 200px;
-	position: relative;
 }
 
 /* SETTINGS BUTTON */
@@ -219,11 +221,7 @@
 }
 
 .ytp-size-button[title="Default view (t)"] {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
 	background-position: -37px 2px;
-	bottom: 5px !important;
-	background-size: 200px;
-	position: relative;
 }
 
 /* FULLSCREEN BUTTON */
@@ -237,11 +235,7 @@
 }
 
 .ytp-fullscreen-button[title="Exit full screen (f)"] {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
 	background-position: -107px -1146px;
-	bottom: 5px !important;
-	background-size: 200px;
-	position: relative;
 }
 
 /* ################################# */
