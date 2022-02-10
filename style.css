@@ -16,7 +16,7 @@
 }
 
 .ytp-progress-bar-container {
-	top: 12px;
+	bottom: 30px !important;
 }
 
 /* ################################# */
@@ -28,7 +28,7 @@
 }
 
 .ytp-scrubber-container {
-	top: -11px !important;
+	top: -8px !important;
 }
 
 .ytp-scrubber-button {
@@ -180,10 +180,8 @@
 
 .ytp-right-controls {
 	bottom: 4px;
-	position: relative;
+	position: relative !important;
 	padding-right: 10px;
-	position: initial;
-	height: 100%;
 }
 
 /* SUBTITLES BUTTON */
