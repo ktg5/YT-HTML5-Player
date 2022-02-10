@@ -6,7 +6,7 @@
 // @author       ktg5
 // @match        *://*.youtube.com/*
 // @icon         https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/favicon.png
-// @resource     CSS https://github.com/ktg5/YT-HTML5-Player/raw/main/style.css
+// @resource     CSS https://github.com/ktg5/YT-HTML5-Player/raw/dev/style.css
 // @grant        GM_getResourceText
 // @grant        GM_addStyle
 // ==/UserScript==
