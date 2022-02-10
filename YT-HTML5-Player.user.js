@@ -5,8 +5,8 @@
 // @description  Try to recreate the old YouTube 2012-2015 player.
 // @author       ktg5
 // @match        *://*.youtube.com/*
-// @icon         http://dl.kt5company.com/img/yt-userscript/favicon.png
-// @resource     CSS https://github.com/ktg5/YT-HTML5-Player/raw/dev/style.css
+// @icon         https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/favicon.png
+// @resource     CSS https://github.com/ktg5/YT-HTML5-Player/raw/main/style.css
 // @grant        GM_getResourceText
 // @grant        GM_addStyle
 // ==/UserScript==

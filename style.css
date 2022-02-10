@@ -82,13 +82,13 @@
 /* PLAY BUTTON */
 
 .ytp-play-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
 	background-position: -126px -443px;
 	background-size: 200px;
 }
 
 .ytp-play-button[title="Pause (k)"] {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
 	background-position: -52px -1328px;
 	background-size: 200px;
 }
@@ -96,7 +96,7 @@
 /* NEXT BUTTON */
 
 .ytp-next-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
 	background-position: 6px -1213px;
 	background-size: 200px;
 }
@@ -104,13 +104,13 @@
 /* VOLUME BUTTON */
 
 .ytp-mute-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
 	background-position: -112px -151px;
 	background-size: 200px;
 }
 
 .ytp-mute-button[title="Unmute (m)"] {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
 	background-position: -154px -996px;
 	background-size: 200px;
 }
@@ -180,7 +180,7 @@
 /* SUBTITLES BUTTON */
 
 .ytp-subtitles-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
 	background-position: -109px -996px;
 	bottom: 5px !important;
 	background-size: 200px;
@@ -188,7 +188,7 @@
 }
 
 .ytp-subtitles-button[title="Subtitles/closed captions unavailable"] {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
 	background-position: 5px -1327px;
 	bottom: 5px !important;
 	background-size: 200px;
@@ -198,7 +198,7 @@
 /* SETTINGS BUTTON */
 
 .ytp-settings-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
 	background-position: -152px -519px;
 	bottom: 5px !important;
 	background-size: 200px;
@@ -208,7 +208,7 @@
 /* THEATER BUTTON */
 
 .ytp-size-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
 	background-position: -152px -482px;
 	bottom: 5px !important;
 	background-size: 200px;
@@ -216,7 +216,7 @@
 }
 
 .ytp-size-button[title="Default view (t)"] {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
 	background-position: -37px 2px;
 	bottom: 5px !important;
 	background-size: 200px;
@@ -226,7 +226,7 @@
 /* FULLSCREEN BUTTON */
 
 .ytp-fullscreen-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
 	background-position: -109px -519px;
 	bottom: 5px !important;
 	background-size: 200px;
@@ -234,7 +234,7 @@
 }
 
 .ytp-fullscreen-button[title="Exit full screen (f)"] {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
 	background-position: -107px -1146px;
 	bottom: 5px !important;
 	background-size: 200px;
