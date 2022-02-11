@@ -1,5 +1,11 @@
-# YT-HTML5-Player `1.1dev1`
-Try to recreate the old YouTube 2012-2015 player.
+<h1 align="center">YT-HTML5-Player 1.1dev2</h1>
+<div font-size="24px" align="center">Try to recreate the old YouTube 2012-2015 player.</div>
+
+## Screenshots.
+<div align="center">
+  <img src="img/screenshot1.png">
+  <div font-size="8px">Screenshot of what the YouTube player looks like with the power of this script.</div>
+</div>
 
 ## How to work.
 1. [Download Tampermonkey](https://www.tampermonkey.net/)
