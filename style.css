@@ -5,14 +5,16 @@
 }
 
 .ytp-chapter-hover-container {
-	bottom: 3px !important;
+	bottom: 1px !important;
+	height: 110%
+	width: 100%
 }
 
 .ytp-progress-list {
-	height: 6px !important;
 	background: rgb(66, 66, 66) !important;
 	-webkit-transform: none !important;
 	transform: none !important;
+	height: 6px !important;
 }
 
 .ytp-progress-bar-container {
@@ -44,8 +46,8 @@
 /* BUTTONS BASE */
 
 .ytp-chrome-bottom {
-    width: inherit !important;
-    left: unset !important;
+	width: inherit !important;
+	left: unset !important;
 }
 
 .ytp-chrome-controls {
