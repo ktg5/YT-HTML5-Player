@@ -7,7 +7,7 @@
 .ytp-chapter-hover-container {
 	width: 100% !important;
 	bottom: 0px;
-	top: 7.5px;
+	top: 1.5px;
 }
 
 .ytp-progress-list {
@@ -117,11 +117,11 @@
 }
 
 .ytp-time-current {
-	color: #fff;
+	color: #fff !important;
 }
 
 .ytp-time-separator, .ytp-time-duration {
-	color: #969696;
+	color: #969696 !important;
 }
 
 /* ################################# */

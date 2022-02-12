@@ -32,7 +32,7 @@
     /// Scrubber icon
     var scrubberIcon = "https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/scrubber.png" // Default: https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/scrubber.png
     var scrubberSize = "18" // If changed, change the "scrubberTop" value to whatever looks centered for you. | Default: 18
-    var scrubberTop = "3" // Default: 3
+    var scrubberTop = "-1" // Default: -1
 
     // #################################
     
