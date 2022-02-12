@@ -14,7 +14,7 @@
 	background: rgb(66, 66, 66) !important;
 	-webkit-transform: none !important;
 	transform: none !important;
-	height: 6px !important;
+	height: 10px !important;
 }
 
 .ytp-progress-bar-container {
@@ -25,15 +25,11 @@
 
 /* SCRUBBER */
 
-.ytp-scrubber-container {
-	top: 1px !important;
-}
-
 .ytp-scrubber-button {
-	height: 16px !important;
-	width: 16px !important;
+	height: 18px !important;
+	width: 18px !important;
 	position: relative;
-	top: 1px;
+	bottom: 0px;
 }
 
 /* ################################# */
@@ -48,12 +44,13 @@
 .ytp-chrome-controls {
 	position: relative;
 	height: 36px;
-	top: 10px;
+	top: 8px;
 }
 
 .ytp-button {
-	bottom: 9px;
 	height: 40px !important;
+	width: 44px !important;
+	bottom: 9px;
 }
 
 .ytp-button svg {
@@ -75,7 +72,7 @@
 
 .ytp-prev-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: 8px 3px;
+	background-position: 4px 2px;
 	background-size: 200px;
 }
 
@@ -83,19 +80,19 @@
 
 .ytp-play-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -126px -443px;
+	background-position: -128px -443px;
 	background-size: 200px;
 }
 
 .ytp-play-button[title="Pause (k)"] {
-	background-position: -52px -1328px;
+	background-position: -54px -1328px;
 }
 
 /* NEXT BUTTON */
 
 .ytp-next-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: 6px -1213px;
+	background-position: 4px -1213px;
 	background-size: 200px;
 }
 
@@ -103,42 +100,28 @@
 
 .ytp-mute-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -112px -151px;
+	background-position: -114px -151px;
 	background-size: 200px;
 }
 
 .ytp-mute-button:hover {
-	background-position: -154px -996px;
+	background-position: -156px -997px;
 }
 
 .ytp-mute-button[title="Unmute (m)"] {
-	background-position: -154px -996px;
+	background-position: -156px -997px;
 }
 
 .ytp-mute-button[title="Unmute (m)"]:hover {
-	background-position: -112px -151px;
+	background-position: -114px -151px;
 }
 
-/* DISPLAY NONE OF THESE */
-
-.ytp-fullerscreen-edu-button {
-	display: none !important;
+.ytp-time-current {
+	color: #fff;
 }
 
-.ytp-multicam-button {
-	display: none !important;
-}
-
-.ytp-multicam-button {
-	display: none !important;
-}
-
-.ytp-miniplayer-button {
-	display: none !important;
-}
-
-.ytp-remote-button {
-	display: none !important;
+.ytp-time-separator, .ytp-time-duration {
+	color: #969696;
 }
 
 /* ################################# */
@@ -183,21 +166,21 @@
 
 .ytp-subtitles-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -109px -996px;
+	background-position: -111px -996px;
 	bottom: 5px !important;
 	background-size: 200px;
 	position: relative;
 }
 
 .ytp-subtitles-button[title="Subtitles/closed captions unavailable"] {
-	background-position: 5px -1327px;
+	background-position: 6px -1327px;
 }
 
 /* SETTINGS BUTTON */
 
 .ytp-settings-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -152px -519px;
+	background-position: -153px -519px;
 	bottom: 5px !important;
 	background-size: 200px;
 	position: relative;
@@ -207,28 +190,50 @@
 
 .ytp-size-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -152px -482px;
+	background-position: -154px -482px;
 	bottom: 5px !important;
 	background-size: 200px;
 	position: relative;
 }
 
 .ytp-size-button[title="Default view (t)"] {
-	background-position: -37px 2px;
+	background-position: -39px 2px;
 }
 
 /* FULLSCREEN BUTTON */
 
 .ytp-fullscreen-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -109px -519px;
+	background-position: -111px -519px;
 	bottom: 5px !important;
 	background-size: 200px;
 	position: relative;
 }
 
 .ytp-fullscreen-button[title="Exit full screen (f)"] {
-	background-position: -107px -1146px;
+	background-position: -111px -1146px;
+}
+
+/* DISPLAY NONE OF THESE */
+
+.ytp-fullerscreen-edu-button {
+	display: none !important;
+}
+
+.ytp-multicam-button {
+	display: none !important;
+}
+
+.ytp-multicam-button {
+	display: none !important;
+}
+
+.ytp-miniplayer-button {
+	display: none !important;
+}
+
+.ytp-remote-button {
+	display: none !important;
 }
 
 /* ################################# */
