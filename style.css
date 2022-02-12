@@ -5,7 +5,6 @@
 }
 
 .ytp-chapter-hover-container {
-	width: 100% !important;
 	bottom: 0px;
 	top: 1.5px;
 }
@@ -15,10 +14,6 @@
 	-webkit-transform: none !important;
 	transform: none !important;
 	height: 10px !important;
-}
-
-.ytp-progress-bar-container {
-	bottom: 28px !important;
 }
 
 /* ################################# */
