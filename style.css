@@ -42,6 +42,10 @@
 	top: 8px;
 }
 
+.ytp-chapter-title.ytp-button {
+	width: auto;
+}
+
 .ytp-button {
 	height: 40px !important;
 	width: 44px !important;
