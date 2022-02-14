@@ -5,20 +5,27 @@
 }
 
 .ytp-chapter-hover-container {
-	width: 100% !important;
-	bottom: 0px;
-	top: 7.5px;
+	top: 6px;
+}
+
+.ytp-fullscreen .ytp-chapter-hover-container {
+	top: 7px;
+}
+
+.ytp-progress-bar {
+	transition: .5s;
+}
+
+.ytp-progress-bar:hover {
+	height: 10px;
 }
 
 .ytp-progress-list {
 	background: rgb(66, 66, 66) !important;
-	-webkit-transform: none !important;
-	transform: none !important;
-	height: 10px !important;
 }
 
-.ytp-progress-bar-container {
-	bottom: 28px !important;
+.ytp-progress-list:hover {
+	bottom: 1px !important;
 }
 
 /* ################################# */
@@ -26,10 +33,15 @@
 /* SCRUBBER */
 
 .ytp-scrubber-button {
+	transition: .5s !important;
 	height: 18px !important;
 	width: 18px !important;
 	position: relative;
-	bottom: 0px;
+}
+
+.ytp-big-mode .ytp-scrubber-button {
+	left: 0px !important;
+	top: 1px !important;
 }
 
 /* ################################# */
@@ -44,7 +56,11 @@
 .ytp-chrome-controls {
 	position: relative;
 	height: 36px;
-	top: 8px;
+	top: 6px;
+}
+
+.ytp-chapter-title.ytp-button {
+	width: auto;
 }
 
 .ytp-button {
@@ -62,10 +78,10 @@
 /* LEFT BUTTONS */
 
 .ytp-left-controls {
-	bottom: 4px;
 	position: relative;
 	padding-left: 10px;
-	height: 100%;	
+	height: 100%;
+	bottom: 2px;
 }
 
 /* PREV BUTTON */
@@ -116,26 +132,37 @@
 	background-position: -114px -151px;
 }
 
+/* TIME DISPLAY */
+
+.ytp-time-display {
+	font-size: 12px !important;
+}
+
 .ytp-time-current {
-	color: #fff;
+	color: #fff !important;
 }
 
 .ytp-time-separator, .ytp-time-duration {
-	color: #969696;
+	color: #969696 !important;
 }
 
 /* ################################# */
 
-/* VOLUME SLIDER */
+/* VOLUME PANEL */
+
+.ytp-volume-panel {
+	position: relative;
+	top: -2px;
+}
 
 .ytp-volume-slider-handle {
 	position: absolute !important;
-	top: 50% !important;
-	width: 5px !important;
-	height: 14px !important;
 	border-radius: 0px !important;
 	margin-top: -5.9px !important;
 	background: #ddd !important;
+	height: 14px !important;
+	width: 5px !important;
+	top: 50% !important;
 }
 
 .ytp-volume-slider-handle::before {
@@ -144,12 +171,12 @@
 
 .ytp-big-mode .ytp-volume-slider-handle {
 	position: absolute !important;
-	top: 50% !important;
-	width: 5px !important;
-	height: 14px !important;
 	border-radius: 0px !important;
 	margin-top: -5.9px !important;
 	background: #ddd !important;
+	height: 14px !important;
+	width: 5px !important;
+	top: 50% !important;
 }
 
 /* ################################# */
@@ -157,30 +184,34 @@
 /* RIGHT BUTTONS */
 
 .ytp-right-controls {
-	bottom: 4px;
 	position: relative !important;
-	padding-right: 10px;
+	padding-right: 0px;
+	bottom: 2px;
+}
+
+.ytp-big-mode .ytp-right-controls {
+	bottom: 4px;
 }
 
 /* SUBTITLES BUTTON */
 
 .ytp-subtitles-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -111px -996px;
+	background-position: -111px -995px;
 	bottom: 5px !important;
 	background-size: 200px;
 	position: relative;
 }
 
 .ytp-subtitles-button[title="Subtitles/closed captions unavailable"] {
-	background-position: 6px -1327px;
+	background-position: 6px -1326px;
 }
 
 /* SETTINGS BUTTON */
 
 .ytp-settings-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -153px -519px;
+	background-position: -153px -518px;
 	bottom: 5px !important;
 	background-size: 200px;
 	position: relative;
@@ -190,14 +221,14 @@
 
 .ytp-size-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -154px -482px;
+	background-position: -154px -481px;
 	bottom: 5px !important;
 	background-size: 200px;
 	position: relative;
 }
 
 .ytp-size-button[title="Default view (t)"] {
-	background-position: -39px 2px;
+	background-position: -39px 3px;
 }
 
 /* FULLSCREEN BUTTON */
@@ -245,8 +276,8 @@
 }
 
 .ytp-panel-menu {
-	height: 97px;
 	padding: 0px !important;
+	height: 97px;
 }
 
 .ytp-menuitem-icon {
@@ -255,4 +286,43 @@
 
 .ytp-menuitem-label {
 	padding-left: 20px !important;
+}
+
+/* ################################# */
+
+/* TOP BUTTONS */
+
+.ytp-gradient-top {
+	display: none;
+}
+
+.ytp-chrome-top {
+	background: #1b1b1bed;
+	right: 0px !important;
+	left: 0px !important;
+	padding: 0px 10px;
+}
+
+.ytp-title-text {
+	padding: 0px !important;
+	color: #cacaca;
+}
+
+.ytp-title-link {
+	position: relative;
+	font-size: 18px;
+	bottom: 1px;
+}
+
+.ytp-watch-later-button {
+	display: none;
+}
+
+.ytp-share-button {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
+	background-position: 2px -519px;
+	bottom: 5px !important;
+	background-size: 220px;
+	width: 40px !important;
+	position: relative;
 }
