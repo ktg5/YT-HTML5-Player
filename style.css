@@ -27,7 +27,6 @@
 .ytp-progress-list:hover {
 	bottom: 1px !important;
 }
-
 /* ################################# */
 
 /* SCRUBBER */
@@ -57,6 +56,10 @@
 	position: relative;
 	height: 36px;
 	top: 6px;
+}
+
+.ytp-chapter-title.ytp-button {
+	width: auto;
 }
 
 .ytp-chapter-title.ytp-button {
