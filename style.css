@@ -45,6 +45,18 @@
 
 /* ################################# */
 
+/* large PLAY BUTTON */
+
+.ytp-large-play-button.ytp-button {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
+	background-position: -67px -378px;
+	height: 52px !important;
+	width: 48px !important;
+	background-size: 250%;
+}
+
+/* ################################# */
+
 /* BUTTONS BASE */
 
 .ytp-chrome-bottom {
@@ -329,4 +341,18 @@
 	background-size: 220px;
 	width: 40px !important;
 	position: relative;
+}
+
+.ytp-share-icon svg {
+	display: none;
+}
+
+.ytp-share-panel-service-button svg {
+	display: inherit;
+}
+
+.ytp-share-panel-close svg {
+	display: inherit;
+	right: 6px;
+	top: 6px;
 }
