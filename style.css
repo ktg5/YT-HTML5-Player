@@ -58,14 +58,6 @@
 	top: 6px;
 }
 
-.ytp-chapter-title.ytp-button {
-	width: auto;
-}
-
-.ytp-chapter-title.ytp-button {
-	width: auto;
-}
-
 .ytp-button {
 	height: 40px !important;
 	width: 44px !important;
@@ -74,6 +66,10 @@
 
 .ytp-button svg {
 	display: none;
+}
+
+.ytp-chapter-title.ytp-button {
+	width: auto !important;
 }
 
 /* ################################# */
