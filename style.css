@@ -53,6 +53,7 @@
 }
 
 .ytp-chrome-controls {
+	transition: .5s !important;
 	position: relative;
 	height: 36px;
 	top: 6px;
@@ -297,6 +298,7 @@
 }
 
 .ytp-chrome-top {
+	transition: .5s !important;
 	background: #1b1b1bed;
 	right: 0px !important;
 	left: 0px !important;
@@ -304,6 +306,7 @@
 }
 
 .ytp-title-text {
+	transition: .5s !important;
 	padding: 0px !important;
 	color: #cacaca;
 }
@@ -321,6 +324,7 @@
 .ytp-share-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
 	background-position: 2px -519px;
+	transition: .5s !important;
 	bottom: 5px !important;
 	background-size: 220px;
 	width: 40px !important;

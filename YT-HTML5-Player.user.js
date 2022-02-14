@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube 2012-15 HTML5 Player
 // @namespace    http://ktg5.online/
-// @version      1.2dev1
+// @version      1.2dev2
 // @description  Try to recreate the old YouTube 2012-2015 player.
 // @author       ktg5
 // @match        *://*.youtube.com/*
