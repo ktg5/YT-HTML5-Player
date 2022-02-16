@@ -208,6 +208,19 @@
 	background-position: 6px -1326px;
 }
 
+.ytp-subtitles-button::after {
+	background-color: #b91f1f !important;
+	left: 11.5px !important;
+	width: 22px !important;
+	top: 30px !important;
+}
+
+.ytp-big-mode .ytp-subtitles-button::after {
+	width: 25px !important;
+	left: 10px !important;
+	top: 32px !important;
+}
+
 /* SETTINGS BUTTON */
 
 .ytp-settings-button {
@@ -216,6 +229,16 @@
 	bottom: 5px !important;
 	background-size: 200px;
 	position: relative;
+}
+
+.ytp-big-mode .ytp-settings-button::after {
+	background-color: #b91f1f !important;
+}
+
+.ytp-big-mode .ytp-settings-button::after {
+	font-size: 8px !important;
+	right: 2px !important;
+	top: 5px !important;
 }
 
 /* THEATER BUTTON */
