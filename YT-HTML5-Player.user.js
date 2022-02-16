@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         YouTube 2012-15 HTML5 Player
 // @namespace    http://ktg5.online/
-// @version      1.2dev3
+// @version      1.2
 // @description  Try to recreate the old YouTube 2012-2015 player.
 // @author       ktg5
 // @match        *://www.youtube.com/*
-// @updateURL    https://github.com/ktg5/YT-HTML5-Player/raw/dev/YT-HTML5-Player.user.js
-// @downloadURL  https://github.com/ktg5/YT-HTML5-Player/raw/dev/YT-HTML5-Player.user.js
+// @updateURL    https://github.com/ktg5/YT-HTML5-Player/raw/main/YT-HTML5-Player.user.js
+// @downloadURL  https://github.com/ktg5/YT-HTML5-Player/raw/main/YT-HTML5-Player.user.js
 // @icon         https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/favicon.png
-// @resource     CSS https://github.com/ktg5/YT-HTML5-Player/raw/dev/style.css
+// @resource     CSS https://github.com/ktg5/YT-HTML5-Player/raw/main/style.css
 // @grant        GM_getResourceText
 // @grant        GM_addStyle
 // ==/UserScript==
@@ -30,7 +30,7 @@
     var volumeSliderBack = "#b91f1f"; // Default: #b91f1f
 
     /// Scrubber icon
-    var scrubberIcon = "https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/scrubber.png" // Default: https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/scrubber.png
+    var scrubberIcon = "https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/scrubber.png" // Default: https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/scrubber.png
     var scrubberSize = "18" // If changed, change the "scrubberTop" value to whatever looks centered for you. | Default: 18
     var scrubberTop = "1" // Default: 1
 
