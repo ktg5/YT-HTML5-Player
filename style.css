@@ -27,6 +27,7 @@
 .ytp-progress-list:hover {
 	bottom: 1px !important;
 }
+
 /* ################################# */
 
 /* SCRUBBER */
@@ -223,16 +224,15 @@
 
 .ytp-subtitles-button::after {
 	background-color: #b91f1f !important;
-	left: 11.5px !important;
-	width: 22px !important;
+	left: 11px !important;
 	top: 30px !important;
 }
 
 .ytp-big-mode .ytp-subtitles-button::after {
-	width: 25px !important;
 	left: 10px !important;
 	top: 32px !important;
 }
+
 /* SETTINGS BUTTON */
 
 .ytp-settings-button {

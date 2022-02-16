@@ -3,12 +3,12 @@
 
 ## Screenshots.
 <div align="center">
-  <img src="img/screenshot1.png">
+  <img src="docs/screenshot1.png">
   <div font-size="8px">When not hovering over the progress bar.</div>
 
   <br>
   
-  <img src="img/screenshot2.png" style="max-width: 90%;">
+  <img src="docs/screenshot2.png">
   <div font-size="8px">When hovering over the progress bar.</div>
 </div>
 
@@ -20,6 +20,19 @@
 
 ## User customization!
 If you'd like to customize the player (color, scrubber image), edit the userscipt through the Tampermonkey dropdown menu and mess around with some of the values and such!
+
+Some examples:
+
+<div align="center">
+  <img src="docs/screenshot3.png">
+  <div font-size="8px">Luigi theme v1 | <a href="https://github.com/ktg5/YT-HTML5-Player/blob/main/docs/custom-scripts/luigi-player.js">View the code</a></div>
+
+  <br>
+  <br>
+  
+  <img src="docs/screenshot4.png">
+  <div font-size="8px">Kirby theme v1 | <a href="https://github.com/ktg5/YT-HTML5-Player/blob/main/docs/custom-scripts/kirby-player.js">View the code</a></div>
+</div>
 
 ### Think you're missing out on new features?
 If you'd like to see what's going on behind the main branch, try looking into the [DEV](https://github.com/ktg5/YT-HTML5-Player/tree/dev) branch. You never know what new stuff might be there.
