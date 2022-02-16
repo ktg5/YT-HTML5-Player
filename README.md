@@ -4,7 +4,12 @@
 ## Screenshots.
 <div align="center">
   <img src="img/screenshot1.png">
-  <div font-size="8px">Screenshot of what the YouTube player looks like with the power of this script.</div>
+  <div font-size="8px">When not hovering over the progress bar.</div>
+
+  <br>
+  
+  <img src="img/screenshot2.png" style="max-width: 90%;">
+  <div font-size="8px">When hovering over the progress bar.</div>
 </div>
 
 ## How to work.

@@ -48,6 +48,7 @@
 /* BUTTONS BASE */
 
 .ytp-chrome-bottom {
+	transition: .5s !important;
 	width: inherit !important;
 	left: unset !important;
 }
@@ -220,7 +221,6 @@
 	left: 10px !important;
 	top: 32px !important;
 }
-
 /* SETTINGS BUTTON */
 
 .ytp-settings-button {
@@ -240,7 +240,6 @@
 	right: 2px !important;
 	top: 5px !important;
 }
-
 /* THEATER BUTTON */
 
 .ytp-size-button {

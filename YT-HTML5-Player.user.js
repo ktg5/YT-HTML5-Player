@@ -36,7 +36,6 @@
 
     /// End Screen Buttons/Elements [OPTIONAL]
     var endScreenToggle = true // true = Enabled | false = Disabled
-
     // #################################
 
     // IMPORT USER CUSTOMIZATION
@@ -79,5 +78,4 @@
 }
         `)
     }
-
 })();
