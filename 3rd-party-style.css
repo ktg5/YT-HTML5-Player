@@ -1,0 +1,20 @@
+/* This style script is used for making sure
+some 3rd-party scripts work with this script
+correctly.
+
+If you have any plugins/scripts you'd like to
+be fixed for this script, please send a issue
+on the GitHUb repo! Much thanks! */
+
+
+/* SponsorBlock */
+
+#previewbar {
+    top: 6px;
+}
+
+/* Annotations Restored */
+
+.ytp-button.ytp-settings-button[title="Annotations are not available for this video."] svg {
+    display: block !important;
+}

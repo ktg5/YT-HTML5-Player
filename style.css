@@ -63,17 +63,19 @@
 .ytp-chrome-bottom {
 	transition: .5s !important;
 	width: inherit !important;
+	bottom: -6px !important;
 	left: unset !important;
 }
 
 .ytp-chrome-controls {
 	transition: .5s !important;
+	height: 36px !important;
 	position: relative;
-	height: 36px;
 	top: 6px;
 }
 
 .ytp-button {
+	position: sticky !important;
 	height: 40px !important;
 	width: 44px !important;
 	bottom: 9px;
@@ -151,6 +153,8 @@
 .ytp-time-display {
 	padding: 0px 15px !important;
 	font-size: 12px !important;
+	margin-top: -3px;
+	height: 46px;
 }
 
 .ytp-time-current {

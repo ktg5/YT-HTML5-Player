@@ -1,5 +1,8 @@
-<h1 align="center">YT-HTML5-Player <kbd>1.2</kbd></h1>
+<h1 align="center">YT-HTML5-Player <kbd>1.3dev1</kbd></h1>
 <div font-size="24px" align="center">Try to recreate the old YouTube 2012-2015 player.</div>
+
+# NOTE FOR 1.3dev1!!
+Version 1.3 is a compatibility update designed to work with other scripts and plugins. This should hopefully solve the issues for most common plugins used by you (users of this script) and not having to require YouTube Redux anymore. If you'd like to report a problem with a script/plugin you use that isn't working well with this script, please send a issue! Thank you for your support and usage of this script!
 
 ## Screenshots.
 <div align="center">
@@ -14,9 +17,7 @@
 
 ## How to work.
 1. [Download Tampermonkey](https://www.tampermonkey.net/)
-2. Install YouTube Redux (Reason is it fixes the look of some of the buttons and other stuff on the player): [Chrome](https://chrome.google.com/webstore/detail/youtube-redux/mdgdgieddpndgjlmeblhjgljejejkikf) | [Firefox](https://addons.mozilla.org/en-US/firefox/addon/youtube-redux/)
-3. Install the script [here](https://github.com/ktg5/YT-HTML5-Player/raw/main/YT-HTML5-Player.user.js)
-4. (Optional) Install Annotations Restored: [Chrome](https://chrome.google.com/webstore/detail/annotations-restored-for/daabpdmgkghdbfljmeahnplkcldbeefg) | [Firefox](https://addons.mozilla.org/en-US/firefox/addon/annotations-restored/)
+2. Install the script [here](https://github.com/ktg5/YT-HTML5-Player/raw/dev/YT-HTML5-Player.user.js)
 
 ## User customization!
 If you'd like to customize the player (color, scrubber image), edit the userscipt through the Tampermonkey dropdown menu and mess around with some of the values and such!
@@ -25,13 +26,13 @@ Some examples:
 
 <div align="center">
   <img src="docs/screenshot3.png">
-  <div font-size="8px">Luigi theme v1 | <a href="https://github.com/ktg5/YT-HTML5-Player/blob/main/docs/custom-scripts/luigi-player.js">View the code</a></div>
+  <div font-size="8px">Luigi theme v1 | <a href="https://github.com/ktg5/YT-HTML5-Player/blob/dev/docs/custom-scripts/luigi-player.js">View the code</a></div>
 
   <br>
   <br>
   
   <img src="docs/screenshot4.png">
-  <div font-size="8px">Kirby theme v1 | <a href="https://github.com/ktg5/YT-HTML5-Player/blob/main/docs/custom-scripts/kirby-player.js">View the code</a></div>
+  <div font-size="8px">Kirby theme v1 | <a href="https://github.com/ktg5/YT-HTML5-Player/blob/dev/docs/custom-scripts/kirby-player.js">View the code</a></div>
 </div>
 
 ### Think you're missing out on new features?
