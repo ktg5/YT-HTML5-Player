@@ -96,7 +96,7 @@
 /* IGRONE .ytp-button REQUIRED WIDTH */
 
 .ytp-chapter-title.ytp-button {
-	width: auto;
+	width: auto !important;
 }
 
 .ytp-button.ytp-sb.ytp-sb-subscribed {
@@ -167,7 +167,7 @@
 .ytp-larger-tap-buttons .ytp-time-display {
 	line-height: 47px !important;
 	padding: 0px 15px;
-	margin-top: -4px;
+	margin-top: -3px;
 	font-size: 12px;
 	height: 46px;
 }
@@ -185,8 +185,9 @@
 /* VOLUME PANEL */
 
 .ytp-volume-panel {
+	transition: .5s !important;
 	position: relative;
-	top: -2px;
+	top: 1px;
 }
 
 .ytp-volume-slider-handle {
