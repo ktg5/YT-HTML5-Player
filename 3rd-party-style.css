@@ -6,15 +6,11 @@ If you have any plugins/scripts you'd like to
 be fixed for this script, please send a issue
 on the GitHUb repo! Much thanks! */
 
-
-/* SponsorBlock */
-
-#previewbar {
-    top: 6px;
-}
-
 /* Annotations Restored */
 
-.ytp-button.ytp-settings-button[title="Annotations are not available for this video."] svg {
+/* Need to find a way to get this to change but there's a line break after "Click" */
+.ytp-button.ytp-settings-button[title="Received annotation data from server. Annotations should now be loaded.Click to see annotation times."] svg {
+    background: #1b1b1b !important;
     display: block !important;
+    height: 35px;
 }

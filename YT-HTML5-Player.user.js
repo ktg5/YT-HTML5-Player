@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube 2012-15 HTML5 Player
 // @namespace    https://github.com/ktg5/YT-HTML5-Player/
-// @version      1.3dev1
+// @version      1.3dev2
 // @description  Try to recreate the old YouTube 2012-2015 player.
 // @author       ktg5
 // @match        *://www.youtube.com/*
@@ -9,6 +9,7 @@
 // @downloadURL  https://github.com/ktg5/YT-HTML5-Player/raw/dev/YT-HTML5-Player.user.js
 // @icon         https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/favicon.png
 // @resource     CSS https://github.com/ktg5/YT-HTML5-Player/raw/dev/style.css
+// @resource     3RD-PARTY https://github.com/ktg5/YT-HTML5-Player/raw/dev/3rd-party-style.css
 // @grant        GM_getResourceText
 // @grant        GM_addStyle
 // ==/UserScript==
@@ -17,8 +18,10 @@
 (function() {
 
     // IMPORT CSS
-    const CSS_txt = GM_getResourceText("CSS")
-    GM_addStyle(CSS_txt);
+    const CSS1 = GM_getResourceText("CSS")
+    GM_addStyle(CSS1);
+    const CSS2 = GM_getResourceText("3RD-PARTY")
+    GM_addStyle(CSS2);
 
 
     // USER CUSTOMIZATION
@@ -87,6 +90,7 @@
 
 .ytp-scrubber-container {
     top: ${scrubberTop}px !important;
+    margin-top: -5px;
 }
     `);
 

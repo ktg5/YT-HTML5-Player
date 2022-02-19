@@ -4,12 +4,12 @@
 	background: none !important;
 }
 
-.ytp-chapter-hover-container {
-	top: 6px;
+.ytp-progress-bar-container {
+	bottom: 39px !important;
 }
 
-.ytp-fullscreen .ytp-chapter-hover-container {
-	top: 7px;
+.ytp-fullscreen .ytp-progress-bar-container {
+	top: 0px;
 }
 
 .ytp-progress-bar {
@@ -26,6 +26,14 @@
 
 .ytp-progress-list:hover {
 	bottom: 1px !important;
+}
+
+.ytp-big-mode .ytp-progress-list {
+	height: 5px !important;
+}
+
+.ytp-big-mode .ytp-progress-list:hover {
+	height: 10px !important;
 }
 
 /* ################################# */
@@ -64,14 +72,14 @@
 	transition: .5s !important;
 	width: inherit !important;
 	bottom: -6px !important;
+	height: 40px !important;
 	left: unset !important;
 }
 
-.ytp-chrome-controls {
-	transition: .5s !important;
-	height: 36px !important;
+.ytp-chrome-bottom .ytp-chrome-controls {
+	height: 35px !important;
 	position: relative;
-	top: 6px;
+	transition: .5s;
 }
 
 .ytp-button {
@@ -85,8 +93,14 @@
 	display: none;
 }
 
+/* IGRONE .ytp-button REQUIRED WIDTH */
+
 .ytp-chapter-title.ytp-button {
-	width: auto !important;
+	width: auto;
+}
+
+.ytp-button.ytp-sb.ytp-sb-subscribed {
+	width: auto;
 }
 
 /* ################################# */
@@ -150,10 +164,11 @@
 
 /* TIME DISPLAY */
 
-.ytp-time-display {
-	padding: 0px 15px !important;
-	font-size: 12px !important;
-	margin-top: -3px;
+.ytp-larger-tap-buttons .ytp-time-display {
+	line-height: 47px !important;
+	padding: 0px 15px;
+	margin-top: -4px;
+	font-size: 12px;
 	height: 46px;
 }
 
@@ -205,7 +220,7 @@
 .ytp-right-controls {
 	position: relative !important;
 	padding-right: 0px;
-	bottom: 2px;
+	bottom: 3px;
 }
 
 .ytp-big-mode .ytp-right-controls {
@@ -239,7 +254,7 @@
 
 /* SETTINGS BUTTON */
 
-.ytp-settings-button {
+.ytp-settings-button[title="Settings"] {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
 	background-position: -153px -518px;
 	bottom: 5px !important;
