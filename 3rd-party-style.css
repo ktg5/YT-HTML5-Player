@@ -7,6 +7,9 @@ be fixed for this script, please send a issue
 on the GitHUb repo! Much thanks! */
 
 /* Annotations Restored */
+#previewbar {
+    top: 0px;
+}
 
 /* Need to find a way to get this to change but there's a line break after "Click" */
 .ytp-button.ytp-settings-button[title="Received annotation data from server. Annotations should now be loaded.Click to see annotation times."] svg {
