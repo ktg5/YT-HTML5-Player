@@ -12,8 +12,9 @@ on the GitHUb repo! Much thanks! */
 }
 
 /* Need to find a way to get this to change but there's a line break after "Click" */
-.ytp-button.ytp-settings-button[title="Received annotation data from server. Annotations should now be loaded.Click to see annotation times."] svg {
+.ytp-button.ytp-settings-button svg[fill="white"] {
     background: #1b1b1b !important;
     display: block !important;
     height: 35px;
+    fill: gray;
 }
