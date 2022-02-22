@@ -332,20 +332,19 @@
 
 /* SETTINGS MENU */
 
-.ytp-settings-menu {
-	bottom: 45px;
+.ytp-popup .ytp-settings-menu {
+	bottom: 45px !important;
 }
 
-.ytp-panel-menu {
+.ytp-settings-menu .ytp-panel-menu {
 	padding: 0px !important;
-	height: 97px;
 }
 
-.ytp-menuitem-icon {
+.ytp-settings-menu .ytp-menuitem-icon {
 	display: none !important;
 }
 
-.ytp-menuitem-label {
+.ytp-settings-menu .ytp-menuitem-label {
 	padding-left: 20px !important;
 }
 
@@ -405,6 +404,52 @@
 
 .ytp-share-panel-close svg {
 	margin: 0px 6px
+}
+
+/* ################################# */
+
+/* POPOUT CONTEXT MENU */
+
+.ytp-contextmenu.ytp-popup.ytp-contextmenu {
+	background: rgb(255, 255, 255);
+	outline: 2px solid #dfdfdf;
+	height: 250px !important;
+	width: 280px !important;
+	text-shadow: 0 0 0;
+	transition: none;
+}
+
+.ytp-contextmenu .ytp-panel {
+	height: 250px !important;
+	width: 280px !important;
+}
+
+.ytp-contextmenu .ytp-panel .ytp-panel-menu {
+	height: 250px !important;
+	padding: 0;
+}
+
+.ytp-contextmenu .ytp-panel-menu .ytp-menuitem {
+	height: 30px;
+}
+
+.ytp-contextmenu .ytp-panel-menu .ytp-menuitem:hover {
+	background: #4f4f4f;
+}
+
+.ytp-contextmenu .ytp-panel-menu .ytp-menuitem-icon {
+	display: none;
+}
+
+.ytp-contextmenu .ytp-panel-menu .ytp-menuitem-label {
+	padding-left: 20px !important;
+	font-size: 130%;
+	padding: 0 5px;
+	color: gray;
+}
+
+.ytp-contextmenu .ytp-panel-menu .ytp-menuitem-label:hover {
+	color: white;
 }
 
 /* ################################# */

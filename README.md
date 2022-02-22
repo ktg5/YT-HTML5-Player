@@ -1,8 +1,5 @@
-<h1 align="center">YT-HTML5-Player <kbd>1.3dev4</kbd></h1>
+<h1 align="center">YT-HTML5-Player <kbd>1.3dev5</kbd></h1>
 <div font-size="24px" align="center">Try to recreate the old YouTube 2012-2015 player.</div>
-
-# NOTE FOR 1.3dev!!
-Version 1.3 is a compatibility update designed to work with other scripts and plugins. This should hopefully solve the issues for most common plugins used by you (users of this script) and not having to require YouTube Redux anymore. If you'd like to report a problem with a script/plugin you use that isn't working well with this script, please send a issue! Thank you for your support and usage of this script!
 
 ## Screenshots.
 <div align="center">
