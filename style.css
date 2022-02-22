@@ -233,7 +233,6 @@
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
 	background-position: -111px -995px;
 	background-size: 200px;
-	position: relative;
 	bottom: 5px;
 }
 
@@ -256,9 +255,8 @@
 
 .ytp-button.ytp-settings-button[data-tooltip-target-id="ytp-settings-button"] {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -153px -518px;
+	background-position: -154px -518px;
 	background-size: 200px;
-	position: relative;
 	bottom: 5px;
 }
 
@@ -277,7 +275,6 @@
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
 	background-position: -154px -481px;
 	background-size: 200px;
-	position: relative;
 	bottom: 5px;
 }
 
@@ -301,9 +298,8 @@
 .ytp-button.ytp-fullscreen-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
 	background-position: -111px -519px;
-	bottom: 5px;
 	background-size: 200px;
-	position: relative;
+	bottom: 5px;
 }
 
 .ytp-button.ytp-fullscreen-button[title="Exit full screen (f)"] {
