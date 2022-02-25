@@ -1,16 +1,16 @@
 // ==UserScript==
 // @name         YouTube 2012-15 HTML5 Player
 // @namespace    https://github.com/ktg5/YT-HTML5-Player/
-// @version      1.3dev6.1
+// @version      1.3
 // @description  Try to recreate the old YouTube 2012-2015 player.
 // @author       ktg5
 // @match        *://www.youtube.com/*
-// @updateURL    https://github.com/ktg5/YT-HTML5-Player/raw/dev/YT-HTML5-Player.user.js
-// @downloadURL  https://github.com/ktg5/YT-HTML5-Player/raw/dev/YT-HTML5-Player.user.js
+// @updateURL    https://github.com/ktg5/YT-HTML5-Player/raw/main/YT-HTML5-Player.user.js
+// @downloadURL  https://github.com/ktg5/YT-HTML5-Player/raw/main/YT-HTML5-Player.user.js
 // @icon         https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/favicon.png
-// @resource     CSS https://github.com/ktg5/YT-HTML5-Player/raw/dev/style.css
-// @resource     3RD-PARTY https://github.com/ktg5/YT-HTML5-Player/raw/dev/3rd-party-style.css
-// @require      https://github.com/ktg5/YT-HTML5-Player/raw/dev/3rd-party-script.js
+// @resource     CSS https://github.com/ktg5/YT-HTML5-Player/raw/main/style.css
+// @resource     3RD-PARTY https://github.com/ktg5/YT-HTML5-Player/raw/main/3rd-party-style.css
+// @require      https://github.com/ktg5/YT-HTML5-Player/raw/main/3rd-party-script.js
 // @grant        GM_getResourceText
 // @grant        GM_addStyle
 // ==/UserScript==
@@ -37,7 +37,7 @@
 
     /// Scrubber icon
     var scrubberIcon = "https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/scrubber.png" // Default: https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/scrubber.png
-    var scrubberIconHover = "https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/scrubber-hover.png" // Default: https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/scrubber-hover.png
+    var scrubberIconHover = "https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/scrubber-hover.png" // Default: https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/scrubber-hover.png
 
     var scrubberPosition = "0px 0px" // Default: 0px 0px
     var scrubberSize = "18" // If changed, change the "scrubberTop" value to whatever looks centered for you. | Default: 18
