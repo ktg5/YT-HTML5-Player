@@ -28,11 +28,11 @@
   bottom: 1px !important;
 }
 
-.ytp-big-mode .ytp-progress-list {
+.ytp-big-mode .ytp-progress-bar {
 	height: 5px !important;
 }
 
-.ytp-big-mode .ytp-progress-list:hover {
+.ytp-big-mode .ytp-progress-bar:hover {
 	height: 10px !important;
 }
 
@@ -49,7 +49,7 @@
 
 .ytp-big-mode .ytp-scrubber-button {
 	left: 0px !important;
-	top: 1px !important;
+	top: 0px !important;
 }
 
 /* ################################# */
@@ -62,24 +62,26 @@
 	height: 52px !important;
 	width: 48px !important;
 	background-size: 250%;
+	left: 48%;
+	top: 45%;
 }
 
 /* ################################# */
 
 /* BUTTONS BASE */
 
-.ytp-chrome-bottom {
-	transition: .5s !important;
+.ytp-larger-tap-buttons .ytp-chrome-bottom {
 	width: inherit !important;
-	bottom: -6px !important;
 	height: 40px !important;
 	left: unset !important;
+	transition: .5s;
+	bottom: -6px;
 }
 
-.ytp-chrome-bottom .ytp-chrome-controls {
-	height: 35px !important;
+.ytp-larger-tap-buttons .ytp-chrome-bottom .ytp-chrome-controls {
 	position: relative;
 	transition: .5s;
+	height: 35px;
 }
 
 .ytp-button {
@@ -189,28 +191,37 @@
 	top: 1px;
 }
 
-.ytp-volume-slider-handle {
-	position: absolute !important;
-	border-radius: 0px !important;
-	margin-top: -5.9px !important;
-	background: #ddd !important;
-	height: 14px !important;
-	width: 5px !important;
-	top: 50% !important;
+.ytp-big-mode .ytp-volume-panel {
+	top: -1px;
 }
 
-.ytp-volume-slider-handle::before {
-	left: -64px !important;
+.ytp-volume-slider-active .ytp-volume-panel {
+	width: 46px !important;
 }
 
-.ytp-big-mode .ytp-volume-slider-handle {
-	position: absolute !important;
+.ytp-volume-panel .ytp-volume-slider-handle {
+	position: absolute;
+	border-radius: 0px;
+	margin-top: -5.9px;
+	background: #ddd;
+	height: 14px;
+	width: 5px;
+	top: 50%;
+}
+
+.ytp-big-mode .ytp-volume-panel .ytp-volume-slider-handle {
 	border-radius: 0px !important;
 	margin-top: -5.9px !important;
-	background: #ddd !important;
 	height: 14px !important;
 	width: 5px !important;
-	top: 50% !important;
+	left: 90% !important;
+	position: absolute;
+	background: #ddd;
+	top: 50%;
+}
+
+.ytp-volume-panel .ytp-volume-slider-handle::before {
+	left: -64px;
 }
 
 /* ################################# */
@@ -330,26 +341,6 @@
 
 /* ################################# */
 
-/* SETTINGS MENU */
-
-.ytp-popup .ytp-settings-menu {
-	bottom: 45px !important;
-}
-
-.ytp-settings-menu .ytp-panel-menu {
-	padding: 0px !important;
-}
-
-.ytp-settings-menu .ytp-menuitem-icon {
-	display: none !important;
-}
-
-.ytp-settings-menu .ytp-menuitem-label {
-	padding-left: 20px !important;
-}
-
-/* ################################# */
-
 /* TOP BUTTONS */
 
 .ytp-gradient-top {
@@ -408,24 +399,56 @@
 
 /* ################################# */
 
+/* TOOLTIP TEXT */
+
+.ytp-tooltip-text-wrapper .ytp-tooltip-text {
+	background-color: rgb(28, 28, 28);
+}
+
+/* ################################# */
+
+/* SETTINGS MENU */
+
+.ytp-popup.ytp-settings-menu {
+	bottom: 45px !important;
+}
+
+.ytp-popup.ytp-settings-menu .ytp-panel-menu {
+	padding: 0px !important;
+}
+
+.ytp-popup.ytp-settings-menu .ytp-menuitem-icon {
+	display: none !important;
+}
+
+.ytp-popup.ytp-settings-menu .ytp-menuitem .ytp-menuitem-label {
+	padding-left: 20px !important;
+}
+
+.ytp-popup.ytp-settings-menu .ytp-menuitem[role="menuitemradio"] .ytp-menuitem-label {
+	padding-left: 35px !important;
+}
+
+/* ################################# */
+
 /* POPOUT CONTEXT MENU */
 
 .ytp-contextmenu.ytp-popup.ytp-contextmenu {
 	background: rgb(255, 255, 255);
 	outline: 2px solid #dfdfdf;
-	height: 250px !important;
-	width: 280px !important;
+	height: 230px !important;
+	width: 250px !important;
 	text-shadow: 0 0 0;
 	transition: none;
 }
 
 .ytp-contextmenu .ytp-panel {
-	height: 250px !important;
-	width: 280px !important;
+	height: 230px !important;
+	width: 250px !important;
 }
 
 .ytp-contextmenu .ytp-panel .ytp-panel-menu {
-	height: 250px !important;
+	height: 230px !important;
 	padding: 0;
 }
 
