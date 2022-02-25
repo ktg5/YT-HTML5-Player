@@ -11,6 +11,8 @@ var volumeSliderBack = "#dd90c3"; // Default: #b91f1f
 
 /// Scrubber icon
 var scrubberIcon = "https://i.imgur.com/KNcGM0f.png" // Default: https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/scrubber.png
+var scrubberIconHover = "https://i.imgur.com/KNcGM0f.png" // Default: https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/scrubber-hover.png
+
 var scrubberPosition = "0px 0px" // Default: 0px 0px
 var scrubberSize = "20" // If changed, change the "scrubberTop" value to whatever looks centered for you. | Default: 18
 
