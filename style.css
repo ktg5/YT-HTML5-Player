@@ -12,6 +12,10 @@
 	top: 0px;
 }
 
+.ytp-progress-bar-container:hover:not([aria-disabled=true]) .ytp-exp-chapter-hover-effect {
+	transform: scaleY(1) !important;
+}
+
 .ytp-progress-bar {
 	transition: .5s;
 }
@@ -50,6 +54,10 @@
 .ytp-big-mode .ytp-scrubber-button {
 	left: 0px !important;
 	top: 0px !important;
+}
+
+.ytp-progress-bar-container:hover:not([aria-disabled=true]) .ytp-scrubber-button.ytp-scrubber-button-hover {
+	transform: scale(1) !important;
 }
 
 /* ################################# */
@@ -110,7 +118,6 @@
 /* LEFT BUTTONS */
 
 .ytp-left-controls {
-	padding-left: 10px;
 	position: relative;
 	bottom: 2px;
 }
@@ -127,12 +134,13 @@
 
 .ytp-button.ytp-play-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -128px -443px;
+	background-position: -122px -443px;
 	background-size: 200px;
+	width: 55px !important;
 }
 
 .ytp-button.ytp-play-button[title="Pause (k)"] {
-	background-position: -54px -1328px;
+	background-position: -48px -1327px;
 }
 
 /* NEXT BUTTON */
@@ -141,7 +149,7 @@
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
 	background-position: 4px -1213px;
 	background-size: 200px;
-}
+}	
 
 /* VOLUME BUTTON */
 
@@ -188,10 +196,6 @@
 .ytp-volume-panel {
 	transition: .5s !important;
 	position: relative;
-	top: 1px;
-}
-
-.ytp-big-mode .ytp-volume-panel {
 	top: -1px;
 }
 
@@ -247,8 +251,8 @@
 	bottom: 5px;
 }
 
-.ytp-button.ytp-subtitles-button[title="Subtitles/closed captions unavailable"] {
-	background-position: 6px -1326px;
+.ytp-button.ytp-subtitles-button[label="Subtitles/closed captions unavailable"] {
+	background-position: 4px -1326px;
 }
 
 .ytp-button.ytp-subtitles-button::after {
@@ -399,7 +403,11 @@
 
 /* ################################# */
 
-/* TOOLTIP TEXT */
+/* TOOLTIPS */
+
+.ytp-tooltip.ytp-bottom {
+	margin-top: 10px;
+}
 
 .ytp-tooltip-text-wrapper .ytp-tooltip-text {
 	background-color: rgb(28, 28, 28);
@@ -408,6 +416,10 @@
 /* ################################# */
 
 /* SETTINGS MENU */
+
+.ytp-popup {
+	background: rgb(28, 28, 28) !important;
+}
 
 .ytp-popup.ytp-settings-menu {
 	bottom: 45px !important;
@@ -431,20 +443,20 @@
 
 /* ################################# */
 
-/* POPOUT CONTEXT MENU */
+/* CONTEXT MENU */
 
 .ytp-contextmenu.ytp-popup.ytp-contextmenu {
 	background: rgb(255, 255, 255);
 	outline: 2px solid #dfdfdf;
 	height: 230px !important;
-	width: 250px !important;
+	width: 267px !important;
 	text-shadow: 0 0 0;
 	transition: none;
 }
 
 .ytp-contextmenu .ytp-panel {
-	height: 230px !important;
-	width: 250px !important;
+	height: 100% !important;
+	width: 100% !important;
 }
 
 .ytp-contextmenu .ytp-panel .ytp-panel-menu {
@@ -465,7 +477,7 @@
 }
 
 .ytp-contextmenu .ytp-panel-menu .ytp-menuitem-label {
-	padding-left: 20px !important;
+	padding-left: 10px !important;
 	font-size: 130%;
 	padding: 0 5px;
 	color: gray;
@@ -473,6 +485,22 @@
 
 .ytp-contextmenu .ytp-panel-menu .ytp-menuitem-label:hover {
 	color: white;
+}
+
+.ytp-big-mode .ytp-menuitem-label {
+	font-size: 90% !important;
+}
+  
+.ytp-big-mode.ytp-contextmenu.ytp-popup.ytp-contextmenu {
+	height: 240px !important;
+}
+
+.ytp-big-mode.ytp-contextmenu .ytp-panel {
+	height: 240px !important;
+}
+
+.ytp-big-mode.ytp-contextmenu .ytp-panel .ytp-panel-menu {
+	height: 240px !important;
 }
 
 /* ################################# */

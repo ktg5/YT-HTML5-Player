@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube 2012-15 HTML5 Player
 // @namespace    https://github.com/ktg5/YT-HTML5-Player/
-// @version      1.3dev6
+// @version      1.3dev6.1
 // @description  Try to recreate the old YouTube 2012-2015 player.
 // @author       ktg5
 // @match        *://www.youtube.com/*
@@ -89,6 +89,10 @@
 
 .ytp-scrubber-button:hover {
     background: url(${scrubberIconHover}) !important;
+    background-position: ${scrubberPosition} !important;
+    background-size: ${scrubberSize}px !important;  
+    height: ${scrubberHeight}px !important;
+    width: ${scrubberWidth}px !important;
 }
 
 .ytp-scrubber-button.ytp-swatch-background-color {
