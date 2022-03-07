@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube 2012-15 HTML5 Player
 // @namespace    https://github.com/ktg5/YT-HTML5-Player/
-// @version      1.3dev6.1
+// @version      1.3.1dev1
 // @description  Try to recreate the old YouTube 2012-2015 player.
 // @author       ktg5
 // @match        *://www.youtube.com/*
@@ -10,7 +10,6 @@
 // @icon         https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/favicon.png
 // @resource     CSS https://github.com/ktg5/YT-HTML5-Player/raw/dev/style.css
 // @resource     3RD-PARTY https://github.com/ktg5/YT-HTML5-Player/raw/dev/3rd-party-style.css
-// @require      https://github.com/ktg5/YT-HTML5-Player/raw/dev/3rd-party-script.js
 // @grant        GM_getResourceText
 // @grant        GM_addStyle
 // ==/UserScript==
@@ -111,6 +110,26 @@
     display: none !important;
 }
         `)
+    }
+
+
+    // MOVING ELEMENTS
+    /// WATCH LATER BUTTON
+    var WatchLaterButton = document.getElementsByClassName("ytp-watch-later-button")[0]
+    if (WatchLaterButton) {
+        var targetDiv1 = WatchLaterButton.parentElement;
+        var pastDiv1 = document.getElementsByClassName("ytp-subtitles-button")[0]
+
+        pastDiv1.parentNode.insertBefore(targetDiv1.removeChild(WatchLaterButton), pastDiv1.parentNode.firstElementChild);
+    }
+
+    /// SPONSORBLOCK (3rd-party plugin)
+    var SponsorBlockElement = document.getElementById('previewbar');
+    if (SponsorBlockElement) {
+        var targetDiv2 = SponsorBlockElement.nextSibling.nextSibling;
+        var pastDiv2 = SponsorBlockElement.parentElement;
+
+        pastDiv2.parentNode.insertBefore(targetDiv2.removeChild(SponsorBlockElement), pastDiv2.parentNode.firstElementChild);
     }
 
 })();
