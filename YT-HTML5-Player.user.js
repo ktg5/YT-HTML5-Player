@@ -36,7 +36,7 @@
 
     /// Scrubber icon
     var scrubberIcon = "https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/scrubber.png" // Default: https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/scrubber.png
-    var scrubberIconHover = "https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/scrubber-hover.png" // Default: https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/scrubber-hover.png
+    var scrubberIconHover = "https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/scrubber-hover.png" // Default: https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/scrubber-hover.png
 
     var scrubberPosition = "0px 0px" // Default: 0px 0px
     var scrubberSize = "18" // If changed, change the "scrubberTop" value to whatever looks centered for you. | Default: 18
