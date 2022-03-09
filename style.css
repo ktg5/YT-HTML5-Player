@@ -78,8 +78,8 @@
 	height: 52px !important;
 	width: 48px !important;
 	background-size: 250%;
-	left: 48%;
-	top: 45%;
+	left: 51%;
+	top: 49%;
 }
 
 /* ################################# */
@@ -275,7 +275,7 @@
 
 .ytp-button.ytp-subtitles-button::after {
 	background-color: #b91f1f !important;
-	left: 11px !important;
+	left: 9px !important;
 	top: 30px !important;
 }
 

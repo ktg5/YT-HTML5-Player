@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube 2012-15 HTML5 Player
 // @namespace    https://github.com/ktg5/YT-HTML5-Player/
-// @version      1.3.1dev1
+// @version      1.3.1dev2
 // @description  Try to recreate the old YouTube 2012-2015 player.
 // @author       ktg5
 // @match        *://www.youtube.com/*
@@ -15,7 +15,7 @@
 // ==/UserScript==
 
 // Start
-(function() {
+setTimeout(function() {
 
     // IMPORT CSS
     const CSS1 = GM_getResourceText("CSS")
@@ -112,16 +112,25 @@
         `)
     }
 
+    // #################################
 
     // MOVING ELEMENTS
-    /// WATCH LATER BUTTON
-    var WatchLaterButton = document.getElementsByClassName("ytp-watch-later-button")[0]
-    if (WatchLaterButton) {
-        var targetDiv1 = WatchLaterButton.parentElement;
-        var pastDiv1 = document.getElementsByClassName("ytp-subtitles-button")[0]
-
-        pastDiv1.parentNode.insertBefore(targetDiv1.removeChild(WatchLaterButton), pastDiv1.parentNode.firstElementChild);
+    function moveElement(element, targetDiv, pasteDiv) {
+        console.log(`moveElement function: ${targetDiv.contains(element)}`)
+        if (targetDiv.contains(element)) {
+            pasteDiv.parentNode.insertBefore(targetDiv.removeChild(element), pasteDiv.parentNode.firstElementChild);
+            moveElement(element, targetDiv, pasteDiv);
+        } else {
+            return;
+        }
     }
+
+    /// WATCH LATER BUTTON
+    var WatchLaterButton = document.getElementsByClassName("ytp-watch-later-button")[0];
+    var targetDiv1 = WatchLaterButton.parentElement;
+    var pastDiv1 = document.getElementsByClassName("ytp-subtitles-button")[0];
+
+    moveElement(WatchLaterButton, targetDiv1, pastDiv1);
 
     /// SPONSORBLOCK (3rd-party plugin)
     var SponsorBlockElement = document.getElementById('previewbar');
@@ -129,7 +138,21 @@
         var targetDiv2 = SponsorBlockElement.nextSibling.nextSibling;
         var pastDiv2 = SponsorBlockElement.parentElement;
 
-        pastDiv2.parentNode.insertBefore(targetDiv2.removeChild(SponsorBlockElement), pastDiv2.parentNode.firstElementChild);
+        moveElement(SponsorBlockElement, targetDiv2, pastDiv2);
     }
 
-})();
+    // #################################
+
+    // CHANGING ELMENTS ON CLICK
+    /// WATCH LATER BUTTON
+    // WatchLaterButton.onclick = changeTitle(WatchLaterButton);
+
+    // function changeTitle(element) {
+    //     if (element.title == "Watch later") {
+    //         element.title = "Added to Watch later"
+    //     } else if (element.title == "Added to Watch later") {
+    //         element.title = "Watch later"
+    //     }
+    // }
+
+}, 2500)();
