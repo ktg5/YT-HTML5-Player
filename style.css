@@ -9,7 +9,7 @@
 }
 
 .ytp-fullscreen .ytp-progress-bar-container {
-	top: 0px;
+	top: -3px;
 }
 
 .ytp-progress-bar-container:hover:not([aria-disabled=true]) .ytp-exp-chapter-hover-effect {
@@ -79,7 +79,7 @@
 	width: 48px !important;
 	background-size: 250%;
 	left: 51%;
-	top: 49%;
+	top: 50%;
 }
 
 /* ################################# */
@@ -102,13 +102,13 @@
 
 .ytp-chrome-bottom .ytp-button, .ytp-chrome-top .ytp-button {
 	position: sticky !important;
-	height: 40px !important;
+	height: 35px !important;
 	width: 40px !important;
 	bottom: 9px;
 }
 
 .ytp-chrome-bottom .ytp-left-controls .ytp-button {
-	width: 50px !important;
+	width: 45px !important;
 }
 
 .ytp-button svg {
@@ -125,7 +125,8 @@
 
 .ytp-left-controls {
 	position: relative;
-	bottom: 2px;
+	padding-left: 10px;
+	top: 0;
 }
 
 /* PREV BUTTON */
@@ -140,20 +141,20 @@
 
 .ytp-button.ytp-play-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -124px -443px;
+	background-position: -127px -446px;
 	background-size: 200px;
 	width: 55px !important;
 }
 
 .ytp-button.ytp-play-button[title="Pause (k)"] {
-	background-position: -51px -1328px;
+	background-position: -53px -1330px;
 }
 
 /* NEXT BUTTON */
 
 .ytp-button.ytp-next-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: 6px -1213px;
+	background-position: 4px -1216px;
 	background-size: 200px;
 }	
 
@@ -161,20 +162,20 @@
 
 .ytp-button.ytp-mute-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -111px -151px;
+	background-position: -114px -154px;
 	background-size: 200px;
 }
 
 .ytp-button.ytp-mute-button:hover {
-	background-position: -153px -997px;
+	background-position: -158px -1000px;
 }
 
 .ytp-button.ytp-mute-button[title="Unmute (m)"] {
-	background-position: -153px -997px;
+	background-position: -158px -1000px;
 }
 
 .ytp-button.ytp-mute-button[title="Unmute (m)"]:hover {
-	background-position: -111px -151px;
+	background-position: -114px -154px;
 }
 
 /* semi muted icon -- background-position: -111px -406px; */
@@ -183,8 +184,8 @@
 
 .ytp-larger-tap-buttons .ytp-time-display {
 	line-height: 47px !important;
-	padding: 0px 15px;
-	margin-top: -4px;
+	padding: 0px 10px;
+	margin-top: -7px;
 	font-size: 12px;
 	height: 46px;
 }
@@ -214,7 +215,6 @@
 .ytp-volume-panel {
 	transition: .5s !important;
 	position: relative;
-	top: -1px;
 }
 
 .ytp-volume-slider-active .ytp-volume-panel {
@@ -228,7 +228,7 @@
 	background: #ddd;
 	height: 14px;
 	width: 5px;
-	top: 50%;
+	top: 45%;
 }
 
 .ytp-big-mode .ytp-volume-panel .ytp-volume-slider-handle {
@@ -253,18 +253,13 @@
 .ytp-right-controls {
 	position: relative !important;
 	padding-right: 0px;
-	bottom: 3px;
-}
-
-.ytp-big-mode .ytp-right-controls {
-	bottom: 4px;
 }
 
 /* SUBTITLES BUTTON */
 
 .ytp-button.ytp-subtitles-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -40px -1289px;
+	background-position: -113px -999px;
 	background-size: 200px;
 	bottom: 5px;
 }
@@ -288,7 +283,7 @@
 
 .ytp-button.ytp-settings-button[data-tooltip-target-id="ytp-settings-button"] {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -155px -519px;
+	background-position: -155px -522px;
 	background-size: 200px;
 	bottom: 5px;
 }
@@ -307,13 +302,13 @@
 
 .ytp-button.ytp-size-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -156px -481px;
+	background-position: -156px -484px;
 	background-size: 200px;
 	bottom: 5px;
 }
 
 .ytp-button.ytp-size-button[title="Default view (t)"] {
-	background-position: -40px 3px;
+	background-position: -43px -1px;
 }
 
 /* WATCH ON YOUTUBE BUTTON */
@@ -331,20 +326,20 @@
 
 .ytp-button.ytp-fullscreen-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -114px -519px;
+	background-position: -114px -523px;
 	background-size: 200px;
 	bottom: 5px;
 }
 
 .ytp-button.ytp-fullscreen-button[title="Exit full screen (f)"] {
-	background-position: -114px -1146px;
+	background-position: -114px -1149px;
 }
 
 /* WATCH LATER (moved from chrome-top) */
 
 .ytp-button.ytp-watch-later-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -53px -1097px;
+	background-position: -53px -1100px;
 	background-size: 200px;
 	display: inline-block;
 	bottom: 5px;
