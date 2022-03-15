@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube 2012-15 HTML5 Player
 // @namespace    https://github.com/ktg5/YT-HTML5-Player/
-// @version      1.3.1dev3
+// @version      1.3.1dev4
 // @description  Try to recreate the old YouTube 2012-2015 player.
 // @author       ktg5
 // @match        *://www.youtube.com/*
@@ -10,6 +10,7 @@
 // @icon         https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/favicon.png
 // @resource     CSS https://github.com/ktg5/YT-HTML5-Player/raw/dev/style.css
 // @resource     3RD-PARTY https://github.com/ktg5/YT-HTML5-Player/raw/dev/3rd-party-style.css
+// @require      https://github.com/ktg5/YT-HTML5-Player/raw/dev/3rd-party-script.js
 // @grant        GM_getResourceText
 // @grant        GM_addStyle
 // ==/UserScript==
@@ -132,27 +133,18 @@ setTimeout(function() {
 
     moveElement(WatchLaterButton, targetDiv1, pastDiv1);
 
-    /// SPONSORBLOCK (3rd-party plugin)
-    var SponsorBlockElement = document.getElementById('previewbar');
-    if (SponsorBlockElement) {
-        var targetDiv2 = SponsorBlockElement.nextSibling.nextSibling;
-        var pastDiv2 = SponsorBlockElement.parentElement;
-
-        moveElement(SponsorBlockElement, targetDiv2, pastDiv2);
-    }
-
     // #################################
 
     // CHANGING ELMENTS ON CLICK
     /// WATCH LATER BUTTON
-    // WatchLaterButton.onclick = changeTitle(WatchLaterButton);
+    WatchLaterButton.onclick = changeTitle(WatchLaterButton);
 
-    // function changeTitle(element) {
-    //     if (element.title == "Watch later") {
-    //         element.title = "Added to Watch later"
-    //     } else if (element.title == "Added to Watch later") {
-    //         element.title = "Watch later"
-    //     }
-    // }
+    function changeTitle(element) {
+        if (element.title == "Watch later") {
+            element.title = "Added to Watch later"
+        } else if (element.title == "Added to Watch later") {
+            element.title = "Watch later"
+        }
+    }
 
 }, 2500)();
