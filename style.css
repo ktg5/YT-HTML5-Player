@@ -6,7 +6,6 @@
 
 .ytp-chrome-bottom .ytp-progress-bar-container {
 	bottom: 39px !important;
-	margin-bottom: -1px;
 }
 
 .ytp-progress-bar-container:hover:not([aria-disabled=true]) .ytp-exp-chapter-hover-effect {
@@ -18,6 +17,7 @@
 }
 
 .ytp-progress-bar:hover {
+	margin-bottom: 1px;
 	height: 10px;
 }
 
@@ -138,7 +138,7 @@
 
 .ytp-button.ytp-play-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -124px -445px;
+	background-position: -127px -445px;
 	background-size: 200px;
 	width: 55px !important;
 }
@@ -164,11 +164,11 @@
 }
 
 .ytp-button.ytp-mute-button:hover {
-	background-position: -158px -1000px;
+	background-position: -155px -999px;
 }
 
 .ytp-button.ytp-mute-button[title="Unmute (m)"] {
-	background-position: -158px -1000px;
+	background-position: -155px -999px;
 }
 
 .ytp-button.ytp-mute-button[title="Unmute (m)"]:hover {
@@ -182,7 +182,7 @@
 .ytp-larger-tap-buttons .ytp-time-display {
 	line-height: 47px !important;
 	padding: 0px 10px;
-	margin-top: -7px;
+	margin-top: -6px;
 	font-size: 12px;
 	height: 46px;
 }
@@ -206,15 +206,11 @@
 }
 
 .ytp-chapter-container .ytp-chapter-title-content {
-  margin-bottom: 4px;
-}
-
-.ytp-big-mode .ytp-chapter-container .ytp-chapter-title-content {
   margin-bottom: 2px;
 }
 
 .ytp-chapter-container .ytp-chapter-title-prefix {
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 /* ################################# */
@@ -266,9 +262,16 @@
 
 /* SUBTITLES BUTTON */
 
-.ytp-button.ytp-subtitles-button {
+.ytp-subtitles-button.ytp-button[aria-pressed=false] {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
 	background-position: -113px -999px;
+	background-size: 200px;
+	bottom: 5px;
+}
+
+.ytp-subtitles-button.ytp-button[aria-pressed=true] {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
+	background-position: -124px 0px;
 	background-size: 200px;
 	bottom: 5px;
 }
@@ -278,27 +281,28 @@
 }
 
 .ytp-button.ytp-subtitles-button::after {
-	background-color: #b91f1f !important;
-	left: 9px !important;
-	top: 30px !important;
-}
-
-.ytp-big-mode .ytp-button.ytp-subtitles-button::after {
-	left: 10px !important;
-	top: 32px !important;
+	display: none !important;
 }
 
 /* SETTINGS BUTTON */
 
-.ytp-button.ytp-settings-button[data-tooltip-target-id="ytp-settings-button"] {
+.ytp-button.ytp-settings-button[aria-expanded="false"] {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
 	background-position: -155px -522px;
 	background-size: 200px;
 	bottom: 5px;
 }
 
-.ytp-big-mode .ytp-button.ytp-settings-button::after {
+.ytp-button.ytp-settings-button[aria-expanded="true"] {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
+	background-position: 2px -266px;
+	background-size: 200px;
+	bottom: 5px;
+}
+
+.ytp-settings-button.ytp-hd-quality-badge:after {
 	background-color: #b91f1f !important;
+	top: 8px;
 }
 
 .ytp-big-mode .ytp-button.ytp-settings-button::after {
@@ -373,6 +377,7 @@
 	right: 0px !important;
 	left: 0px !important;
 	padding: 0px 10px;
+	height: 40px;
 }
 
 .ytd-channel-video-player-renderer .ytp-chrome-top {
