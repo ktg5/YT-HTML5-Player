@@ -104,6 +104,10 @@
 	bottom: 9px;
 }
 
+.ytp-autohide .ytp-chrome-top {
+    display: none;
+}
+
 .ytp-chrome-bottom .ytp-left-controls .ytp-button {
 	width: 45px !important;
 }
