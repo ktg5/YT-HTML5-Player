@@ -142,7 +142,7 @@
 
 .ytp-button.ytp-play-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -127px -445px;
+	background-position: -127px -446px;
 	background-size: 200px;
 	width: 55px !important;
 }
@@ -155,7 +155,7 @@
 
 .ytp-button.ytp-next-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: 7px -1215px;
+	background-position: 4px -1216px;
 	background-size: 200px;
 }	
 
@@ -163,20 +163,20 @@
 
 .ytp-button.ytp-mute-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -111px -153.5px;
+	background-position: -113px -154.5px;
 	background-size: 200px;
 }
 
 .ytp-button.ytp-mute-button:hover {
-	background-position: -155px -999px;
+	background-position: -158px -1000px;
 }
 
 .ytp-button.ytp-mute-button[title="Unmute (m)"] {
-	background-position: -155px -999px;
+	background-position: -158px -1000px;
 }
 
 .ytp-button.ytp-mute-button[title="Unmute (m)"]:hover {
-	background-position: -114px -154px;
+	background-position: -113px -154.5px;
 }
 
 /* semi muted icon -- background-position: -111px -406px; */
@@ -185,10 +185,10 @@
 
 .ytp-larger-tap-buttons .ytp-time-display {
 	line-height: 47px !important;
-	padding: 0px 10px;
-	margin-top: -6px;
-	font-size: 12px;
-	height: 46px;
+    padding: 0px 10px;
+    margin-top: -7px;
+    font-size: 12px;
+    height: 46px;
 }
 
 .ytp-time-current {
@@ -242,13 +242,16 @@
 
 .ytp-big-mode .ytp-volume-panel .ytp-volume-slider-handle {
 	border-radius: 0px !important;
-	margin-top: -5.9px !important;
-	height: 14px !important;
-	width: 5px !important;
-	left: 90% !important;
-	position: absolute;
-	background: #ddd;
-	top: 50%;
+    margin-top: -9px !important;
+    height: 14px !important;
+    width: 5px !important;
+    position: absolute;
+    background: #ddd;
+    top: 50%;
+}
+
+.ytp-big-mode .ytp-volume-slider-handle:before {
+    width: 64px;
 }
 
 .ytp-volume-panel .ytp-volume-slider-handle::before {
@@ -266,7 +269,7 @@
 
 /* SUBTITLES BUTTON */
 
-.ytp-subtitles-button.ytp-button[aria-pressed=false] {
+.ytp-subtitles-button.ytp-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
 	background-position: -113px -999px;
 	background-size: 200px;
@@ -274,23 +277,20 @@
 }
 
 .ytp-subtitles-button.ytp-button[aria-pressed=true] {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -124px 0px;
-	background-size: 200px;
-	bottom: 5px;
+	filter: brightness(1.5);
 }
 
-.ytp-button.ytp-subtitles-button[label="Subtitles/closed captions unavailable"] {
-	display: none !important;
+.ytp-subtitles-button.ytp-button[title="Subtitles/closed captions unavailable"] {
+	display: none;
 }
 
-.ytp-button.ytp-subtitles-button::after {
+.ytp-subtitles-button.ytp-button::after {
 	display: none !important;
 }
 
 /* SETTINGS BUTTON */
 
-.ytp-button.ytp-settings-button[aria-expanded="false"] {
+.ytp-button.ytp-settings-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
 	background-position: -155px -522px;
 	background-size: 200px;
@@ -298,10 +298,7 @@
 }
 
 .ytp-button.ytp-settings-button[aria-expanded="true"] {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: 2px -266px;
-	background-size: 200px;
-	bottom: 5px;
+	filter: brightness(1.5);
 }
 
 .ytp-settings-button.ytp-hd-quality-badge:after {
@@ -325,7 +322,7 @@
 }
 
 .ytp-button.ytp-size-button[title="Default view (t)"] {
-	background-position: -43px -1px;
+	background-position: -40.5px 0px;
 }
 
 /* WATCH ON YOUTUBE BUTTON */
@@ -558,6 +555,11 @@
 
 .ytp-embed .ytp-title-text {
 	margin-top: 14px;
+}
+
+.ytp-embed .ytp-chrome-bottom {
+	width: inherit !important;
+    left: unset !important;
 }
 
 .ytp-pause-overlay .ytp-button {
