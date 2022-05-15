@@ -6,7 +6,7 @@ If you have any plugins/scripts you'd like to
 be fixed for this script, please send a issue
 on the GitHUb repo! Much thanks! */
 
-/* Annotations Restored */
+/* SponsorBlock */
 var SponsorBlockElement = document.getElementById('previewbar');
 if (SponsorBlockElement) {
     var targetDiv = SponsorBlockElement.nextSibling.nextSibling

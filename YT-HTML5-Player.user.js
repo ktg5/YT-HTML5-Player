@@ -1,22 +1,22 @@
 // ==UserScript==
-// @name         YouTube 2012-15 HTML5 Player
+// @name         YouTube HTML5 Player
 // @namespace    https://github.com/ktg5/YT-HTML5-Player/
-// @version      1.3
-// @description  Try to recreate the old YouTube 2012-2015 player.
+// @version      1.3.1dev6
+// @description  Try to recreate the old YouTube player looks.
 // @author       ktg5
 // @match        *://www.youtube.com/*
-// @updateURL    https://github.com/ktg5/YT-HTML5-Player/raw/main/YT-HTML5-Player.user.js
-// @downloadURL  https://github.com/ktg5/YT-HTML5-Player/raw/main/YT-HTML5-Player.user.js
+// @updateURL    https://github.com/ktg5/YT-HTML5-Player/raw/dev/YT-HTML5-Player.user.js
+// @downloadURL  https://github.com/ktg5/YT-HTML5-Player/raw/dev/YT-HTML5-Player.user.js
 // @icon         https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/favicon.png
-// @resource     CSS https://github.com/ktg5/YT-HTML5-Player/raw/main/style.css
-// @resource     3RD-PARTY https://github.com/ktg5/YT-HTML5-Player/raw/main/3rd-party-style.css
-// @require      https://github.com/ktg5/YT-HTML5-Player/raw/main/3rd-party-script.js
+// @resource     CSS https://github.com/ktg5/YT-HTML5-Player/raw/dev/style.css
+// @resource     3RD-PARTY https://github.com/ktg5/YT-HTML5-Player/raw/dev/3rd-party-style.css
+// @require      https://github.com/ktg5/YT-HTML5-Player/raw/dev/3rd-party-script.js
 // @grant        GM_getResourceText
 // @grant        GM_addStyle
 // ==/UserScript==
 
 // Start
-(function() {
+setTimeout(function() {
 
     // IMPORT CSS
     const CSS1 = GM_getResourceText("CSS")
@@ -113,4 +113,38 @@
         `)
     }
 
-})();
+    // #################################
+
+    // MOVING ELEMENTS
+    function moveElement(element, targetDiv, pasteDiv) {
+        console.log(`moveElement function: ${targetDiv.contains(element)}`)
+        if (targetDiv.contains(element)) {
+            pasteDiv.parentNode.insertBefore(targetDiv.removeChild(element), pasteDiv.parentNode.firstElementChild);
+            moveElement(element, targetDiv, pasteDiv);
+        } else {
+            return;
+        }
+    }
+
+    /// WATCH LATER BUTTON
+    var WatchLaterButton = document.getElementsByClassName("ytp-watch-later-button")[0];
+    var targetDiv1 = WatchLaterButton.parentElement;
+    var pastDiv1 = document.getElementsByClassName("ytp-subtitles-button")[0];
+
+    moveElement(WatchLaterButton, targetDiv1, pastDiv1);
+
+    // #################################
+
+    // CHANGING ELMENTS ON CLICK
+    /// WATCH LATER BUTTON
+    // WatchLaterButton.onclick = changeTitle(WatchLaterButton);
+
+    // function changeTitle(element) {
+    //     if (element.title == "Watch later") {
+    //         element.title = "Added to Watch later"
+    //     } else if (element.title == "Added to Watch later") {
+    //         element.title = "Watch later"
+    //     }
+    // }
+
+}, 2500)();
