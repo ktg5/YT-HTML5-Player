@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         YouTube 2012-15 HTML5 Player
+// @name         YouTube HTML5 Player
 // @namespace    https://github.com/ktg5/YT-HTML5-Player/
-// @version      1.3.1dev5
-// @description  Try to recreate the old YouTube 2012-2015 player.
+// @version      1.3.1dev6
+// @description  Try to recreate the old YouTube player looks.
 // @author       ktg5
 // @match        *://www.youtube.com/*
 // @updateURL    https://github.com/ktg5/YT-HTML5-Player/raw/dev/YT-HTML5-Player.user.js
@@ -137,14 +137,14 @@ setTimeout(function() {
 
     // CHANGING ELMENTS ON CLICK
     /// WATCH LATER BUTTON
-    WatchLaterButton.onclick = changeTitle(WatchLaterButton);
+    // WatchLaterButton.onclick = changeTitle(WatchLaterButton);
 
-    function changeTitle(element) {
-        if (element.title == "Watch later") {
-            element.title = "Added to Watch later"
-        } else if (element.title == "Added to Watch later") {
-            element.title = "Watch later"
-        }
-    }
+    // function changeTitle(element) {
+    //     if (element.title == "Watch later") {
+    //         element.title = "Added to Watch later"
+    //     } else if (element.title == "Added to Watch later") {
+    //         element.title = "Watch later"
+    //     }
+    // }
 
 }, 2500)();
