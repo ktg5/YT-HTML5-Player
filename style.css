@@ -5,7 +5,7 @@
 }
 
 .ytp-chrome-bottom .ytp-progress-bar-container {
-	bottom: 39px !important;
+	bottom: 34px !important;
 }
 
 .ytp-progress-bar-container:hover:not([aria-disabled=true]) .ytp-exp-chapter-hover-effect {
@@ -86,9 +86,8 @@
 .ytp-larger-tap-buttons .ytp-chrome-bottom {
 	transition: .5s !important;
 	width: inherit !important;
-	height: 40px !important;
+	height: 35px !important;
 	left: unset !important;
-	bottom: -6px;
 }
 
 .ytp-larger-tap-buttons .ytp-chrome-bottom .ytp-chrome-controls {
@@ -183,7 +182,7 @@
 
 /* TIME DISPLAY */
 
-.ytp-larger-tap-buttons .ytp-time-display {
+.ytp-chrome-bottom .ytp-time-display {
 	line-height: 47px !important;
     padding: 0px 10px;
     margin-top: -7px;
@@ -325,11 +324,11 @@
 	background-position: -40.5px 0px;
 }
 
-/* WATCH ON YOUTUBE BUTTON */
+/* WATCH ON YOUTUBE BUTTON (usually displayed on embed videos) */
 
 .ytp-button.ytp-youtube-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -122px -265px;
+	background-position: -120px -268px;
 	position: sticky !important;
 	width: 55px !important;
 	background-size: 200px;
@@ -554,12 +553,14 @@
 }
 
 .ytp-embed .ytp-title-text {
-	margin-top: 14px;
+	margin-top: 9px;
 }
 
 .ytp-embed .ytp-chrome-bottom {
+	transition: .5s !important;
 	width: inherit !important;
-    left: unset !important;
+	height: 35px !important;
+	left: unset !important;
 }
 
 .ytp-pause-overlay .ytp-button {
@@ -570,4 +571,10 @@
 
 .ytp-pause-overlay .ytp-button svg {
 	display: inline;
+}
+
+.ytp-button.ytp-share-button.ytp-share-button-visible.ytp-show-share-title {
+    min-width: 0;
+    max-width: 35px;
+    background-position: -1px -524px;
 }

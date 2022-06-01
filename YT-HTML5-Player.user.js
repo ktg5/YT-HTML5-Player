@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         YouTube HTML5 Player
 // @namespace    https://github.com/ktg5/YT-HTML5-Player/
-// @version      1.3.1
+// @version      1.3.2
 // @description  Try to recreate the old YouTube player looks.
 // @author       ktg5
-// @match        *://www.youtube.com/*
+// @match        *://*.youtube.com/*
 // @updateURL    https://github.com/ktg5/YT-HTML5-Player/raw/main/YT-HTML5-Player.user.js
 // @downloadURL  https://github.com/ktg5/YT-HTML5-Player/raw/main/YT-HTML5-Player.user.js
 // @icon         https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/favicon.png
