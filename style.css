@@ -4,8 +4,18 @@
 	background: none !important;
 }
 
+.ytp-chrome-bottom.ytd-player {
+	height: 35px !important;
+	width: 100% !important;
+    left: 0 !important;
+}
+
 .ytp-chrome-bottom .ytp-progress-bar-container {
 	bottom: 34px !important;
+}
+
+.ytp-chrome-controls.ytd-player {
+	height: 35px !important;
 }
 
 .ytp-progress-bar-container:hover:not([aria-disabled=true]) .ytp-exp-chapter-hover-effect {
@@ -270,7 +280,7 @@
 
 .ytp-subtitles-button.ytp-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -113px -999px;
+	background-position: -113px -998px;
 	background-size: 200px;
 	bottom: 5px;
 }
@@ -352,7 +362,7 @@
 
 .ytp-button.ytp-watch-later-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -53px -1100px;
+	background-position: -53px -1099px;
 	background-size: 200px;
 	display: inline-block;
 	bottom: 5px;
