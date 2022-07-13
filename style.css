@@ -194,6 +194,7 @@
 
 .ytp-chrome-bottom .ytp-time-display {
 	line-height: 47px !important;
+	display: block !important;
     padding: 0px 10px;
     margin-top: -7px;
     font-size: 12px;
