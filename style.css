@@ -4,8 +4,14 @@
 	background: none !important;
 }
 
+.html5-video-player .ytp-chrome-bottom {
+	height: 35px !important;
+	width: 100% !important;
+    left: 0 !important;
+}
+
 .ytp-chrome-bottom .ytp-progress-bar-container {
-	bottom: 39px !important;
+	bottom: 34px !important;
 }
 
 .ytp-progress-bar-container:hover:not([aria-disabled=true]) .ytp-exp-chapter-hover-effect {
@@ -35,6 +41,10 @@
 
 .ytp-big-mode .ytp-progress-bar:hover {
 	height: 10px !important;
+}
+
+.ad-interrupting .ytp-play-progress.ytp-swatch-background-color {
+    background: #fc0 !important;
 }
 
 .iv-branding .branding-context-container-inner {
@@ -86,9 +96,12 @@
 .ytp-larger-tap-buttons .ytp-chrome-bottom {
 	transition: .5s !important;
 	width: inherit !important;
-	height: 40px !important;
+	height: 35px !important;
 	left: unset !important;
-	bottom: -6px;
+}
+
+.ytd-channel-video-player-renderer .ytp-chrome-bottom {
+	height: 35px !important;
 }
 
 .ytp-larger-tap-buttons .ytp-chrome-bottom .ytp-chrome-controls {
@@ -118,6 +131,10 @@
 
 .ytp-button.ytp-sb.ytp-sb-subscribed {
 	width: auto;
+}
+
+.ytp-button:hover {
+    filter: brightness(1.15);
 }
 
 /* ################################# */
@@ -183,7 +200,7 @@
 
 /* TIME DISPLAY */
 
-.ytp-larger-tap-buttons .ytp-time-display {
+.ytp-chrome-bottom .ytp-time-display {
 	line-height: 47px !important;
     padding: 0px 10px;
     margin-top: -7px;
@@ -201,8 +218,8 @@
 
 /* CHAPTER TITLE */
 
-.ytp-larger-tap-buttons .ytp-chrome-controls .ytp-button.ytp-chapter-title {
-	width: auto !important;
+.ytp-chrome-bottom .ytp-chapter-title.ytp-button {
+    width: auto !important;
 }
 
 .ytp-big-mode .ytp-chapter-title-content {
@@ -271,7 +288,7 @@
 
 .ytp-subtitles-button.ytp-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -113px -999px;
+	background-position: -113px -998px;
 	background-size: 200px;
 	bottom: 5px;
 }
@@ -325,11 +342,11 @@
 	background-position: -40.5px 0px;
 }
 
-/* WATCH ON YOUTUBE BUTTON */
+/* WATCH ON YOUTUBE BUTTON (usually displayed on embed videos) */
 
 .ytp-button.ytp-youtube-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -122px -265px;
+	background-position: -120px -268px;
 	position: sticky !important;
 	width: 55px !important;
 	background-size: 200px;
@@ -353,7 +370,7 @@
 
 .ytp-button.ytp-watch-later-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/icons.png) no-repeat;
-	background-position: -53px -1100px;
+	background-position: -53px -1099px;
 	background-size: 200px;
 	display: inline-block;
 	bottom: 5px;
@@ -447,127 +464,4 @@
 	background-color: rgb(28, 28, 28);
 }
 
-/* ################################# */
-
-/* CARDS MENU */
-
-#iv-drawer {
-	background-color: rgba(0, 0, 0, 0.51);
-}
-
-/* ################################# */
-
-/* SETTINGS MENU */
-
-.ytp-popup {
-	background: rgb(28, 28, 28) !important;
-}
-
-.ytp-popup.ytp-settings-menu {
-	bottom: 45px !important;
-}
-
-.ytp-popup.ytp-settings-menu .ytp-panel-menu {
-	padding: 0px !important;
-}
-
-.ytp-popup.ytp-settings-menu .ytp-menuitem-icon {
-	display: none !important;
-}
-
-.ytp-popup.ytp-settings-menu .ytp-menuitem .ytp-menuitem-label {
-	padding-left: 20px !important;
-}
-
-.ytp-popup.ytp-settings-menu .ytp-menuitem[role="menuitemradio"] .ytp-menuitem-label {
-	padding-left: 35px !important;
-}
-
-/* ################################# */
-
-/* CONTEXT MENU */
-
-.ytp-contextmenu.ytp-popup.ytp-contextmenu {
-	background: rgb(255, 255, 255) !important;
-	outline: 2px solid #dfdfdf;
-	height: 230px !important;
-	width: 267px !important;
-	text-shadow: 0 0 0;
-	transition: none;
-}
-
-.ytp-contextmenu .ytp-panel {
-	height: 100% !important;
-	width: 100% !important;
-}
-
-.ytp-contextmenu .ytp-panel .ytp-panel-menu {
-	height: 230px !important;
-	padding: 0;
-}
-
-.ytp-contextmenu .ytp-panel-menu .ytp-menuitem {
-	height: 30px;
-}
-
-.ytp-contextmenu .ytp-panel-menu .ytp-menuitem:hover {
-	background: #4f4f4f;
-}
-
-.ytp-contextmenu .ytp-panel-menu .ytp-menuitem-icon {
-	display: none;
-}
-
-.ytp-contextmenu .ytp-panel-menu .ytp-menuitem-label {
-	padding-left: 10px !important;
-	font-size: 130%;
-	padding: 0 5px;
-	color: gray;
-}
-
-.ytp-contextmenu .ytp-panel-menu .ytp-menuitem-label:hover {
-	color: white;
-}
-
-.ytp-big-mode .ytp-menuitem-label {
-	font-size: 90% !important;
-}
-  
-.ytp-big-mode.ytp-contextmenu.ytp-popup.ytp-contextmenu {
-	height: 240px !important;
-}
-
-.ytp-big-mode.ytp-contextmenu .ytp-panel {
-	height: 240px !important;
-}
-
-.ytp-big-mode.ytp-contextmenu .ytp-panel .ytp-panel-menu {
-	height: 240px !important;
-}
-
-/* ################################# */
-
-/* EMBEDDED VIDEO */
-
-.ytp-embed .ytp-title-channel {
-	display: none;
-}
-
-.ytp-embed .ytp-title-text {
-	margin-top: 14px;
-}
-
-.ytp-embed .ytp-chrome-bottom {
-	width: inherit !important;
-    left: unset !important;
-}
-
-.ytp-pause-overlay .ytp-button {
-	height: 25px !important;
-	position: absolute !important;
-	width: 25px !important;
-}
-
-.ytp-pause-overlay .ytp-button svg {
-	display: inline;
-}
+/* ######################…

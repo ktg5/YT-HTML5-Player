@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube HTML5 Player
 // @namespace    https://github.com/ktg5/YT-HTML5-Player/
-// @version      1.3.1dev6
+// @version      2.0dev1
 // @description  Try to recreate the old YouTube player looks.
 // @author       ktg5
 // @match        *://www.youtube.com/*
@@ -50,10 +50,12 @@ setTimeout(function() {
     /// End Screen Buttons/Elements [OPTIONAL]
     var endScreenToggle = true // true = Enabled | false = Disabled
 
+    /// Disable "Show other videos" box in embed videos [OPTIONAL]
+    var embedOtherVideos = true // true = Enabled | false = Disabled
+
     // #################################
 
     // IMPORT USER CUSTOMIZATION
-
     GM_addStyle(`
 /* CONTROLS BASE */
 .ytp-chrome-controls {
@@ -105,9 +107,18 @@ setTimeout(function() {
 }
     `);
 
+    // toggles
     if (endScreenToggle == false) {
         GM_addStyle(`
 .ytp-ce-element {
+    display: none !important;
+}
+        `)
+    }
+
+    if (embedOtherVideos == false) {
+        GM_addStyle(`
+.ytp-expand-pause-overlay .ytp-pause-overlay {
     display: none !important;
 }
         `)
@@ -132,19 +143,5 @@ setTimeout(function() {
     var pastDiv1 = document.getElementsByClassName("ytp-subtitles-button")[0];
 
     moveElement(WatchLaterButton, targetDiv1, pastDiv1);
-
-    // #################################
-
-    // CHANGING ELMENTS ON CLICK
-    /// WATCH LATER BUTTON
-    // WatchLaterButton.onclick = changeTitle(WatchLaterButton);
-
-    // function changeTitle(element) {
-    //     if (element.title == "Watch later") {
-    //         element.title = "Added to Watch later"
-    //     } else if (element.title == "Added to Watch later") {
-    //         element.title = "Watch later"
-    //     }
-    // }
 
 }, 2500)();
