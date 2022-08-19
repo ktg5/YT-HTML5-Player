@@ -4,13 +4,13 @@
 // @version      2.0dev1
 // @description  Try to recreate the old YouTube player looks.
 // @author       ktg5
-// @match        *://www.youtube.com/*
-// @updateURL    https://github.com/ktg5/YT-HTML5-Player/raw/dev/YT-HTML5-Player.user.js
-// @downloadURL  https://github.com/ktg5/YT-HTML5-Player/raw/dev/YT-HTML5-Player.user.js
+// @match        *://*.youtube.com/*
+// @updateURL    https://github.com/ktg5/YT-HTML5-Player/raw/main/YT-HTML5-Player.user.js
+// @downloadURL  https://github.com/ktg5/YT-HTML5-Player/raw/main/YT-HTML5-Player.user.js
 // @icon         https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/favicon.png
-// @resource     CSS https://github.com/ktg5/YT-HTML5-Player/raw/dev/style.css
-// @resource     3RD-PARTY https://github.com/ktg5/YT-HTML5-Player/raw/dev/3rd-party-style.css
-// @require      https://github.com/ktg5/YT-HTML5-Player/raw/dev/3rd-party-script.js
+// @resource     CSS https://github.com/ktg5/YT-HTML5-Player/raw/main/style.css
+// @resource     3RD-PARTY https://github.com/ktg5/YT-HTML5-Player/raw/main/3rd-party-style.css
+// @require      https://github.com/ktg5/YT-HTML5-Player/raw/main/3rd-party-script.js
 // @grant        GM_getResourceText
 // @grant        GM_addStyle
 // ==/UserScript==

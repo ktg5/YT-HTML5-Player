@@ -412,9 +412,9 @@
 }
 
 .ytp-title-link {
-	position: relative;
-	font-size: 18px;
-	bottom: 1px;
+    position: relative;
+    font-size: 18px;
+    top: 8px;
 }
 
 .ytp-title-link.yt-uix-sessionlink.ytp-title-fullerscreen-link:hover {
@@ -464,4 +464,4 @@
 	background-color: rgb(28, 28, 28);
 }
 
-/* ######################…
+/* ################################# */
