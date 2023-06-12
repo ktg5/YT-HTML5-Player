@@ -1,5 +1,9 @@
 /* PLAYER BASE */
 
+.ytp-chrome-controls {
+	background: rgb(28, 28, 28);
+}
+
 .ytp-gradient-bottom {
 	background: none !important;
 }
@@ -43,6 +47,10 @@
 	height: 10px !important;
 }
 
+.ytp-play-progress.ytp-swatch-background-color, .ytp-hover-progress.ytp-hover-progress-light, .ytp-hover-progress-light {
+	background: #b91f1f;
+}
+
 .ad-interrupting .ytp-play-progress.ytp-swatch-background-color {
     background: #fc0 !important;
 }
@@ -55,15 +63,78 @@
 	transition: .5s !important;
 }
 
+/* AUTO-HIDE PLAYER */
+
+.ytp-chrome-bottom {
+    bottom: 0;
+    transition: bottom .5s cubic-bezier(0.0,0.0,0.2,1) !important;
+}
+
+.ytp-autohide:not(.ytp-watch-controls) .ytp-chrome-bottom, .ytp-chrome-bottom[aria-hidden=true] {
+    opacity: 1 !important;
+    bottom: -35px;
+}
+
+.ytp-big-mode.ytp-autohide:not(.ytp-watch-controls) .ytp-chrome-bottom, .ytp-big-mode .ytp-chrome-bottom[aria-hidden=true] {
+    opacity: 1 !important;
+    bottom: -41px;
+}
+
+.ytp-progress-bar-container {
+    transition: all .5s cubic-bezier(0.0,0.0,0.2,1) !important;
+}
+
+.ytp-autohide .ytp-progress-bar {
+    height: 5px;
+}
+
+.ytp-autohide .ytp-progress-bar-container {
+    width: calc( 100% + 20px );
+    margin-left: -12px;
+}
+
+.ytp-big-mode.ytp-autohide .ytp-progress-bar-container {
+    width: calc( 100% + 48px );
+    margin-left: -24px;
+}
+
+.ytp-autohide .ytp-player-content:not(.html5-endscreen) {
+    transition: bottom .5s cubic-bezier(0.0,0.0,0.2,1), top .5s cubic-bezier(0.0,0.0,0.2,1);
+}
+
+.ytp-autohide:not(.ytp-ad-overlay-open) .ytp-subtitles-player-content:not(.html5-endscreen):not(.ytp-iv-player-content) {
+    bottom: 1em !important;
+}
+
 /* ################################# */
 
 /* SCRUBBER */
 
 .ytp-scrubber-button {
-	transition: .5s !important;
+	background: url(https://github.com/ktg5/YT-HTML5-Player/blob/main/img/2015-scrubber.png) !important;
+	background-position: 0px 0px !important;
+	background-size: 18px !important;
 	height: 18px !important;
 	width: 18px !important;
+	transition: .5s !important;
 	position: relative;
+}
+
+.ytp-scrubber-button:hover {
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2015-scrubber-hover.png) !important;
+	background-position: 0px 0px !important;
+	background-size: 18px !important;
+	height: 18px !important;
+	width: 18px !important;
+}
+
+.ytp-scrubber-button.ytp-swatch-background-color {
+	background-color: transparent !important;
+}
+
+.ytp-scrubber-container {
+	top: 1px !important;
+	margin-top: -5px;
 }
 
 .ytp-big-mode .ytp-scrubber-button {
@@ -80,7 +151,7 @@
 /* large PLAY BUTTON */
 
 .ytp-large-play-button.ytp-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2015-icons.png) no-repeat;
 	background-position: -67px -378px;
 	height: 52px !important;
 	width: 48px !important;
@@ -121,10 +192,6 @@
     display: none;
 }
 
-.ytp-chrome-bottom .ytp-left-controls .ytp-button {
-	width: 45px !important;
-}
-
 .ytp-button svg {
 	display: none;
 }
@@ -150,7 +217,7 @@
 /* PREV BUTTON */
 
 .ytp-button.ytp-prev-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2015-icons.png) no-repeat;
 	background-position: 9px 0px;
 	background-size: 200px;
 }
@@ -158,38 +225,40 @@
 /* PLAY BUTTON */
 
 .ytp-button.ytp-play-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
-	background-position: -127px -446px;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2015-icons.png) no-repeat;
+	background-position: -122px -446px;
 	background-size: 200px;
 	width: 55px !important;
 }
 
 .ytp-button.ytp-play-button[title="Pause (k)"] {
-	background-position: -53px -1330px;
+	background-position: -50px -1330px;
 }
 
 /* NEXT BUTTON */
 
 .ytp-button.ytp-next-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2015-icons.png) no-repeat;
 	background-position: 4px -1216px;
 	background-size: 200px;
+	width: 45px !important;
 }	
 
 /* VOLUME BUTTON */
 
 .ytp-button.ytp-mute-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2015-icons.png) no-repeat;
 	background-position: -113px -154.5px;
 	background-size: 200px;
+	width: 45px !important;
 }
 
 .ytp-button.ytp-mute-button:hover {
-	background-position: -158px -1000px;
+	background-position: -155px -1000px;
 }
 
 .ytp-button.ytp-mute-button[title="Unmute (m)"] {
-	background-position: -158px -1000px;
+	background-position: -155px -1000px;
 }
 
 .ytp-button.ytp-mute-button[title="Unmute (m)"]:hover {
@@ -254,7 +323,11 @@
 	background: #ddd;
 	height: 14px;
 	width: 5px;
-	top: 40%;
+	top: 37.5%;
+}
+
+.ytp-volume-slider-handle::before {
+	background: #b91f1f;
 }
 
 .ytp-big-mode .ytp-volume-panel .ytp-volume-slider-handle {
@@ -287,7 +360,7 @@
 /* SUBTITLES BUTTON */
 
 .ytp-subtitles-button.ytp-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2015-icons.png) no-repeat;
 	background-position: -113px -998px;
 	background-size: 200px;
 	bottom: 5px;
@@ -308,7 +381,7 @@
 /* SETTINGS BUTTON */
 
 .ytp-button.ytp-settings-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2015-icons.png) no-repeat;
 	background-position: -155px -522px;
 	background-size: 200px;
 	bottom: 5px;
@@ -332,7 +405,7 @@
 /* THEATER BUTTON */
 
 .ytp-button.ytp-size-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2015-icons.png) no-repeat;
 	background-position: -156px -484px;
 	background-size: 200px;
 	bottom: 5px;
@@ -345,7 +418,7 @@
 /* WATCH ON YOUTUBE BUTTON (usually displayed on embed videos) */
 
 .ytp-button.ytp-youtube-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2015-icons.png) no-repeat;
 	background-position: -120px -268px;
 	position: sticky !important;
 	width: 55px !important;
@@ -356,7 +429,7 @@
 /* FULLSCREEN BUTTON */
 
 .ytp-button.ytp-fullscreen-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2015-icons.png) no-repeat;
 	background-position: -114px -523px;
 	background-size: 200px;
 	bottom: 5px;
@@ -369,7 +442,7 @@
 /* WATCH LATER (moved from chrome-top) */
 
 .ytp-button.ytp-watch-later-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2015-icons.png) no-repeat;
 	background-position: -53px -1099px;
 	background-size: 200px;
 	display: inline-block;
@@ -423,7 +496,7 @@
 }
 
 .ytp-button.ytp-share-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2015-icons.png) no-repeat;
 	background-position: 2px -524px;
 	transition: .5s !important;
 	background-size: 220px;
@@ -432,7 +505,7 @@
 }
 
 .ytp-button.ytp-cards-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2015-icons.png) no-repeat;
 	background-position: 5px -512px;
 	transition: .5s !important;
 	background-size: 200px;

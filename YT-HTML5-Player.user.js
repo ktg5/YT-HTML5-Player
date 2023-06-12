@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube HTML5 Player
 // @namespace    https://github.com/ktg5/YT-HTML5-Player/
-// @version      2.0dev2
+// @version      2.0dev3
 // @description  Try to recreate the old YouTube player looks.
 // @author       ktg5
 // @match        *://*.youtube.com/*
@@ -22,27 +22,14 @@
 var playerYear = 2015;
 
 // 2015 CUSTOMIZATION
+// Make sure to set 'customTheme' to 'true'
+var customTheme = false;
 // If you'd like to take a look at some examples,
-// check out the README from our GitHub!
-/// Controls background
-var controlsBack15 = "#1b1b1b"; // Default: #1b1b1b
+// https://github.com/ktg5/YT-HTML5-Player#user-customization
 
-/// Progress bar
-var progressBarColor15 = "#b91f1f"; // Default: #b91f1f
-var volumeSliderBack15 = "#b91f1f"; // Default: #b91f1f
+// #### Take a copy of any of the examples and put them here!! ####
 
-/// Scrubber icon
-var scrubberIcon15 = "https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/scrubber.png" // Default: https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/scrubber.png
-var scrubberIconHover15 = "https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/scrubber-hover.png" // Default: https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/scrubber-hover.png
-
-var scrubberPosition15 = "0px 0px" // Default: 0px 0px
-var scrubberSize15 = "18" // If changed, change the "scrubberTop" value to whatever looks centered for you. | Default: 18
-
-var scrubberWidth15 = "18"
-var scrubberHeight15 = "18"
-
-var scrubberTop15 = "1" // Default: 1
-
+// Other user customization
 /// End Screen Buttons/Elements [OPTIONAL]
 var endScreenToggle15 = true // true = Enabled | false = Disabled
 
@@ -58,63 +45,66 @@ GM_addStyle(CSS3rd);
 // Start
 const starter = setInterval(function () {
     if (document.location.pathname == "/watch") {
+    var mainCSS
     switch (playerYear) {
         case 2015:
             // IMPORT CSS
-            const mainCSS = GM_getResourceText(playerYear)
+            mainCSS = GM_getResourceText(playerYear)
             GM_addStyle(mainCSS);
 
             // IMPORT USER CUSTOMIZATION
-            GM_addStyle(`
-            /* CONTROLS BASE */
-            .ytp-chrome-controls {
-                background: ${controlsBack15} !important;
-            }
+            if (customTheme === true) {
+                GM_addStyle(`
+                /* CONTROLS BASE */
+                .ytp-chrome-controls {
+                    background: ${controlsBack15} !important;
+                }
 
-            /* PROGRESS BAR */
-            .ytp-play-progress.ytp-swatch-background-color {
-                background: ${progressBarColor15} !important;
-            }
+                /* PROGRESS BAR */
+                .ytp-play-progress.ytp-swatch-background-color {
+                    background: ${progressBarColor15} !important;
+                }
 
-            .ytp-hover-progress.ytp-hover-progress-light {
-                background: ${progressBarColor15} !important;
-            }
+                .ytp-hover-progress.ytp-hover-progress-light {
+                    background: ${progressBarColor15} !important;
+                }
 
-            .ytp-hover-progress-light {
-                background: ${progressBarColor15} !important;
-            }
+                .ytp-hover-progress-light {
+                    background: ${progressBarColor15} !important;
+                }
 
-            /* VOLUME SLIDER */
-            .ytp-volume-slider-handle::before {
-                background: ${volumeSliderBack15} !important;
-            }
+                /* VOLUME SLIDER */
+                .ytp-volume-slider-handle::before {
+                    background: ${volumeSliderBack15} !important;
+                }
 
-            /* SCRUBBER */
-            .ytp-scrubber-button {
-                background: url(${scrubberIcon15}) !important;
-                background-position: ${scrubberPosition15} !important;
-                background-size: ${scrubberSize15}px !important;
-                height: ${scrubberHeight15}px !important;
-                width: ${scrubberWidth15}px !important;
-            }
+                /* SCRUBBER */
+                .ytp-scrubber-button {
+                    background: url(${scrubberIcon15}) !important;
+                    background-position: ${scrubberPosition15} !important;
+                    background-size: ${scrubberSize15}px !important;
+                    height: ${scrubberHeight15}px !important;
+                    width: ${scrubberWidth15}px !important;
+                }
 
-            .ytp-scrubber-button:hover {
-                background: url(${scrubberIconHover15}) !important;
-                background-position: ${scrubberPosition15} !important;
-                background-size: ${scrubberSize15}px !important;
-                height: ${scrubberHeight15}px !important;
-                width: ${scrubberWidth15}px !important;
-            }
+                .ytp-scrubber-button:hover {
+                    background: url(${scrubberIconHover15}) !important;
+                    background-position: ${scrubberPosition15} !important;
+                    background-size: ${scrubberSize15}px !important;
+                    height: ${scrubberHeight15}px !important;
+                    width: ${scrubberWidth15}px !important;
+                }
 
-            .ytp-scrubber-button.ytp-swatch-background-color {
-                background-color: transparent !important;
-            }
+                .ytp-scrubber-button.ytp-swatch-background-color {
+                    background-color: transparent !important;
+                }
 
-            .ytp-scrubber-container {
-                top: ${scrubberTop15}px !important;
-                margin-top: -5px;
+                .ytp-scrubber-container {
+                    top: ${scrubberTop15}px !important;
+                    margin-top: -5px;
+                }
+                `);
             }
-            `);
 
             // toggles
             if (endScreenToggle15 == false) {
@@ -153,7 +143,92 @@ const starter = setInterval(function () {
 
             moveElement(WatchLaterButton, targetDiv1, pastDiv1);
         break;
-    
+
+        case 2012:
+            // IMPORT CSS
+            mainCSS = GM_getResourceText(playerYear)
+            GM_addStyle(mainCSS);
+
+            // IMPORT USER CUSTOMIZATION
+            if (customTheme == true) {
+                GM_addStyle(`
+                /* CONTROLS BASE */
+                .ytp-chrome-controls {
+                    background: ${controlsBack15} !important;
+                }
+
+                /* PROGRESS BAR */
+                .ytp-play-progress.ytp-swatch-background-color, .ytp-hover-progress.ytp-hover-progress-light, .ytp-hover-progress-light {
+                    background: ${progressBarColor15} !important;
+                }
+
+                /* VOLUME SLIDER */
+                .ytp-volume-slider-handle::before {
+                    background: ${volumeSliderBack15} !important;
+                }
+
+                /* SCRUBBER */
+                .ytp-scrubber-button {
+                    background: url(${scrubberIcon15}) !important;
+                    background-position: ${scrubberPosition15} !important;
+                    background-size: ${scrubberSize15}px !important;
+                    height: ${scrubberHeight15}px !important;
+                    width: ${scrubberWidth15}px !important;
+                }
+
+                .ytp-scrubber-button:hover {
+                    background: url(${scrubberIconHover15}) !important;
+                    background-position: ${scrubberPosition15} !important;
+                    background-size: ${scrubberSize15}px !important;
+                    height: ${scrubberHeight15}px !important;
+                    width: ${scrubberWidth15}px !important;
+                }
+
+                .ytp-scrubber-container {
+                    top: ${scrubberTop15}px !important;
+                    margin-top: -5px;
+                }
+                `);
+            }
+
+            // toggles
+            if (endScreenToggle15 == false) {
+                GM_addStyle(`
+                .ytp-ce-element {
+                    display: none !important;
+                }
+                `)
+            }
+
+            if (embedOtherVideos15 == false) {
+                GM_addStyle(`
+                .ytp-expand-pause-overlay .ytp-pause-overlay {
+                    display: none !important;
+                }
+                `)
+            }
+
+            // #################################
+
+            // MOVING ELEMENTS
+            function moveElement(element, targetDiv, pasteDiv) {
+                console.log(`moveElement function: ${targetDiv.contains(element)}`)
+                if (targetDiv.contains(element)) {
+                    pasteDiv.parentNode.insertBefore(targetDiv.removeChild(element), pasteDiv.parentNode.firstElementChild);
+                    moveElement(element, targetDiv, pasteDiv);
+                } else {
+                    return;
+                }
+            }
+
+            /// WATCH LATER BUTTON
+            var WatchLaterButton = document.getElementsByClassName("ytp-watch-later-button")[0];
+            var targetDiv1 = WatchLaterButton.parentElement;
+            var pastDiv1 = document.getElementsByClassName("ytp-subtitles-button")[0];
+
+            moveElement(WatchLaterButton, targetDiv1, pastDiv1);
+        break;
+
         default:
             console.error(`YT-HTML5-Player: no playerYear is selected, please fix that.`);
         break;
