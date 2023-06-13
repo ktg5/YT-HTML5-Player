@@ -246,7 +246,7 @@
     filter: brightness(1.5);
 }
 
-.ytp-button.ytp-play-button[aria-label="Play keyboard shortcut k"] {
+.ytp-button.ytp-play-button[data-title-no-tooltip="Play"] {
 	background-position: -109px 91.5px;
 }
 
@@ -473,7 +473,7 @@
     filter: brightness(1.5)
 }
 
-.ytp-button.ytp-fullscreen-button[aria-label="Exit full screen keyboard shortcut f"] {
+.ytp-button.ytp-fullscreen-button[data-title-no-tooltip="Exit full screen"] {
 	background-position: 3.5px -74px;
 }
 
