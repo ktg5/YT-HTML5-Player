@@ -230,13 +230,13 @@
 
 .ytp-button.ytp-play-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2015-icons.png) no-repeat;
-	background-position: -122px -446px;
+	background-position: -50px -1330px;
 	background-size: 200px;
 	width: 55px !important;
 }
 
-.ytp-button.ytp-play-button[title="Pause (k)"] {
-	background-position: -50px -1330px;
+.ytp-button.ytp-play-button[data-title-no-tooltip="Play"] {
+	background-position: -122px -446px;
 }
 
 /* NEXT BUTTON */
@@ -265,7 +265,7 @@
 	background-position: -155px -1000px;
 }
 
-.ytp-button.ytp-mute-button[title="Unmute (m)"]:hover {
+.ytp-button.ytp-mute-button[data-title-no-tooltip="Unmute"]:hover {
 	background-position: -113px -154.5px;
 }
 
@@ -415,8 +415,16 @@
 	bottom: 5px;
 }
 
+.ytp-button.ytp-size-button:hover {
+	background-position: -40.5px 0px !important;
+}
+
 .ytp-button.ytp-size-button[title="Default view (t)"] {
 	background-position: -40.5px 0px;
+}
+
+.ytp-button.ytp-size-button[aria-label="Default view keyboard shortcut t"]:hover {
+	background-position: -156px -484px !important;
 }
 
 /* WATCH ON YOUTUBE BUTTON (usually displayed on embed videos) */

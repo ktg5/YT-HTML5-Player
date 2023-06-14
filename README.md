@@ -1,4 +1,4 @@
-<h1 align="center">YT-HTML5-Player <kbd>2.0dev4</kbd></h1>
+<h1 align="center">YT-HTML5-Player <kbd>2.0dev5</kbd></h1>
 <div font-size="24px" align="center">Try to recreate the old YouTube 2012-2015 player.</div>
 
 ## Screenshots.

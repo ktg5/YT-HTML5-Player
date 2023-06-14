@@ -27,6 +27,10 @@
 	bottom: 34px !important;
 }
 
+.ytp-big-mode .ytp-chrome-bottom .ytp-progress-bar-container {
+    bottom: 33px !important;
+}
+
 .ytp-progress-bar-container:hover:not([aria-disabled=true]) .ytp-exp-chapter-hover-effect {
 	transform: scaleY(1) !important;
 }
