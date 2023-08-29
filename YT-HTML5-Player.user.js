@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube HTML5 Player
 // @namespace    https://github.com/ktg5/YT-HTML5-Player/
-// @version      2.0dev5
+// @version      2.0dev6
 // @description  Try to recreate the old YouTube player looks.
 // @author       ktg5
 // @match        *://*.youtube.com/*
@@ -13,28 +13,50 @@
 // @resource     2010 https://github.com/ktg5/YT-HTML5-Player/raw/dev/styles/2010.css
 // @resource     2006 https://github.com/ktg5/YT-HTML5-Player/raw/dev/styles/2006.css
 // @resource     3RD-PARTY https://github.com/ktg5/YT-HTML5-Player/raw/dev/3rd-party-style.css
+// @resource     MENU https://github.com/ktg5/YT-HTML5-Player/raw/dev/styles/menu-style.css
 // @require      https://github.com/ktg5/YT-HTML5-Player/raw/dev/3rd-party-script.js
 // @grant        GM_getResourceText
 // @grant        GM_addStyle
+// @grant        GM_deleteValue
+// @grant        GM_getResourceURL
+// @grant        GM_getValue
+// @grant        GM_setValue
+// @grant        GM_info
+// @grant        unsafeWindow
 // ==/UserScript==
 
-// SELECT PLAYER YEAR
-var playerYear = 2015;
+var version = `2.0dev6`;
 
-// 2015 CUSTOMIZATION
-// Make sure to set 'customTheme' to 'true'
-var customTheme = false;
+// Default user config.
+var yt_html5 = {
+    // Basic settings.
+    year: 2015,
+    customTheme: false,
+    endScreenToggle: true,
+    embedOtherVideos: true,
+
+    // Only for custom themes.
+    progressBarColor: '',
+    volumeSliderBack: '',
+    scrubberIcon: '',
+    scrubberIconHover: '',
+    scrubberPosition: '',
+    scrubberSize: '',
+    scrubberHeight: '',
+    scrubberWidth: '',
+    scrubberTop: '',
+}
+
+// Get user config.
+// GM_setValue("yt-html5", yt_html5)
+var userConfig = GM_getValue('yt-html5');
+if (GM_getValue("yt-html5") == undefined) GM_setValue("yt-html5", yt_html5)
+console.log(`YT-HTML5 USER DATA:`, userConfig)
+
+// Custom theme enabled
+var customTheme = userConfig.customTheme;
 // If you'd like to take a look at some examples,
 // https://github.com/ktg5/YT-HTML5-Player#user-customization
-
-// #### Take a copy of any of the examples and put them here!! ####
-
-// Other user customization
-/// End Screen Buttons/Elements [OPTIONAL]
-var endScreenToggle15 = true // true = Enabled | false = Disabled
-
-/// Disable "Show other videos" box in embed videos [OPTIONAL]
-var embedOtherVideos15 = true // true = Enabled | false = Disabled
 
 // #################################
 
@@ -42,199 +64,346 @@ var embedOtherVideos15 = true // true = Enabled | false = Disabled
 const CSS3rd = GM_getResourceText("3RD-PARTY")
 GM_addStyle(CSS3rd);
 
+
+// MOVING ELEMENTS
+function moveElement(element, targetDiv, pasteDiv) {
+    console.log(`moveElement function: ${targetDiv.contains(element)}`)
+    if (targetDiv.contains(element)) {
+        pasteDiv.parentNode.insertBefore(targetDiv.removeChild(element), pasteDiv.parentNode.firstElementChild);
+        moveElement(element, targetDiv, pasteDiv);
+    } else {
+        return;
+    }
+};
+
+
+// Make sure script reruns on page update.
+var currentPath = window.location.href;
+setInterval(() => {
+    if (window.location.href == currentPath) {
+        return;
+    } else {
+        if (document.location.pathname == "/watch") startPlayer();
+        startMenu();
+        currentPath = window.location.href;
+    }
+}, 1000);
+
 // Start
-const starter = setInterval(function () {
-    if (document.location.pathname == "/watch") {
-    var mainCSS
-    switch (playerYear) {
-        case 2015:
-            // IMPORT CSS
-            mainCSS = GM_getResourceText(playerYear)
-            GM_addStyle(mainCSS);
+if (document.location.pathname == "/watch") startPlayer();
+startMenu();
 
-            // IMPORT USER CUSTOMIZATION
-            if (customTheme === true) {
-                GM_addStyle(`
-                /* CONTROLS BASE */
-                .ytp-chrome-controls {
-                    background: ${controlsBack15} !important;
-                }
+// You might be asking, "why is this a thing?"
+// You'd only understand if you were dealing
+// CSS.
+var loadedPlayerStyle = false;
+var loadedMenuStyle = false;
 
-                /* PROGRESS BAR */
-                .ytp-play-progress.ytp-swatch-background-color {
-                    background: ${progressBarColor15} !important;
-                }
+function startPlayer() {
+    // Make sure player part of the script is loaded on "watch" pages.
+    // Keep going until we hit it.
+    const starter = setInterval(function () {
+        if (document.location.pathname == "/watch") {
+            switch (userConfig.year) {
+                case '2015':
+                    // IMPORT CSS (if it wasn't already loaded)
+                    if (loadedPlayerStyle == false) {
+                        GM_addStyle(GM_getResourceText(userConfig.year));
+                        loadedPlayerStyle = true;
+                    }
+    
+                    // IMPORT USER CUSTOMIZATION
+                    if (customTheme === true) {
+                        GM_addStyle(`
+                        /* CONTROLS BASE */
+                        .ytp-chrome-controls {
+                            background: ${userConfig.controlsBack} !important;
+                        }
+    
+                        /* PROGRESS BAR */
+                        .ytp-play-progress.ytp-swatch-background-color {
+                            background: ${userConfig.progressBarColor} !important;
+                        }
+    
+                        .ytp-hover-progress.ytp-hover-progress-light {
+                            background: ${userConfig.progressBarColor} !important;
+                        }
+    
+                        .ytp-hover-progress-light {
+                            background: ${userConfig.progressBarColor} !important;
+                        }
+    
+                        /* VOLUME SLIDER */
+                        .ytp-volume-slider-handle::before {
+                            background: ${userConfig.volumeSliderBack} !important;
+                        }
+    
+                        /* SCRUBBER */
+                        .ytp-scrubber-button {
+                            background: url(${userConfig.scrubberIcon}) !important;
+                            background-position: ${userConfig.scrubberPosition} !important;
+                            background-size: ${userConfig.scrubberSize}px !important;
+                            height: ${userConfig.scrubberHeight}px !important;
+                            width: ${userConfig.scrubberWidth}px !important;
+                        }
+    
+                        .ytp-scrubber-button:hover {
+                            background: url(${userConfig.scrubberIconHover}) !important;
+                            background-position: ${userConfig.scrubberPosition} !important;
+                            background-size: ${userConfig.scrubberSize}px !important;
+                            height: ${userConfig.scrubberHeight}px !important;
+                            width: ${userConfig.scrubberWidth}px !important;
+                        }
+    
+                        .ytp-scrubber-button.ytp-swatch-background-color {
+                            background-color: transparent !important;
+                        }
+    
+                        .ytp-scrubber-container {
+                            top: ${userConfig.scrubberTop}px !important;
+                            margin-top: -5px;
+                        }
+                        `);
+                    }
+    
+                    // toggles
+                    if (userConfig.endScreenToggle == false) {
+                        GM_addStyle(`
+                        .ytp-ce-element.ytp-ce-element-show {
+                            display: none !important;
+                        }
+                        `)
+                    }
+    
+                    if (userConfig.embedOtherVideos == false) {
+                        GM_addStyle(`
+                        .ytp-expand-pause-overlay .ytp-pause-overlay {
+                            display: none !important;
+                        }
+                        `)
+                    }
+    
+                    // #################################    
+                    /// WATCH LATER BUTTON
+                    var WatchLaterButton = document.getElementsByClassName("ytp-watch-later-button")[0];
+                    var targetDiv1 = WatchLaterButton.parentElement;
+                    var pastDiv1 = document.getElementsByClassName("ytp-subtitles-button")[0];
+    
+                    moveElement(WatchLaterButton, targetDiv1, pastDiv1);
+                break;
+    
+                case '2012':
+                    // IMPORT CSS (if it wasn't already loaded)
+                    if (loadedPlayerStyle == false) {
+                        GM_addStyle(GM_getResourceText(userConfig.year));
+                        loadedPlayerStyle = true;
+                    }
+    
+                    // IMPORT USER CUSTOMIZATION
+                    if (userConfig.customTheme == true) {
+                        GM_addStyle(`
+                        /* CONTROLS BASE */
+                        .ytp-chrome-controls {
+                            background: ${userConfig.controlsBack} !important;
+                        }
+    
+                        /* PROGRESS BAR */
+                        .ytp-play-progress.ytp-swatch-background-color, .ytp-hover-progress.ytp-hover-progress-light, .ytp-hover-progress-light {
+                            background: ${userConfig.progressBarColor} !important;
+                        }
+    
+                        /* VOLUME SLIDER */
+                        .ytp-volume-slider-handle::before {
+                            background: ${userConfig.volumeSliderBack} !important;
+                        }
+    
+                        /* SCRUBBER */
+                        .ytp-scrubber-button {
+                            background: url(${userConfig.scrubberIcon}) !important;
+                            background-position: ${userConfig.scrubberPosition} !important;
+                            background-size: ${userConfig.scrubberSize}px !important;
+                            height: ${userConfig.scrubberHeight}px !important;
+                            width: ${userConfig.scrubberWidth}px !important;
+                        }
+    
+                        .ytp-scrubber-button:hover {
+                            background: url(${userConfig.scrubberIconHover}) !important;
+                            background-position: ${userConfig.scrubberPosition} !important;
+                            background-size: ${userConfig.scrubberSize}px !important;
+                            height: ${userConfig.scrubberHeight}px !important;
+                            width: ${userConfig.scrubberWidth}px !important;
+                        }
+    
+                        .ytp-scrubber-container {
+                            top: ${userConfig.scrubberTop}px !important;
+                            margin-top: -5px;
+                        }
+                        `);
+                    }
+    
+                    // toggles
+                    if (userConfig.endScreenToggle == false) {
+                        GM_addStyle(`
+                        .ytp-ce-element.ytp-ce-element-show {
+                            display: none !important;
+                        }
+                        `)
+                    }
+    
+                    if (userConfig.embedOtherVideos == false) {
+                        GM_addStyle(`
+                        .ytp-expand-pause-overlay .ytp-pause-overlay {
+                            display: none !important;
+                        }
+                        `)
+                    }
+    
+                    // #################################
+    
+                    /// WATCH LATER BUTTON
+                    var WatchLaterButton = document.getElementsByClassName("ytp-watch-later-button")[0];
+                    var targetDiv1 = WatchLaterButton.parentElement;
+                    var pastDiv1 = document.getElementsByClassName("ytp-subtitles-button")[0];
+    
+                    moveElement(WatchLaterButton, targetDiv1, pastDiv1);
+                break;
+    
+                default:
+                    console.error(`YT-HTML5-Player: no userConfig.year is selected, please fix that.`);
+                break;
+            };
+    
+            // End Start Checker
+            clearInterval(starter);
+        };
+    }, 2500);
+}
 
-                .ytp-hover-progress.ytp-hover-progress-light {
-                    background: ${progressBarColor15} !important;
-                }
 
-                .ytp-hover-progress-light {
-                    background: ${progressBarColor15} !important;
-                }
-
-                /* VOLUME SLIDER */
-                .ytp-volume-slider-handle::before {
-                    background: ${volumeSliderBack15} !important;
-                }
-
-                /* SCRUBBER */
-                .ytp-scrubber-button {
-                    background: url(${scrubberIcon15}) !important;
-                    background-position: ${scrubberPosition15} !important;
-                    background-size: ${scrubberSize15}px !important;
-                    height: ${scrubberHeight15}px !important;
-                    width: ${scrubberWidth15}px !important;
-                }
-
-                .ytp-scrubber-button:hover {
-                    background: url(${scrubberIconHover15}) !important;
-                    background-position: ${scrubberPosition15} !important;
-                    background-size: ${scrubberSize15}px !important;
-                    height: ${scrubberHeight15}px !important;
-                    width: ${scrubberWidth15}px !important;
-                }
-
-                .ytp-scrubber-button.ytp-swatch-background-color {
-                    background-color: transparent !important;
-                }
-
-                .ytp-scrubber-container {
-                    top: ${scrubberTop15}px !important;
-                    margin-top: -5px;
-                }
-                `);
-            }
-
-            // toggles
-            if (endScreenToggle15 == false) {
-                GM_addStyle(`
-                .ytp-ce-element {
-                    display: none !important;
-                }
-                `)
-            }
-
-            if (embedOtherVideos15 == false) {
-                GM_addStyle(`
-                .ytp-expand-pause-overlay .ytp-pause-overlay {
-                    display: none !important;
-                }
-                `)
-            }
-
-            // #################################
-
-            // MOVING ELEMENTS
-            function moveElement(element, targetDiv, pasteDiv) {
-                console.log(`moveElement function: ${targetDiv.contains(element)}`)
-                if (targetDiv.contains(element)) {
-                    pasteDiv.parentNode.insertBefore(targetDiv.removeChild(element), pasteDiv.parentNode.firstElementChild);
-                    moveElement(element, targetDiv, pasteDiv);
-                } else {
-                    return;
-                }
-            }
-
-            /// WATCH LATER BUTTON
-            var WatchLaterButton = document.getElementsByClassName("ytp-watch-later-button")[0];
-            var targetDiv1 = WatchLaterButton.parentElement;
-            var pastDiv1 = document.getElementsByClassName("ytp-subtitles-button")[0];
-
-            moveElement(WatchLaterButton, targetDiv1, pastDiv1);
-        break;
-
-        case 2012:
-            // IMPORT CSS
-            mainCSS = GM_getResourceText(playerYear)
-            GM_addStyle(mainCSS);
-
-            // IMPORT USER CUSTOMIZATION
-            if (customTheme == true) {
-                GM_addStyle(`
-                /* CONTROLS BASE */
-                .ytp-chrome-controls {
-                    background: ${controlsBack15} !important;
-                }
-
-                /* PROGRESS BAR */
-                .ytp-play-progress.ytp-swatch-background-color, .ytp-hover-progress.ytp-hover-progress-light, .ytp-hover-progress-light {
-                    background: ${progressBarColor15} !important;
-                }
-
-                /* VOLUME SLIDER */
-                .ytp-volume-slider-handle::before {
-                    background: ${volumeSliderBack15} !important;
-                }
-
-                /* SCRUBBER */
-                .ytp-scrubber-button {
-                    background: url(${scrubberIcon15}) !important;
-                    background-position: ${scrubberPosition15} !important;
-                    background-size: ${scrubberSize15}px !important;
-                    height: ${scrubberHeight15}px !important;
-                    width: ${scrubberWidth15}px !important;
-                }
-
-                .ytp-scrubber-button:hover {
-                    background: url(${scrubberIconHover15}) !important;
-                    background-position: ${scrubberPosition15} !important;
-                    background-size: ${scrubberSize15}px !important;
-                    height: ${scrubberHeight15}px !important;
-                    width: ${scrubberWidth15}px !important;
-                }
-
-                .ytp-scrubber-container {
-                    top: ${scrubberTop15}px !important;
-                    margin-top: -5px;
-                }
-                `);
-            }
-
-            // toggles
-            if (endScreenToggle15 == false) {
-                GM_addStyle(`
-                .ytp-ce-element {
-                    display: none !important;
-                }
-                `)
-            }
-
-            if (embedOtherVideos15 == false) {
-                GM_addStyle(`
-                .ytp-expand-pause-overlay .ytp-pause-overlay {
-                    display: none !important;
-                }
-                `)
-            }
-
-            // #################################
-
-            // MOVING ELEMENTS
-            function moveElement(element, targetDiv, pasteDiv) {
-                console.log(`moveElement function: ${targetDiv.contains(element)}`)
-                if (targetDiv.contains(element)) {
-                    pasteDiv.parentNode.insertBefore(targetDiv.removeChild(element), pasteDiv.parentNode.firstElementChild);
-                    moveElement(element, targetDiv, pasteDiv);
-                } else {
-                    return;
-                }
-            }
-
-            /// WATCH LATER BUTTON
-            var WatchLaterButton = document.getElementsByClassName("ytp-watch-later-button")[0];
-            var targetDiv1 = WatchLaterButton.parentElement;
-            var pastDiv1 = document.getElementsByClassName("ytp-subtitles-button")[0];
-
-            moveElement(WatchLaterButton, targetDiv1, pastDiv1);
-        break;
-
-        default:
-            console.error(`YT-HTML5-Player: no playerYear is selected, please fix that.`);
-        break;
+// Menu functions
+/// Toggle Menu
+var menuToggled = false;
+function menuToggle() {
+    if (document.getElementById('yt-html5-menu').classList.contains('menu-off')) {
+        document.getElementById('yt-html5-menu').classList.remove('menu-off');
+        document.getElementById(`menu-button`).style = 'rotate: 180deg;';
+        menuToggled = true;
+    } else {
+        document.getElementById('yt-html5-menu').classList.add('menu-off');
+        document.getElementById(`menu-button`).style = 'rotate: 0deg;';
+        menuToggled = false;
     }
+}
+unsafeWindow.menuToggle = menuToggle;
 
-    // End Start Checker
-    clearInterval(starter);
+/// Update User DB
+function changeUserDB(option, newValue, lightElement) {
+    if (lightElement) {
+        if (lightElement.children[0].classList.contains('true')) {
+            lightElement.children[0].classList.remove('true');
+            lightElement.children[0].classList.add('false');
+            userConfig[option] = false;
+            GM_setValue(`yt-html5`, userConfig);
+        } else if (lightElement.children[0].classList.contains('false')) {
+            lightElement.children[0].classList.remove('false');
+            lightElement.children[0].classList.add('true');
+            userConfig[option] = true;
+            GM_setValue(`yt-html5`, userConfig);
+        }
+    } else {
+        userConfig[option] = newValue;
+        GM_setValue(`yt-html5`, userConfig);
     }
-}, 2500)
+    console.log(`YT-HTML5 USER DATA CHANGED:`, GM_getValue(`yt-html5`));
+}
+unsafeWindow.changeUserDB = changeUserDB;
+
+/// Make opinions in menu
+function makeMenuOption(type, opinion, desc, values) {
+    switch (type) {
+        case 'selection':
+            return `
+            <div class="menu-option">
+                <div class="menu-name">${desc}</div>
+                <select onchange="changeUserDB('${opinion}', this.value)">
+                    ${values}
+                </select>
+            </div>
+            `
+
+        case 'toggle':
+            return `
+            <div class="menu-option">
+                <div class="menu-name">${desc}</div>
+                <button class="menu-toggle" onclick="changeUserDB('${opinion}', '', this)">
+                    <div class="light ${userConfig[opinion]}"></div>
+                </button>
+            </div>
+            `
+    }
+}
+
+/// Get year options for menu
+var years = [2015, 2012, 2010, 2006];
+var yearOptions = '';
+years.forEach(element => {
+    if (element == userConfig['year']) {
+        yearOptions += `<option value="${element}" selected>${element}</option> `
+    } else {
+        yearOptions += `<option value="${element}">${element}</option> `
+    }
+});
+
+// Start menu
+function startMenu() {
+    setTimeout(function () {
+        if (!document.getElementById('yt-html5-menu-button') && !document.getElementById(`buttons`)) {
+            return;
+        } else {
+            // Important CSS if it wasn't ported already
+            if (loadedMenuStyle == false) {
+                GM_addStyle(GM_getResourceText("MENU"));
+                loadedMenuStyle = true;
+            }
+            document.getElementById(`buttons`).insertAdjacentHTML(
+                'afterbegin',
+
+                `<!-- Menu Button -->
+                <div id="yt-html5-menu-button">
+                    <button id="menu-button" style="height: 40px; width: 40px;" onclick="menuToggle()">
+                        <img src="https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/menu-icon.png">
+                    </button>
+                </div>
+
+                <!-- Menu -->
+                <div id="yt-html5-menu" class="menu-off">
+                    <a><div class="reload-page">
+                        <h3>Reload page for changes to take effect!</h3>
+                    </div></a>
+
+                    <h2>YT-HTML5-Player Menu</h2><div class="version"> v${version}</div>
+
+                    <h3>General Settings</h3>
+
+                    ${makeMenuOption(`selection`, `year`, `Year of Player`, yearOptions)}
+                    DON'T SELECT '2010' OR '2006', THEY DON'T WORK RIGHT NOW THANKS!!!!
+
+                    ${makeMenuOption('toggle', 'endScreenToggle', 'Toggle End Screen (Things that display at the end of video)')}
+
+                    ${makeMenuOption('toggle', 'embedOtherVideos', 'Toggle "Show other videos" Box in Embeds')}
+
+                    <br>
+
+                    <h3>Custom Theme Settings</h3>
+                    soon.
+
+                    <br>
+
+                    if you wondering what the icon is rn, idk either lmao
+
+                    <div class="blank"></div>
+                </div>`
+            );
+        }
+    }, 2500)
+}
