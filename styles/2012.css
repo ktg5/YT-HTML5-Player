@@ -146,7 +146,7 @@
 }
 
 .ytp-bezel[aria-label="Play"] {
-    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/big-pause.png');
+    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/big-play.png');
     background-size: cover;
     border-radius: 0;
 }

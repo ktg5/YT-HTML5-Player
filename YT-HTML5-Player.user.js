@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube HTML5 Player
 // @namespace    https://github.com/ktg5/YT-HTML5-Player/
-// @version      2.0dev7
+// @version      2.0dev7.1
 // @description  Try to recreate the old YouTube player looks.
 // @author       ktg5
 // @match        *://*.youtube.com/*
@@ -25,7 +25,7 @@
 // @grant        unsafeWindow
 // ==/UserScript==
 
-var version = `2.0dev6`;
+var version = `2.0dev7.1`;
 
 // Default user config.
 var yt_html5 = {
@@ -390,7 +390,7 @@ function startMenu() {
                     <h3>General Settings</h3>
 
                     ${makeMenuOption(`selection`, `year`, `Year of Player`, yearOptions)}
-                    DON'T SELECT '2010' OR '2006', THEY DON'T WORK RIGHT NOW THANKS!!!!
+                    <b>2010 has been added as of this update. 2006 still isn't developed yet, please wait for that!</b>
 
                     ${makeMenuOption(`toggle`, `autoplayButton`, `Toggle the Autoplay toggle on the right of the player`)}
 
