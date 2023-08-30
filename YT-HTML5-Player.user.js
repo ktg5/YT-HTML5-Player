@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube HTML5 Player
 // @namespace    https://github.com/ktg5/YT-HTML5-Player/
-// @version      2.0dev7.1
+// @version      2.0dev7.2
 // @description  Try to recreate the old YouTube player looks.
 // @author       ktg5
 // @match        *://*.youtube.com/*
@@ -25,7 +25,7 @@
 // @grant        unsafeWindow
 // ==/UserScript==
 
-var version = `2.0dev7.1`;
+var version = `2.0dev7.2`;
 
 // Default user config.
 var yt_html5 = {
@@ -362,6 +362,8 @@ years.forEach(element => {
 function startMenu() {
     setTimeout(function () {
         if (!document.getElementById('yt-html5-menu-button') && !document.getElementById(`buttons`)) {
+            return;
+        } else if (document.getElementById('yt-html5-menu-button')) {
             return;
         } else {
             // Important CSS if it wasn't ported already
