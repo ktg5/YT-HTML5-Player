@@ -48,6 +48,16 @@
 	background: rgb(34 34 34) !important;
 }
 
+.ytp-chapters-container {
+    scale: 103% 1;
+    left: 12px;
+}
+
+.ytp-timed-markers-container {
+    transform: scale(1);
+    top: 0;
+}
+
 .ytp-progress-list:hover {
   bottom: 1px !important;
 }
@@ -75,6 +85,8 @@
 .ytp-player-content.ytp-iv-player-content {
 	transition: .5s !important;
 }
+
+/* ################################# */
 
 /* AUTO-HIDE PLAYER */
 
@@ -121,6 +133,26 @@
 
 /* ################################# */
 
+/* "BEZEL" ICONS */
+
+.ytp-bezel-icon {
+    display: none;
+}
+
+.ytp-bezel[aria-label="Pause"] {
+    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/big-pause.png');
+    background-size: cover;
+    border-radius: 0;
+}
+
+.ytp-bezel[aria-label="Play"] {
+    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/big-pause.png');
+    background-size: cover;
+    border-radius: 0;
+}
+
+/* ################################# */
+
 /* SCRUBBER */
 
 .ytp-scrubber-button {
@@ -157,20 +189,6 @@
 
 .ytp-progress-bar-container:hover:not([aria-disabled=true]) .ytp-scrubber-button.ytp-scrubber-button-hover {
 	transform: scale(1) !important;
-}
-
-/* ################################# */
-
-/* large PLAY BUTTON */
-
-.ytp-large-play-button.ytp-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/icons.png) no-repeat;
-	background-position: -67px -378px;
-	height: 52px !important;
-	width: 48px !important;
-	background-size: 250%;
-	left: 51%;
-	top: 50%;
 }
 
 /* ################################# */
@@ -297,10 +315,12 @@
 
 .ytp-time-current {
 	color: #fff !important;
+	text-shadow: none;
 }
 
 .ytp-time-separator, .ytp-time-duration {
 	color: #969696 !important;
+	text-shadow: none;
 }
 
 /* CHAPTER TITLE */

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube HTML5 Player
 // @namespace    https://github.com/ktg5/YT-HTML5-Player/
-// @version      2.0dev6
+// @version      2.0dev7
 // @description  Try to recreate the old YouTube player looks.
 // @author       ktg5
 // @match        *://*.youtube.com/*
@@ -31,9 +31,10 @@ var version = `2.0dev6`;
 var yt_html5 = {
     // Basic settings.
     year: 2015,
-    customTheme: false,
+    autoplayButton: false,
     endScreenToggle: true,
     embedOtherVideos: true,
+    customTheme: false,
 
     // Only for custom themes.
     progressBarColor: '',
@@ -98,6 +99,31 @@ startMenu();
 // CSS.
 var loadedPlayerStyle = false;
 var loadedMenuStyle = false;
+
+// toggles
+if (userConfig.endScreenToggle == false) {
+    GM_addStyle(`
+    .ytp-ce-element.ytp-ce-element-show {
+        display: none !important;
+    }
+    `)
+}
+
+if (userConfig.embedOtherVideos == false) {
+    GM_addStyle(`
+    .ytp-expand-pause-overlay .ytp-pause-overlay {
+        display: none !important;
+    }
+    `)
+}
+
+if (userConfig.autoplayButton == false) {
+    GM_addStyle(`
+    .ytp-button[data-tooltip-target-id="ytp-autonav-toggle-button"] {
+        display: none !important;
+    }
+    `)
+}
 
 function startPlayer() {
     // Make sure player part of the script is loaded on "watch" pages.
@@ -166,23 +192,6 @@ function startPlayer() {
                         `);
                     }
     
-                    // toggles
-                    if (userConfig.endScreenToggle == false) {
-                        GM_addStyle(`
-                        .ytp-ce-element.ytp-ce-element-show {
-                            display: none !important;
-                        }
-                        `)
-                    }
-    
-                    if (userConfig.embedOtherVideos == false) {
-                        GM_addStyle(`
-                        .ytp-expand-pause-overlay .ytp-pause-overlay {
-                            display: none !important;
-                        }
-                        `)
-                    }
-    
                     // #################################    
                     /// WATCH LATER BUTTON
                     var WatchLaterButton = document.getElementsByClassName("ytp-watch-later-button")[0];
@@ -241,23 +250,6 @@ function startPlayer() {
                         `);
                     }
     
-                    // toggles
-                    if (userConfig.endScreenToggle == false) {
-                        GM_addStyle(`
-                        .ytp-ce-element.ytp-ce-element-show {
-                            display: none !important;
-                        }
-                        `)
-                    }
-    
-                    if (userConfig.embedOtherVideos == false) {
-                        GM_addStyle(`
-                        .ytp-expand-pause-overlay .ytp-pause-overlay {
-                            display: none !important;
-                        }
-                        `)
-                    }
-    
                     // #################################
     
                     /// WATCH LATER BUTTON
@@ -266,6 +258,14 @@ function startPlayer() {
                     var pastDiv1 = document.getElementsByClassName("ytp-subtitles-button")[0];
     
                     moveElement(WatchLaterButton, targetDiv1, pastDiv1);
+                break;
+
+                case '2010':
+                    // IMPORT CSS (if it wasn't already loaded)
+                    if (loadedPlayerStyle == false) {
+                        GM_addStyle(GM_getResourceText(userConfig.year));
+                        loadedPlayerStyle = true;
+                    }
                 break;
     
                 default:
@@ -306,6 +306,10 @@ function changeUserDB(option, newValue, lightElement) {
             GM_setValue(`yt-html5`, userConfig);
         } else if (lightElement.children[0].classList.contains('false')) {
             lightElement.children[0].classList.remove('false');
+            lightElement.children[0].classList.add('true');
+            userConfig[option] = true;
+            GM_setValue(`yt-html5`, userConfig);
+        } else {
             lightElement.children[0].classList.add('true');
             userConfig[option] = true;
             GM_setValue(`yt-html5`, userConfig);
@@ -388,22 +392,20 @@ function startMenu() {
                     ${makeMenuOption(`selection`, `year`, `Year of Player`, yearOptions)}
                     DON'T SELECT '2010' OR '2006', THEY DON'T WORK RIGHT NOW THANKS!!!!
 
-                    ${makeMenuOption('toggle', 'endScreenToggle', 'Toggle End Screen (Things that display at the end of video)')}
+                    ${makeMenuOption(`toggle`, `autoplayButton`, `Toggle the Autoplay toggle on the right of the player`)}
 
-                    ${makeMenuOption('toggle', 'embedOtherVideos', 'Toggle "Show other videos" Box in Embeds')}
+                    ${makeMenuOption('toggle', 'endScreenToggle', 'Toggle end screen (Things that display at the end of video)')}
+
+                    ${makeMenuOption('toggle', 'embedOtherVideos', 'Toggle "Show other videos" box in embeds')}
 
                     <br>
 
                     <h3>Custom Theme Settings</h3>
                     soon.
 
-                    <br>
-
-                    if you wondering what the icon is rn, idk either lmao
-
                     <div class="blank"></div>
                 </div>`
             );
         }
-    }, 2500)
+    }, 3500)
 }

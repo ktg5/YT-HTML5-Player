@@ -6,7 +6,7 @@ If you have any plugins/scripts you'd like to
 be fixed for this script, please send a issue
 on the GitHUb repo! Much thanks! */
 
-/* Annotations Restored */
+/* Sponosor Block */
 #previewbar {
     top: 0px;
 }
@@ -21,4 +21,5 @@ on the GitHUb repo! Much thanks! */
 
 #sponsorBlockDurationAfterSkips {
     color: #969696 !important;
+    text-shadow: none;
 }
