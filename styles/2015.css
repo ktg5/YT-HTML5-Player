@@ -81,6 +81,11 @@
 	transition: .5s !important;
 }
 
+/* This shit is IN THE FUCKING WAY LIKE GET OUT OF HERE!!!!! */
+#contentContainer.tp-yt-app-drawer[swipe-open].tp-yt-app-drawer::after {
+    display: none;
+}
+
 /* ################################# */
 
 /* AUTO-HIDE PLAYER */
@@ -245,7 +250,7 @@
 
 .ytp-button.ytp-prev-button {
 	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2015-icons.png) no-repeat;
-	background-position: 9px 0px;
+	background-position: 4px -1px;
 	background-size: 200px;
 }
 

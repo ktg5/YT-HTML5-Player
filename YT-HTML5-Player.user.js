@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube HTML5 Player
 // @namespace    https://github.com/ktg5/YT-HTML5-Player/
-// @version      2.0dev8
+// @version      2.0dev9
 // @description  Try to recreate the old YouTube player looks.
 // @author       ktg5
 // @match        *://*.youtube.com/*
@@ -25,7 +25,7 @@
 // @grant        unsafeWindow
 // ==/UserScript==
 
-var version = `2.0dev8`;
+var version = `2.0dev9`;
 
 // Default user config.
 var def_yt_html5 = {
@@ -47,6 +47,7 @@ var def_yt_html5 = {
     scrubberHeight: null,
     scrubberWidth: null,
     scrubberTop: null,
+    scrubberLeft: null,
 }
 
 // Get user config.
@@ -129,7 +130,6 @@ if (userConfig.autoplayButton == false) {
 // Custom theme stuff
 function enableCustomTheme() {
     var outputCss = `/* hi this is the custom theme you set lolz */`;
-    console.log(userConfig.controlsBack !== null)
     if (userConfig.controlsBack !== null) {
         outputCss += `
         .ytp-chrome-controls {
@@ -206,6 +206,12 @@ function enableCustomTheme() {
         outputCss += `
         .ytp-scrubber-container {
             top: ${userConfig.scrubberTop}px !important;
+        }
+        `
+    } if (userConfig.scrubberLeft !== null) {
+        outputCss += `
+        .ytp-scrubber-container {
+            left: ${userConfig.scrubberLeft}px !important;
         }
         `
     }
@@ -292,7 +298,7 @@ function startPlayer() {
                 break;
     
                 default:
-                    console.error(`YT-HTML5-Player: no userConfig.year is selected, please fix that.`);
+                    console.error(`YT-HTML5 ERROR:`, `no userConfig.year is selected, please fix that.`);
                 break;
             };
     
@@ -380,7 +386,7 @@ function makeMenuOption(type, opinion, desc, values) {
                     <div class="menu-name">${desc}</div>
                     <div style="position: absolute; right: 14px;">
                         <input type="color" class="menu-input" onchange="changeUserDB('${opinion}', this.value); this.style.background = this.value;" style="background: ${userConfig[opinion] ?? '#ffffff'};" value="${userConfig[opinion] ?? '#ffffff'}">
-                        <button class='menu-input-reset' style="width: 2em;" onclick="changeUserDB('${opinion}', null); this.parentElement.children[0].value = '#ffffff'; alert('The ${opinion} setting has been reset.')">
+                        <button class='menu-input-reset' style="width: 2em;" onclick="changeUserDB('${opinion}', null); this.parentElement.children[0].value = '#ffffff'; this.parentElement.children[0].style.background = '#ffffff'; alert('The ${opinion} setting has been reset.')">
                             <img src="https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/reset.png" style="height: 1em;">
                         </button>
                     </div>
@@ -401,7 +407,7 @@ function makeMenuOption(type, opinion, desc, values) {
             } else if (values == 'pxs') {
                 return `
                 <div class="menu-option">
-                    <div class="menu-name">${desc}</div>
+                    <div class="menu-name" style="max-width: 12em;">${desc}</div>
                     <div style="position: absolute; right: 14px;">
                         <input type="text" style="width: 4em;" class="menu-input" onchange="changeUserDB('${opinion}', this.value)" value="${userConfig[opinion] ??  ''}">px
                         <button class='menu-input-reset' style="width: 2em;" onclick="changeUserDB('${opinion}', null); this.parentElement.children[0].value = ''; alert('The ${opinion} setting has been reset.')">
@@ -443,6 +449,62 @@ years.forEach(element => {
     }
 });
 
+/// Get user config to display
+function getUserConfig() {
+    var output = '{';
+    var count = 0;
+    for (let element in userConfig) {
+        count++;
+    };
+    var counted = 0;
+    for (let element in userConfig) {
+        counted++
+        if (counted == count) {
+            if (typeof userConfig[element] !== 'string') {
+                output += ` "${element}": ${userConfig[element]}`
+            } else if (userConfig[element]) {
+                output += ` "${element}": "${userConfig[element]}"`
+            }
+        } else {
+            if (typeof userConfig[element] !== 'string') {
+                output += ` "${element}": ${userConfig[element]},`
+            } else if (userConfig[element]) {
+                output += ` "${element}": "${userConfig[element]}",`
+            }
+        }
+    }
+    output += '}'
+    console.log(`getUserConfig`, output)
+    return output;
+};
+unsafeWindow.getUserConfig = getUserConfig;
+
+/// Set user config from input element at the bottom of the settings menu
+function overWriteUserConfig(input) {
+    // Starting vars
+    var completedCount = 0;
+    var unknownCount = 0;
+
+    var jsonInput = JSON.parse(input);
+    
+    // Check 
+    for (let element in jsonInput) {
+        if (def_yt_html5[element] === undefined) {
+            unknownCount++;
+        } else {
+            userConfig[element] = jsonInput[element];
+            completedCount++;
+        }
+    }
+    GM_setValue(`yt-html5`, userConfig);
+
+    // Finish
+    alert(`User config completed. ${completedCount} settings were written, ${unknownCount} settings were not written`);
+    console.log(`overWriteUserConfig input:`, jsonInput);
+    console.log(`overWriteUserConfig current config:`, userConfig);
+}
+unsafeWindow.overWriteUserConfig = overWriteUserConfig;
+
 // Start menu
 function startMenu() {
     setTimeout(function () {
@@ -456,6 +518,8 @@ function startMenu() {
                 GM_addStyle(GM_getResourceText("MENU"));
                 loadedMenuStyle = true;
             }
+
+            var collectedUserConfig = getUserConfig();
             document.getElementById(`buttons`).insertAdjacentHTML(
                 'afterbegin',
 
@@ -487,15 +551,52 @@ function startMenu() {
                     <br>
 
                     <h3>Custom Theme Settings</h3>
-                    <b>
-                        Note: You're editing raw CSS values. If something like
-                        the Scrubber doesn't seem to appear, try changing the
-                        the Scrubber size. Else, open up your browser's Dev
-                        Tools.
-                    </b>
 
                     ${makeMenuOption('toggle', 'customTheme', 'Toggle Custom Theme')}
 
+                    <div id='menu-custom-opinions'></div>
+
+                    <br>
+
+                    <h3>Import or Copy, and Reset Settings</h3>
+
+                    <textarea
+                    id="menu-config-selection"
+                    style="width: 21.2em; height: 8em; resize: vertical;"
+                    >
+                        ${collectedUserConfig}
+                    </textarea>
+                </div>
+            `);
+
+            document.getElementById(`menu-config-selection`).insertAdjacentHTML(
+                `afterend`,
+                
+                `
+                <button onclick='overWriteUserConfig(document.getElementById(\`menu-config-selection\`).value)'>
+                    Apply settings
+                </button>
+
+                <br>
+                <br>
+
+                <button class="nuke-all" onclick="resetConfig()">
+                    THE BIG NUKE BUTTON. (aka reset all settings) NO TURNING BACK WHEN THIS IS PRESSED.
+                </button>
+
+                <div class="blank"></div>
+            `)
+
+            if (userConfig.customTheme === true) {
+                document.getElementById(`menu-custom-opinions`).insertAdjacentHTML(
+                    `afterbegin`,
+
+                    `
+                    <b>
+                        Note: You're editing raw CSS values. If something like
+                        the Scrubber doesn't seem to appear, try changing the
+                        Scrubber size. Else, open up your browser's Dev Tools.
+                    </b>
                     ${makeMenuOption('input', 'controlsBack', 'Change the color of the player\'s background', 'color')}
 
                     ${makeMenuOption('input', 'progressBarColor', 'Change the color of the Progress Bar', 'color')}
@@ -505,27 +606,31 @@ function startMenu() {
                     ${makeMenuOption('input', 'scrubberIcon', 'Change the image of the Scrubber', 'url')}
 
                     ${makeMenuOption('input', 'scrubberIconHover', 'Change the image of the Scrubber <b>when hovering</b>', 'url')}
+                    <div class='menu-opinion-note'>If you want to, you can use the same image as the Scrubber when not hovering</div>
 
                     ${makeMenuOption('input', 'scrubberSize', 'Change the size of the Scrubber', 'pxs')}
-
-                    ${makeMenuOption('input', 'scrubberPosition', 'If needed, change the Scrubber image position.', 'text')}
-                    <div class='menu-opinion-note'>Example: <kbd>10px (for x) 5px (for y)</kbd></div>
+                    <div class='menu-opinion-note'>It is recommended to change this if you change the Scrubber icon; start low (Something like <kbd>12</kbd>) then go up</div>
 
                     ${makeMenuOption('input', 'scrubberHeight', 'Change the height of the Scrubber', 'pxs')}
 
                     ${makeMenuOption('input', 'scrubberWidth', 'Change the width of the Scrubber', 'pxs')}
 
-                    ${makeMenuOption('input', 'scrubberTop', 'Move the Scrubber down by size (Make value negative to move up)', 'pxs')}
+                    ${makeMenuOption('input', 'scrubberTop', 'Move the Scrubber down (Make value negative to move up)', 'pxs')}
 
-                    <br>
+                    ${makeMenuOption('input', 'scrubberLeft', 'Move the Scrubber right (Make value negative to move left)', 'pxs')}
 
-                    <button class="nuke-all" onclick="resetConfig()">
-                        THE BIG NUKE BUTTON. (aka reset all settings) NO TURNING BACK WHEN THIS IS PRESSED.
-                    </button>
-
-                    <div class="blank"></div>
-                </div>`
-            );
+                    ${makeMenuOption('input', 'scrubberPosition', 'If needed, change the Scrubber image position.', 'text')}
+                    <div class='menu-opinion-note'>
+                        Example: <kbd>10px (for x) 5px (for y)</kbd>
+                        <br>
+                        Note this <b>does not</b> change where the
+                        Scrubber will be moved to, you still have to
+                        play off of all the other sizing settings
+                        above.
+                    </div>
+                    `
+                )
+            }
         }
     }, 3500)
 }

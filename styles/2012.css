@@ -90,6 +90,11 @@
 	transition: .5s !important;
 }
 
+/* This shit is IN THE FUCKING WAY LIKE GET OUT OF HERE!!!!! */
+#contentContainer.tp-yt-app-drawer[swipe-open].tp-yt-app-drawer::after {
+    display: none;
+}
+
 /* ################################# */
 
 /* AUTO-HIDE PLAYER */
@@ -160,7 +165,7 @@
 /* SCRUBBER */
 
 .ytp-scrubber-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2015-scrubber.png) !important;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2012-scrubber.png) !important;
 	background-position: 0px 0px !important;
 	background-size: 18px !important;
 	height: 18px !important;
@@ -170,7 +175,7 @@
 }
 
 .ytp-scrubber-button:hover {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2015-scrubber-hover.png) !important;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2012-scrubber-hover.png) !important;
 	background-position: 0px 0px !important;
 	background-size: 18px !important;
 	height: 18px !important;
@@ -509,8 +514,8 @@
 /* WATCH LATER (moved from chrome-top) */
 
 .ytp-button.ytp-watch-later-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2015-icons.png) no-repeat;
-	background-position: -53px -1099px;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2012-icons.png) no-repeat;
+    background-position: 3px -280px;
 	background-size: 200px;
 	display: inline-block;
 	bottom: 5px;

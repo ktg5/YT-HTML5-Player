@@ -113,10 +113,8 @@
 }
 
 #yt-html5-menu .menu-option input[type="color"] {
-    position: absolute;
     width: 3em;
     height: 18px;
-    right: 16px;
 }
 
 #yt-html5-menu .menu-option input[type="text"] {

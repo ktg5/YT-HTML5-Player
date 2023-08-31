@@ -87,6 +87,11 @@
 	transition: .5s !important;
 }
 
+/* This shit is IN THE FUCKING WAY LIKE GET OUT OF HERE!!!!! */
+#contentContainer.tp-yt-app-drawer[swipe-open].tp-yt-app-drawer::after {
+    display: none;
+}
+
 /* ################################# */
 
 /* AUTO-HIDE PLAYER */
