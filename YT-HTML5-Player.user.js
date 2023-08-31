@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube HTML5 Player
 // @namespace    https://github.com/ktg5/YT-HTML5-Player/
-// @version      2.0dev7.2
+// @version      2.0dev8
 // @description  Try to recreate the old YouTube player looks.
 // @author       ktg5
 // @match        *://*.youtube.com/*
@@ -25,34 +25,35 @@
 // @grant        unsafeWindow
 // ==/UserScript==
 
-var version = `2.0dev7.2`;
+var version = `2.0dev8`;
 
 // Default user config.
-var yt_html5 = {
+var def_yt_html5 = {
     // Basic settings.
-    year: 2015,
+    year: '2015',
     autoplayButton: false,
     endScreenToggle: true,
     embedOtherVideos: true,
     customTheme: false,
 
     // Only for custom themes.
-    progressBarColor: '',
-    volumeSliderBack: '',
-    scrubberIcon: '',
-    scrubberIconHover: '',
-    scrubberPosition: '',
-    scrubberSize: '',
-    scrubberHeight: '',
-    scrubberWidth: '',
-    scrubberTop: '',
+    controlsBack: null,
+    progressBarColor: null,
+    volumeSliderBack: null,
+    scrubberIcon: null,
+    scrubberIconHover: null,
+    scrubberPosition: null,
+    scrubberSize: null,
+    scrubberHeight: null,
+    scrubberWidth: null,
+    scrubberTop: null,
 }
 
 // Get user config.
-// GM_setValue("yt-html5", yt_html5)
 var userConfig = GM_getValue('yt-html5');
-if (GM_getValue("yt-html5") == undefined) GM_setValue("yt-html5", yt_html5)
+if (GM_getValue("yt-html5") == undefined) GM_setValue("yt-html5", def_yt_html5);
 console.log(`YT-HTML5 USER DATA:`, userConfig)
+unsafeWindow.userConfig = userConfig;
 
 // Custom theme enabled
 var customTheme = userConfig.customTheme;
@@ -125,6 +126,93 @@ if (userConfig.autoplayButton == false) {
     `)
 }
 
+// Custom theme stuff
+function enableCustomTheme() {
+    var outputCss = `/* hi this is the custom theme you set lolz */`;
+    console.log(userConfig.controlsBack !== null)
+    if (userConfig.controlsBack !== null) {
+        outputCss += `
+        .ytp-chrome-controls {
+            background: ${userConfig.controlsBack} !important;
+        }
+        `
+    } if (userConfig.progressBarColor !== null) {
+        outputCss += `
+        .ytp-play-progress.ytp-swatch-background-color {
+            background: ${userConfig.progressBarColor} !important;
+        }
+        .ytp-hover-progress.ytp-hover-progress-light {
+            background: ${userConfig.progressBarColor} !important;
+        }
+        .ytp-hover-progress-light {
+            background: ${userConfig.progressBarColor} !important;
+        }
+        `
+    } if (userConfig.volumeSliderBack !== null) {
+        outputCss += `
+        .ytp-volume-slider-handle::before {
+            background: ${userConfig.volumeSliderBack} !important;
+        }
+        `
+    } if (userConfig.scrubberIcon !== null) {
+        outputCss += `
+        .ytp-scrubber-button {
+            background: url(${userConfig.scrubberIcon}) no-repeat center !important;
+        }
+        `
+    } if (userConfig.scrubberIconHover !== null) {
+        outputCss += `
+        .ytp-scrubber-button:hover {
+            background: url(${userConfig.scrubberIconHover}) no-repeat center !important;
+        }
+        `
+    } if (userConfig.scrubberPosition !== null) {
+        outputCss += `
+        .ytp-scrubber-button {
+            background-position: ${userConfig.scrubberPosition} !important;
+        }
+        .ytp-scrubber-button:hover {
+            background-position: ${userConfig.scrubberPosition} !important;
+        }
+        `
+    } if (userConfig.scrubberSize !== null) {
+        outputCss += `
+        .ytp-scrubber-button {
+            background-size: ${userConfig.scrubberSize}px !important;
+        }
+        .ytp-scrubber-button:hover {
+            background-size: ${userConfig.scrubberSize}px !important;
+        }
+        `
+    } if (userConfig.scrubberHeight !== null) {
+        outputCss += `
+        .ytp-scrubber-button {
+            height: ${userConfig.scrubberHeight}px !important;
+        }
+        .ytp-scrubber-button:hover {
+            height: ${userConfig.scrubberHeight}px !important;
+        }
+        `
+    } if (userConfig.scrubberWidth !== null) {
+        outputCss += `
+        .ytp-scrubber-button {
+            width: ${userConfig.scrubberWidth}px !important;
+        }
+        .ytp-scrubber-button:hover {
+            width: ${userConfig.scrubberWidth}px !important;
+        }
+        `
+    } if (userConfig.scrubberTop !== null) {
+        outputCss += `
+        .ytp-scrubber-container {
+            top: ${userConfig.scrubberTop}px !important;
+        }
+        `
+    }
+    // output css
+    GM_addStyle(outputCss)
+}
+
 function startPlayer() {
     // Make sure player part of the script is loaded on "watch" pages.
     // Keep going until we hit it.
@@ -140,56 +228,10 @@ function startPlayer() {
     
                     // IMPORT USER CUSTOMIZATION
                     if (customTheme === true) {
-                        GM_addStyle(`
-                        /* CONTROLS BASE */
-                        .ytp-chrome-controls {
-                            background: ${userConfig.controlsBack} !important;
-                        }
-    
-                        /* PROGRESS BAR */
-                        .ytp-play-progress.ytp-swatch-background-color {
-                            background: ${userConfig.progressBarColor} !important;
-                        }
-    
-                        .ytp-hover-progress.ytp-hover-progress-light {
-                            background: ${userConfig.progressBarColor} !important;
-                        }
-    
-                        .ytp-hover-progress-light {
-                            background: ${userConfig.progressBarColor} !important;
-                        }
-    
-                        /* VOLUME SLIDER */
-                        .ytp-volume-slider-handle::before {
-                            background: ${userConfig.volumeSliderBack} !important;
-                        }
-    
-                        /* SCRUBBER */
-                        .ytp-scrubber-button {
-                            background: url(${userConfig.scrubberIcon}) !important;
-                            background-position: ${userConfig.scrubberPosition} !important;
-                            background-size: ${userConfig.scrubberSize}px !important;
-                            height: ${userConfig.scrubberHeight}px !important;
-                            width: ${userConfig.scrubberWidth}px !important;
-                        }
-    
-                        .ytp-scrubber-button:hover {
-                            background: url(${userConfig.scrubberIconHover}) !important;
-                            background-position: ${userConfig.scrubberPosition} !important;
-                            background-size: ${userConfig.scrubberSize}px !important;
-                            height: ${userConfig.scrubberHeight}px !important;
-                            width: ${userConfig.scrubberWidth}px !important;
-                        }
-    
-                        .ytp-scrubber-button.ytp-swatch-background-color {
-                            background-color: transparent !important;
-                        }
-    
-                        .ytp-scrubber-container {
-                            top: ${userConfig.scrubberTop}px !important;
-                            margin-top: -5px;
-                        }
-                        `);
+                        enableCustomTheme();
+                        // .ytp-scrubber-button.ytp-swatch-background-color {
+                        //     background-color: transparent !important;
+                        // }
                     }
     
                     // #################################    
@@ -209,45 +251,8 @@ function startPlayer() {
                     }
     
                     // IMPORT USER CUSTOMIZATION
-                    if (userConfig.customTheme == true) {
-                        GM_addStyle(`
-                        /* CONTROLS BASE */
-                        .ytp-chrome-controls {
-                            background: ${userConfig.controlsBack} !important;
-                        }
-    
-                        /* PROGRESS BAR */
-                        .ytp-play-progress.ytp-swatch-background-color, .ytp-hover-progress.ytp-hover-progress-light, .ytp-hover-progress-light {
-                            background: ${userConfig.progressBarColor} !important;
-                        }
-    
-                        /* VOLUME SLIDER */
-                        .ytp-volume-slider-handle::before {
-                            background: ${userConfig.volumeSliderBack} !important;
-                        }
-    
-                        /* SCRUBBER */
-                        .ytp-scrubber-button {
-                            background: url(${userConfig.scrubberIcon}) !important;
-                            background-position: ${userConfig.scrubberPosition} !important;
-                            background-size: ${userConfig.scrubberSize}px !important;
-                            height: ${userConfig.scrubberHeight}px !important;
-                            width: ${userConfig.scrubberWidth}px !important;
-                        }
-    
-                        .ytp-scrubber-button:hover {
-                            background: url(${userConfig.scrubberIconHover}) !important;
-                            background-position: ${userConfig.scrubberPosition} !important;
-                            background-size: ${userConfig.scrubberSize}px !important;
-                            height: ${userConfig.scrubberHeight}px !important;
-                            width: ${userConfig.scrubberWidth}px !important;
-                        }
-    
-                        .ytp-scrubber-container {
-                            top: ${userConfig.scrubberTop}px !important;
-                            margin-top: -5px;
-                        }
-                        `);
+                    if (customTheme === true) {
+                        enableCustomTheme();
                     }
     
                     // #################################
@@ -265,6 +270,24 @@ function startPlayer() {
                     if (loadedPlayerStyle == false) {
                         GM_addStyle(GM_getResourceText(userConfig.year));
                         loadedPlayerStyle = true;
+                    }
+
+                    // IMPORT USER CUSTOMIZATION
+                    if (customTheme === true) {
+                        enableCustomTheme();
+
+                        GM_addStyle(`
+                        /* someother custom theme stuff for 2010 */
+
+                        .ytp-chrome-controls {
+                            border-top: solid 2px #d1d1d163 !important;
+                        }
+
+                        .ytp-chrome-bottom .ytp-button {
+                            border: solid 1px #ffffff52 !important;
+                            background: linear-gradient(rgb(0 0 0 / 0%), rgb(255 255 255 / 50%)) !important;
+                        }
+                        `)
                     }
                 break;
     
@@ -322,6 +345,13 @@ function changeUserDB(option, newValue, lightElement) {
 }
 unsafeWindow.changeUserDB = changeUserDB;
 
+/// Reset settings cuz I've been having to manually do it so many times YOU DON'T KNOW BRO IT GETS TO ME MAN!!!!!!!!!
+function resetConfig() {
+    GM_setValue(`yt-html5`, def_yt_html5);
+    alert(`Your YT-HTML5-Player config has been reset, please refresh the page!!!`)
+}
+unsafeWindow.resetConfig = resetConfig;
+
 /// Make opinions in menu
 function makeMenuOption(type, opinion, desc, values) {
     switch (type) {
@@ -334,7 +364,6 @@ function makeMenuOption(type, opinion, desc, values) {
                 </select>
             </div>
             `
-
         case 'toggle':
             return `
             <div class="menu-option">
@@ -344,11 +373,67 @@ function makeMenuOption(type, opinion, desc, values) {
                 </button>
             </div>
             `
+        case 'input':
+            if (values == 'color') {
+                return `
+                <div class="menu-option">
+                    <div class="menu-name">${desc}</div>
+                    <div style="position: absolute; right: 14px;">
+                        <input type="color" class="menu-input" onchange="changeUserDB('${opinion}', this.value); this.style.background = this.value;" style="background: ${userConfig[opinion] ?? '#ffffff'};" value="${userConfig[opinion] ?? '#ffffff'}">
+                        <button class='menu-input-reset' style="width: 2em;" onclick="changeUserDB('${opinion}', null); this.parentElement.children[0].value = '#ffffff'; alert('The ${opinion} setting has been reset.')">
+                            <img src="https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/reset.png" style="height: 1em;">
+                        </button>
+                    </div>
+                </div>
+                `
+            } else if (values == 'text') {
+                return `
+                <div class="menu-option">
+                    <div class="menu-name">${desc}</div>
+                    <div>
+                        <input type="text" class="menu-input" onchange="changeUserDB('${opinion}', this.value)" value="${userConfig[opinion] ??  ''}">
+                        <button class='menu-input-reset' style="width: 2em;" onclick="changeUserDB('${opinion}', null); this.parentElement.children[0].value = ''; alert('The ${opinion} setting has been reset.')">
+                            <img src="https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/reset.png" style="height: 1em;">
+                        </button>
+                    </div>
+                </div>
+                `
+            } else if (values == 'pxs') {
+                return `
+                <div class="menu-option">
+                    <div class="menu-name">${desc}</div>
+                    <div style="position: absolute; right: 14px;">
+                        <input type="text" style="width: 4em;" class="menu-input" onchange="changeUserDB('${opinion}', this.value)" value="${userConfig[opinion] ??  ''}">px
+                        <button class='menu-input-reset' style="width: 2em;" onclick="changeUserDB('${opinion}', null); this.parentElement.children[0].value = ''; alert('The ${opinion} setting has been reset.')">
+                            <img src="https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/reset.png" style="height: 1em;">
+                        </button>
+                    </div>
+                </div>
+                `
+            } else if (values == 'url') {
+                return `
+                <div class="menu-option">
+                    <div class="menu-name">${desc} (Must be an <kbd>https</kbd> link!)</div>
+                    <div>
+                        <input type="text" class="menu-input" value="${userConfig[opinion] ??  ''}" onchange="
+                        if (this.value.startsWith('https://')) {
+                            changeUserDB('${opinion}', this.value)
+                        } else {
+                            alert(\`That link didn't start in 'https://'!\`)
+                        }
+                        ">
+                        <button class='menu-input-reset' style="width: 2em;" onclick="changeUserDB('${opinion}', null); this.parentElement.children[0].value = ''; alert('The ${opinion} setting has been reset.')">
+                            <img src="https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/reset.png" style="height: 1em;">
+                        </button>
+                    </div>
+                </div>
+                `
+            }
     }
 }
 
 /// Get year options for menu
-var years = [2015, 2012, 2010, 2006];
+var years = [2015, 2012, 2010];
 var yearOptions = '';
 years.forEach(element => {
     if (element == userConfig['year']) {
@@ -391,19 +476,52 @@ function startMenu() {
 
                     <h3>General Settings</h3>
 
-                    ${makeMenuOption(`selection`, `year`, `Year of Player`, yearOptions)}
-                    <b>2010 has been added as of this update. 2006 still isn't developed yet, please wait for that!</b>
+                    ${makeMenuOption(`selection`, `year`, `Change year of Player`, yearOptions)}
 
-                    ${makeMenuOption(`toggle`, `autoplayButton`, `Toggle the Autoplay toggle on the right of the player`)}
+                    ${makeMenuOption(`toggle`, `autoplayButton`, `Toggle the Autoplay toggle on the right-side of the player`)}
 
-                    ${makeMenuOption('toggle', 'endScreenToggle', 'Toggle end screen (Things that display at the end of video)')}
+                    ${makeMenuOption('toggle', 'endScreenToggle', 'Toggle end screen (The buttons that display at the end of a video)')}
 
-                    ${makeMenuOption('toggle', 'embedOtherVideos', 'Toggle "Show other videos" box in embeds')}
+                    ${makeMenuOption('toggle', 'embedOtherVideos', 'Toggle the "Show other videos" box in embeds')}
 
                     <br>
 
                     <h3>Custom Theme Settings</h3>
-                    soon.
+                    <b>
+                        Note: You're editing raw CSS values. If something like
+                        the Scrubber doesn't seem to appear, try changing the
+                        the Scrubber size. Else, open up your browser's Dev
+                        Tools.
+                    </b>
+
+                    ${makeMenuOption('toggle', 'customTheme', 'Toggle Custom Theme')}
+
+                    ${makeMenuOption('input', 'controlsBack', 'Change the color of the player\'s background', 'color')}
+
+                    ${makeMenuOption('input', 'progressBarColor', 'Change the color of the Progress Bar', 'color')}
+
+                    ${makeMenuOption('input', 'volumeSliderBack', 'Change the color of the Volume Silder', 'color')}
+
+                    ${makeMenuOption('input', 'scrubberIcon', 'Change the image of the Scrubber', 'url')}
+
+                    ${makeMenuOption('input', 'scrubberIconHover', 'Change the image of the Scrubber <b>when hovering</b>', 'url')}
+
+                    ${makeMenuOption('input', 'scrubberSize', 'Change the size of the Scrubber', 'pxs')}
+
+                    ${makeMenuOption('input', 'scrubberPosition', 'If needed, change the Scrubber image position.', 'text')}
+                    <div class='menu-opinion-note'>Example: <kbd>10px (for x) 5px (for y)</kbd></div>
+
+                    ${makeMenuOption('input', 'scrubberHeight', 'Change the height of the Scrubber', 'pxs')}
+
+                    ${makeMenuOption('input', 'scrubberWidth', 'Change the width of the Scrubber', 'pxs')}
+
+                    ${makeMenuOption('input', 'scrubberTop', 'Move the Scrubber down by size (Make value negative to move up)', 'pxs')}
+
+                    <br>
+
+                    <button class="nuke-all" onclick="resetConfig()">
+                        THE BIG NUKE BUTTON. (aka reset all settings) NO TURNING BACK WHEN THIS IS PRESSED.
+                    </button>
 
                     <div class="blank"></div>
                 </div>`

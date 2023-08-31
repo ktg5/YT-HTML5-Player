@@ -25,10 +25,15 @@
 
 .ytp-chrome-bottom .ytp-progress-bar-container {
 	bottom: 34px !important;
+	scale: 103% 1;
 }
 
 .ytp-big-mode .ytp-chrome-bottom .ytp-progress-bar-container {
     bottom: 33px !important;
+}
+
+.ytp-chapter-hover-container.ytp-exp-chapter-hover-container {
+    transform: scale(1) !important;
 }
 
 .ytp-progress-bar-container:hover:not([aria-disabled=true]) .ytp-exp-chapter-hover-effect {
@@ -49,7 +54,6 @@
 }
 
 .ytp-chapters-container {
-    scale: 103% 1;
     left: 12px;
 }
 
@@ -179,7 +183,8 @@
 
 .ytp-scrubber-container {
 	top: 1px !important;
-	margin-top: -5px;
+    left: 0px !important;
+    margin-top: -5px;
 }
 
 .ytp-big-mode .ytp-scrubber-button {

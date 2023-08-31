@@ -12,7 +12,7 @@
 }
 
 #yt-html5-menu-button button img {
-    height: 16px;
+    height: 26px;
 }
 
 
@@ -61,13 +61,21 @@
 }
 
 #yt-html5-menu .menu-option .menu-name {
-    max-width: 18em;
+    max-width: 14em;
 }
+
 
 #yt-html5-menu .menu-option select {
     position: absolute;
     width: 8em;
     left: calc(100% - 9.2em);
+}
+
+
+#yt-html5-menu .menu-opinion-note {
+    position: relative;
+    bottom: 6px;
+    font-size: 12px;
 }
 
 #yt-html5-menu .menu-toggle {
@@ -103,6 +111,27 @@
 #yt-html5-menu .menu-toggle .light.false {
     background: #ff0000;
 }
+
+#yt-html5-menu .menu-option input[type="color"] {
+    position: absolute;
+    width: 3em;
+    height: 18px;
+    right: 16px;
+}
+
+#yt-html5-menu .menu-option input[type="text"] {
+    width: 8em;
+    height: 1em;
+}
+
+
+#yt-html5-menu .nuke-all {
+    background: rgb(200, 0, 0);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 
 #yt-html5-menu .reload-page {
     position: fixed;

@@ -23,10 +23,15 @@
 
 .ytp-chrome-bottom .ytp-progress-bar-container {
 	bottom: 34px !important;
+    scale: 103% 1;
 }
 
 .ytp-big-mode .ytp-chrome-bottom .ytp-progress-bar-container {
     bottom: 33px !important;
+}
+
+.ytp-chapter-hover-container.ytp-exp-chapter-hover-container {
+    transform: scale(1) !important;
 }
 
 .ytp-progress-bar-container:hover:not([aria-disabled=true]) .ytp-exp-chapter-hover-effect {
@@ -45,7 +50,6 @@
 }
 
 .ytp-chapters-container {
-    scale: 103% 1;
     left: 12px;
 }
 
@@ -64,7 +68,7 @@
 }
 
 .ytp-big-mode .ytp-progress-bar {
-    bottom: 2px;
+    bottom: 1px;
 }
 
 .ytp-play-progress.ytp-swatch-background-color, .ytp-hover-progress.ytp-hover-progress-light {
@@ -152,6 +156,12 @@
 
 /* SCRUBBER */
 
+.ytp-scrubber-container {
+	top: 1px !important;
+    left: 0px !important;
+	margin-top: -5px;
+}
+
 .ytp-scrubber-button {
     background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2010-scrubber.png) !important;
     background-position: 0px 0px !important;
@@ -181,13 +191,11 @@
 	background-color: transparent !important;
 }
 
-.ytp-scrubber-container {
-	top: 1px !important;
-	margin-top: -5px;
+.ytp-big-mode .ytp-scrubber-container {
+    left: 0 !important;
 }
 
 .ytp-big-mode .ytp-scrubber-button {
-	left: 0px !important;
 	top: 0px !important;
 }
 
