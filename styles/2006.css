@@ -99,13 +99,13 @@
 }
 
 .ytp-bezel[aria-label="Pause"] {
-    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/big-pause.png');
+    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/big-pause.png');
     background-size: cover;
     border-radius: 0;
 }
 
 .ytp-bezel[aria-label="Play"] {
-    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/big-play.png');
+    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/big-play.png');
     background-size: cover;
     border-radius: 0;
 }
@@ -121,7 +121,7 @@
 }
 
 .ytp-scrubber-button {
-    background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2010-scrubber.png) !important;
+    background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010-scrubber.png) !important;
     background-position: 0px 0px !important;
     background-size: 16px !important;
     height: 16px !important;
@@ -133,7 +133,7 @@
 }
 
 .ytp-scrubber-button:hover {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2010-scrubber-hover.png) !important;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010-scrubber-hover.png) !important;
 	background-position: 0px 0px !important;
     background-size: 16px !important;
     height: 16px !important;

@@ -1,6 +1,7 @@
 /* menu stylin' */
 #yt-html5-menu-button {
     margin-right: 8px;
+    margin-top: 4px;
 }
 
 #yt-html5-menu-button button {
@@ -13,6 +14,34 @@
 
 #yt-html5-menu-button button img {
     height: 26px;
+}
+
+
+#yt-html5-first-message {
+    width: 22em;
+    height: auto;
+    border: solid 0.5em rgba(0, 0, 0, 0.15);
+    border-radius: 1em;
+    padding: 1em;
+    background: white;
+    margin-top: 22em;
+    margin-right: 2em;
+    right: 0;
+    position: absolute;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    animation: fadeIn ease .15s;
+    overflow: auto;
+}
+
+#yt-html5-first-message button {
+    position: absolute;
+    right: 17px;
+    cursor: pointer;
+}
+
+#yt-html5-first-message img {
+    width: 14px;
 }
 
 

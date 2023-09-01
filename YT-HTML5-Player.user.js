@@ -1,20 +1,20 @@
 // ==UserScript==
 // @name         YouTube HTML5 Player
 // @namespace    https://github.com/ktg5/YT-HTML5-Player/
-// @version      2.0dev9
+// @version      2.0
 // @description  Try to recreate the old YouTube player looks.
 // @author       ktg5
 // @match        *://*.youtube.com/*
-// @updateURL    https://github.com/ktg5/YT-HTML5-Player/raw/dev/YT-HTML5-Player.user.js
-// @downloadURL  https://github.com/ktg5/YT-HTML5-Player/raw/dev/YT-HTML5-Player.user.js
-// @icon         https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/favicon.png
-// @resource     2015 https://github.com/ktg5/YT-HTML5-Player/raw/dev/styles/2015.css
-// @resource     2012 https://github.com/ktg5/YT-HTML5-Player/raw/dev/styles/2012.css
-// @resource     2010 https://github.com/ktg5/YT-HTML5-Player/raw/dev/styles/2010.css
-// @resource     2006 https://github.com/ktg5/YT-HTML5-Player/raw/dev/styles/2006.css
-// @resource     3RD-PARTY https://github.com/ktg5/YT-HTML5-Player/raw/dev/3rd-party-style.css
-// @resource     MENU https://github.com/ktg5/YT-HTML5-Player/raw/dev/styles/menu-style.css
-// @require      https://github.com/ktg5/YT-HTML5-Player/raw/dev/3rd-party-script.js
+// @updateURL    https://github.com/ktg5/YT-HTML5-Player/raw/main/YT-HTML5-Player.user.js
+// @downloadURL  https://github.com/ktg5/YT-HTML5-Player/raw/main/YT-HTML5-Player.user.js
+// @icon         https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/favicon.png
+// @resource     2015 https://github.com/ktg5/YT-HTML5-Player/raw/main/styles/2015.css
+// @resource     2012 https://github.com/ktg5/YT-HTML5-Player/raw/main/styles/2012.css
+// @resource     2010 https://github.com/ktg5/YT-HTML5-Player/raw/main/styles/2010.css
+// @resource     2006 https://github.com/ktg5/YT-HTML5-Player/raw/main/styles/2006.css
+// @resource     3RD-PARTY https://github.com/ktg5/YT-HTML5-Player/raw/main/3rd-party-style.css
+// @resource     MENU https://github.com/ktg5/YT-HTML5-Player/raw/main/styles/menu-style.css
+// @require      https://github.com/ktg5/YT-HTML5-Player/raw/main/3rd-party-script.js
 // @grant        GM_getResourceText
 // @grant        GM_addStyle
 // @grant        GM_deleteValue
@@ -25,10 +25,13 @@
 // @grant        unsafeWindow
 // ==/UserScript==
 
-var version = `2.0dev9`;
+var version = `2.0`;
 
 // Default user config.
 var def_yt_html5 = {
+    // First-time ppl
+    v2FirstTime: true,
+
     // Basic settings.
     year: '2015',
     autoplayButton: false,
@@ -354,7 +357,8 @@ unsafeWindow.changeUserDB = changeUserDB;
 /// Reset settings cuz I've been having to manually do it so many times YOU DON'T KNOW BRO IT GETS TO ME MAN!!!!!!!!!
 function resetConfig() {
     GM_setValue(`yt-html5`, def_yt_html5);
-    alert(`Your YT-HTML5-Player config has been reset, please refresh the page!!!`)
+    console.log(`YT-HTML5 USER DATA RESET:`, GM_getValue(`yt-html5`));
+    alert(`Your YT-HTML5-Player config has been reset, please refresh the page!!!`);
 }
 unsafeWindow.resetConfig = resetConfig;
 
@@ -387,7 +391,7 @@ function makeMenuOption(type, opinion, desc, values) {
                     <div style="position: absolute; right: 14px;">
                         <input type="color" class="menu-input" onchange="changeUserDB('${opinion}', this.value); this.style.background = this.value;" style="background: ${userConfig[opinion] ?? '#ffffff'};" value="${userConfig[opinion] ?? '#ffffff'}">
                         <button class='menu-input-reset' style="width: 2em;" onclick="changeUserDB('${opinion}', null); this.parentElement.children[0].value = '#ffffff'; this.parentElement.children[0].style.background = '#ffffff'; alert('The ${opinion} setting has been reset.')">
-                            <img src="https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/reset.png" style="height: 1em;">
+                            <img src="https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/reset.png" style="height: 1em;">
                         </button>
                     </div>
                 </div>
@@ -399,7 +403,7 @@ function makeMenuOption(type, opinion, desc, values) {
                     <div>
                         <input type="text" class="menu-input" onchange="changeUserDB('${opinion}', this.value)" value="${userConfig[opinion] ??  ''}">
                         <button class='menu-input-reset' style="width: 2em;" onclick="changeUserDB('${opinion}', null); this.parentElement.children[0].value = ''; alert('The ${opinion} setting has been reset.')">
-                            <img src="https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/reset.png" style="height: 1em;">
+                            <img src="https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/reset.png" style="height: 1em;">
                         </button>
                     </div>
                 </div>
@@ -411,7 +415,7 @@ function makeMenuOption(type, opinion, desc, values) {
                     <div style="position: absolute; right: 14px;">
                         <input type="text" style="width: 4em;" class="menu-input" onchange="changeUserDB('${opinion}', this.value)" value="${userConfig[opinion] ??  ''}">px
                         <button class='menu-input-reset' style="width: 2em;" onclick="changeUserDB('${opinion}', null); this.parentElement.children[0].value = ''; alert('The ${opinion} setting has been reset.')">
-                            <img src="https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/reset.png" style="height: 1em;">
+                            <img src="https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/reset.png" style="height: 1em;">
                         </button>
                     </div>
                 </div>
@@ -429,7 +433,7 @@ function makeMenuOption(type, opinion, desc, values) {
                         }
                         ">
                         <button class='menu-input-reset' style="width: 2em;" onclick="changeUserDB('${opinion}', null); this.parentElement.children[0].value = ''; alert('The ${opinion} setting has been reset.')">
-                            <img src="https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/reset.png" style="height: 1em;">
+                            <img src="https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/reset.png" style="height: 1em;">
                         </button>
                     </div>
                 </div>
@@ -485,7 +489,12 @@ function overWriteUserConfig(input) {
     var completedCount = 0;
     var unknownCount = 0;
 
-    var jsonInput = JSON.parse(input);
+    var jsonInput;
+    try {
+        jsonInput = JSON.parse(input);
+    } catch (error) {
+        alert(`A error happened when trying to set the config! Did you put any extra characters?`)
+    }
     
     // Check 
     for (let element in jsonInput) {
@@ -526,7 +535,7 @@ function startMenu() {
                 `<!-- Menu Button -->
                 <div id="yt-html5-menu-button">
                     <button id="menu-button" style="height: 40px; width: 40px;" onclick="menuToggle()">
-                        <img src="https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/menu-icon.png">
+                        <img src="https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/menu-icon.png">
                     </button>
                 </div>
 
@@ -558,7 +567,7 @@ function startMenu() {
 
                     <br>
 
-                    <h3>Import or Copy, and Reset Settings</h3>
+                    <h3>Import, Copy, or Reset Settings</h3>
 
                     <textarea
                     id="menu-config-selection"
@@ -587,6 +596,33 @@ function startMenu() {
                 <div class="blank"></div>
             `)
 
+            if (userConfig.v2FirstTime !== false || !userConfig.v2FirstTime) {
+                document.getElementById(`buttons`).insertAdjacentHTML(
+                    `afterend`,
+
+                    `
+                    <!-- Message for first-time users -->
+                    <div id="yt-html5-first-message">
+                        <button onclick="this.parentElement.remove(); changeUserDB('v2FirstTime', false)"><img src='https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/x-1.png'></button>
+
+                        <h2>Yo, what's this button do?</h2>
+                        Thanks for installing YT-HTML5-Player v2! To answer the random
+                        question I made, you can use this button to access the menu
+                        for the YT-HTML5-Player userscript. 
+                        <br>
+                        You can access the year of player you'd like to use, toggles
+                        for stuff that might be useful for some, and create or
+                        import custom themes / configurations!
+                        <br>
+                        If you have any issues,
+                        <a href='https://github.com/ktg5/YT-HTML5-Player/issues'>please report them on the GitHub page!</a>
+                        <br>
+                        Have a good one!
+                    </div>
+                    `
+                )
+            }
+
             if (userConfig.customTheme === true) {
                 document.getElementById(`menu-custom-opinions`).insertAdjacentHTML(
                     `afterbegin`,
@@ -595,7 +631,7 @@ function startMenu() {
                     <b>
                         Note: You're editing raw CSS values. If something like
                         the Scrubber doesn't seem to appear, try changing the
-                        Scrubber size. Else, open up your browser's Dev Tools.
+                        Scrubber size. Else, open up your browser's Developer Tools.
                     </b>
                     ${makeMenuOption('input', 'controlsBack', 'Change the color of the player\'s background', 'color')}
 

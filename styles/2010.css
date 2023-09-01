@@ -22,7 +22,7 @@
 }
 
 .ytp-chrome-bottom .ytp-progress-bar-container {
-	bottom: 34px !important;
+	bottom: 33px !important;
     scale: 103% 1;
 }
 
@@ -146,13 +146,13 @@
 }
 
 .ytp-bezel[aria-label="Pause"] {
-    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/big-pause.png');
+    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/big-pause.png');
     background-size: cover;
     border-radius: 0;
 }
 
 .ytp-bezel[aria-label="Play"] {
-    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/big-play.png');
+    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/big-play.png');
     background-size: cover;
     border-radius: 0;
 }
@@ -168,7 +168,7 @@
 }
 
 .ytp-scrubber-button {
-    background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2010-scrubber.png) !important;
+    background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010-scrubber.png) !important;
     background-position: 0px 0px !important;
     background-size: 16px !important;
     height: 16px !important;
@@ -180,7 +180,7 @@
 }
 
 .ytp-scrubber-button:hover {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2010-scrubber-hover.png) !important;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010-scrubber-hover.png) !important;
 	background-position: 0px 0px !important;
     background-size: 16px !important;
     height: 16px !important;
@@ -282,22 +282,22 @@
 /* PLAY BUTTON */
 
 .ytp-button.ytp-play-button svg {
-	background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2010%20icons/pause.png') no-repeat center;
+	background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/pause.png') no-repeat center;
     background-size: 15px;
 }
 
 .ytp-button.ytp-play-button:hover svg {
-    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2010%20icons/play-hover.png') no-repeat center;
+    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/play-hover.png') no-repeat center;
     background-size: 15px;
 }
 
 .ytp-button.ytp-play-button[data-title-no-tooltip="Play"] svg {
-	background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2010%20icons/play.png') no-repeat center;
+	background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/play.png') no-repeat center;
 	background-size: 15px;
 }
 
 .ytp-button.ytp-play-button[data-title-no-tooltip="Play"]:hover svg {
-	background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2010%20icons/pause-hover.png') no-repeat center;
+	background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/pause-hover.png') no-repeat center;
 	background-size: 15px;
 }
 
@@ -310,23 +310,23 @@
 /* VOLUME BUTTON */
 
 .ytp-button.ytp-mute-button svg {
-	background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2010%20icons/volume.png') no-repeat center;
+	background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/volume.png') no-repeat center;
     background-size: 30px;
 	margin-bottom: 5px;
 }
 
 .ytp-button.ytp-mute-button:hover svg {
-	background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2010%20icons/volume-mute-hover.png') no-repeat center;
+	background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/volume-mute-hover.png') no-repeat center;
     background-size: 30px;
 }
 
 .ytp-button.ytp-mute-button[title="Unmute (m)"] svg {
-	background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2010%20icons/volume-mute.png') no-repeat center;
+	background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/volume-mute.png') no-repeat center;
     background-size: 30px;
 }
 
 .ytp-button.ytp-mute-button[data-title-no-tooltip="Unmute"]:hover svg {
-	background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2010%20icons/volume-hover.png') no-repeat center;
+	background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/volume-hover.png') no-repeat center;
     background-size: 30px;
 }
 
@@ -478,17 +478,17 @@
 /* SUBTITLES BUTTON */
 
 .ytp-subtitles-button.ytp-button svg {
-    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2010%20icons/captions-off.png') no-repeat center;
+    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/captions-off.png') no-repeat center;
     background-size: 24px;
 }
 
 .ytp-subtitles-button.ytp-button:hover svg {
-    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2010%20icons/captions-on.png') no-repeat center;
+    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/captions-on.png') no-repeat center;
     background-size: 24px;
 }
 
 .ytp-subtitles-button.ytp-button[aria-pressed=true] svg {
-    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2010%20icons/captions-on.png') no-repeat center;
+    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/captions-on.png') no-repeat center;
     background-size: 24px;
 }
 
@@ -503,7 +503,7 @@
 /* SETTINGS BUTTON */
 
 .ytp-button.ytp-settings-button svg {
-	background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2012-icons.png') no-repeat;
+	background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2012-icons.png') no-repeat;
     background-position: -164px -132px;
     background-size: 200px;
     bottom: 5px;
@@ -528,22 +528,22 @@
 /* THEATER BUTTON */
 
 .ytp-button.ytp-size-button svg {
-    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2010%20icons/theater-mode.png') no-repeat center;
+    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/theater-mode.png') no-repeat center;
 	background-size: 20px;
 }
 
 .ytp-button.ytp-size-button:hover svg {
-    background: Url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2010%20icons/un-theater-mode-hover.png') no-repeat center;
+    background: Url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/un-theater-mode-hover.png') no-repeat center;
 	background-size: 20px;
 }
 
 .ytp-button.ytp-size-button[title="Default view (t)"] svg {
-    background: Url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2010%20icons/un-theater-mode.png') no-repeat center;
+    background: Url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/un-theater-mode.png') no-repeat center;
 	background-size: 20px;
 }
 
 .ytp-button.ytp-size-button[aria-label="Default view keyboard shortcut t"]:hover svg {
-    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2010%20icons/theater-mode-hover.png') no-repeat center;
+    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/theater-mode-hover.png') no-repeat center;
 	background-size: 20px;
 }
 
@@ -556,22 +556,22 @@
 /* FULLSCREEN BUTTON */
 
 .ytp-button.ytp-fullscreen-button svg {
-	background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2010%20icons/fullscreen.png') no-repeat center;
+	background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/fullscreen.png') no-repeat center;
     background-size: 24px;
 }
 
 .ytp-button.ytp-fullscreen-button:hover svg {
-    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2010%20icons/fullscreen-hover.png') no-repeat center;
+    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/fullscreen-hover.png') no-repeat center;
     background-size: 24px;
 }
 
 .ytp-button.ytp-fullscreen-button[data-title-no-tooltip="Exit full screen"] svg {
-	background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2010%20icons/un-fullscreen.png') no-repeat center;
+	background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/un-fullscreen.png') no-repeat center;
     background-size: 24px;
 }
 
 .ytp-button.ytp-fullscreen-button[data-title-no-tooltip="Exit full screen"]:hover svg {
-    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2010%20icons/un-fullscreen-hover.png') no-repeat center;
+    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/un-fullscreen-hover.png') no-repeat center;
     background-size: 24px;
 }
 
@@ -624,7 +624,7 @@
 }
 
 .ytp-settings-menu .ytp-panel-back-button {
-    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2010%20icons/x-1.png') no-repeat center;
+    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/x-1.png') no-repeat center;
     background-size: 20px;
 }
 
@@ -641,7 +641,7 @@
 }
 
 .ytp-menuitem[role=menuitemradio][aria-checked=true] .ytp-menuitem-label {
-    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2010%20icons/dot-1.png') no-repeat center;
+    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/dot-1.png') no-repeat center;
     background-size: 12px !important;
     background-position: left 10px center;
 }

@@ -149,13 +149,13 @@
 }
 
 .ytp-bezel[aria-label="Pause"] {
-    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/big-pause.png');
+    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/big-pause.png');
     background-size: cover;
     border-radius: 0;
 }
 
 .ytp-bezel[aria-label="Play"] {
-    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/big-play.png');
+    background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/big-play.png');
     background-size: cover;
     border-radius: 0;
 }
@@ -165,7 +165,7 @@
 /* SCRUBBER */
 
 .ytp-scrubber-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2012-scrubber.png) !important;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2012-scrubber.png) !important;
 	background-position: 0px 0px !important;
 	background-size: 18px !important;
 	height: 18px !important;
@@ -175,7 +175,7 @@
 }
 
 .ytp-scrubber-button:hover {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2012-scrubber-hover.png) !important;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2012-scrubber-hover.png) !important;
 	background-position: 0px 0px !important;
 	background-size: 18px !important;
 	height: 18px !important;
@@ -268,7 +268,7 @@
 /* PLAY BUTTON */
 
 .ytp-button.ytp-play-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2012-icons.png);
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2012-icons.png);
 	background-position: -74px 153.5px;
 	background-size: 210px;
 	width: 65px !important;
@@ -291,7 +291,7 @@
 /* VOLUME BUTTON */
 
 .ytp-button.ytp-mute-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2012-icons.png);
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2012-icons.png);
 	background-position: -175px -296px;
 	background-size: 210px;
 	width: 40px !important;
@@ -416,7 +416,7 @@
 /* SUBTITLES BUTTON */
 
 .ytp-subtitles-button.ytp-button {
-    background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2012-icons.png) no-repeat;
+    background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2012-icons.png) no-repeat;
     background-position: -65px -220px;
     background-size: 200px;
     bottom: 5px;
@@ -445,7 +445,7 @@
 /* SETTINGS BUTTON */
 
 .ytp-button.ytp-settings-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2012-icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2012-icons.png) no-repeat;
 	background-position: -164px -132px;
 	background-size: 200px;
 	bottom: 5px;
@@ -469,7 +469,7 @@
 /* THEATER BUTTON */
 
 .ytp-button.ytp-size-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2012-icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2012-icons.png) no-repeat;
 	background-position: -58px -133.5px;
 	background-size: 200px;
 	bottom: 5px;
@@ -497,7 +497,7 @@
 /* FULLSCREEN BUTTON */
 
 .ytp-button.ytp-fullscreen-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2012-icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2012-icons.png) no-repeat;
 	background-position: -93px -133.5px;
 	background-size: 200px;
 	bottom: 5px;
@@ -514,7 +514,7 @@
 /* WATCH LATER (moved from chrome-top) */
 
 .ytp-button.ytp-watch-later-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2012-icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2012-icons.png) no-repeat;
     background-position: 3px -280px;
 	background-size: 200px;
 	display: inline-block;
@@ -568,7 +568,7 @@
 }
 
 .ytp-button.ytp-share-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2015-icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2015-icons.png) no-repeat;
 	background-position: 2px -524px;
 	transition: .5s !important;
 	background-size: 220px;
@@ -577,7 +577,7 @@
 }
 
 .ytp-button.ytp-cards-button {
-	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/dev/img/2015-icons.png) no-repeat;
+	background: url(https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2015-icons.png) no-repeat;
 	background-position: 5px -512px;
 	transition: .5s !important;
 	background-size: 200px;
