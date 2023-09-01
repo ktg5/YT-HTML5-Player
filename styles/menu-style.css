@@ -1,0 +1,184 @@
+/* menu stylin' */
+#yt-html5-menu-button {
+    margin-right: 8px;
+    margin-top: 4px;
+}
+
+#yt-html5-menu-button button {
+    background: transparent;
+    cursor: pointer;
+    border: 0;
+    rotate: 0deg;
+    transition: all .25s;
+}
+
+#yt-html5-menu-button button img {
+    height: 26px;
+}
+
+
+#yt-html5-first-message {
+    width: 22em;
+    height: auto;
+    border: solid 0.5em rgba(0, 0, 0, 0.15);
+    border-radius: 1em;
+    padding: 1em;
+    background: white;
+    margin-top: 22em;
+    margin-right: 2em;
+    right: 0;
+    position: absolute;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    animation: fadeIn ease .15s;
+    overflow: auto;
+}
+
+#yt-html5-first-message button {
+    position: absolute;
+    right: 17px;
+    cursor: pointer;
+}
+
+#yt-html5-first-message img {
+    width: 14px;
+}
+
+
+#yt-html5-menu.menu-off {
+    display: none;
+}
+
+#yt-html5-menu {
+    width: 22em;
+    height: 28em;
+    border: solid 0.5em rgba(0, 0, 0, 0.15);
+    border-radius: 1em;
+    padding: 1em;
+    background: white;
+    margin-top: 34.5em;
+    margin-right: 2em;
+    right: 0;
+    position: absolute;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    animation: fadeIn ease .15s;
+    overflow: auto;
+}
+
+#yt-html5-menu h2 {
+    display: contents;
+}
+
+#yt-html5-menu .version {
+    display: contents;
+    padding-left: 20px;
+}
+
+#yt-html5-menu .menu-option {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin: .5em 0;
+}
+
+#yt-html5-menu .menu-option:where(:first-child) {
+    margin-top: 0;
+}
+
+#yt-html5-menu .menu-option:where(:last-child) {
+    margin-bottom: 0;
+}
+
+#yt-html5-menu .menu-option .menu-name {
+    max-width: 14em;
+}
+
+
+#yt-html5-menu .menu-option select {
+    position: absolute;
+    width: 8em;
+    left: calc(100% - 9.2em);
+}
+
+
+#yt-html5-menu .menu-opinion-note {
+    position: relative;
+    bottom: 6px;
+    font-size: 12px;
+}
+
+#yt-html5-menu .menu-toggle {
+    background: #1d1d1d;
+    border: 5px solid rgb(150 150 150 / 10%);
+    border-radius: 1em;
+    transition: all .25s;
+    position: relative;
+    cursor: pointer;
+    height: 8px;
+    width: 2em;
+    left: calc(100% - 2.75em);
+    box-sizing: unset;
+    padding-block: 0;
+    padding-inline: 0;
+    margin: auto 0;
+}
+
+#yt-html5-menu .menu-toggle .light {
+    content: '';
+    display: block;
+    background: #8f8f8f;
+    border-radius: 1em;
+    width: auto;
+    height: 8px;
+    transition: all .25s;
+}
+
+#yt-html5-menu .menu-toggle .light.true {
+    background: #04ff00;
+}
+
+#yt-html5-menu .menu-toggle .light.false {
+    background: #ff0000;
+}
+
+#yt-html5-menu .menu-option input[type="color"] {
+    width: 3em;
+    height: 18px;
+}
+
+#yt-html5-menu .menu-option input[type="text"] {
+    width: 8em;
+    height: 1em;
+}
+
+
+#yt-html5-menu .nuke-all {
+    background: rgb(200, 0, 0);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+#yt-html5-menu .reload-page {
+    position: fixed;
+    width: 21em;
+    border: solid 0.5em red;
+    border-radius: 0.5em 0.5em 0 0;
+    background: red;
+    color: white;
+    text-align: center;
+    right: 4em;
+    top: 31.7em;
+    z-index: 1;
+}
+
+#yt-html5-menu .blank {
+    height: 40px;
+}
+
+/* keyframes */
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
