@@ -1,11 +1,11 @@
 <div align="center">
   <img src="screenshot1.png">
-  <div font-size="8px">When not hovering over the progress bar.</div>
+  <div font-size="8px">Player when not hovering over the progress bar.</div>
 
   <br>
   
   <img src="screenshot2.png">
-  <div font-size="8px">When hovering over the progress bar.</div>
+  <div font-size="8px">Player when hovering over the progress bar.</div>
 
   <br>
 

@@ -19,7 +19,7 @@
 
   <img src="docs/2010/screenshot1.png">
   <br>
-  <a href="docs/2010/photos.md">2012 Screenshots here</a>
+  <a href="docs/2010/photos.md">2010 Screenshots here</a>
 </div>
 
 ## How to work.

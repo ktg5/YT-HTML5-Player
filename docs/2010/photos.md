@@ -1,6 +1,6 @@
 <div align="center">
   <img src="screenshot1.png">
-  <div font-size="8px">Progress bar.</div>
+  <div font-size="8px">Just the player.</div>
 
   <br>
   
@@ -10,7 +10,7 @@
   <br>
 
   <img src="screenshot3.png">
-  <div font-size="8px">Settings menu. (same as 2015)</div>
+  <div font-size="8px">Settings menu. (Just a lighter version of 2015)</div>
 
   <br>
 </div>
