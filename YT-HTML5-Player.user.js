@@ -596,7 +596,7 @@ function startMenu() {
                 <div class="blank"></div>
             `)
 
-            if (userConfig.v2FirstTime !== false || !userConfig.v2FirstTime) {
+            if (userConfig.v2FirstTime !== false) {
                 document.getElementById(`buttons`).insertAdjacentHTML(
                     `afterend`,
 
