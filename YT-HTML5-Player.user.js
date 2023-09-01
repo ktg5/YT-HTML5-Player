@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube HTML5 Player
 // @namespace    https://github.com/ktg5/YT-HTML5-Player/
-// @version      2.0
+// @version      2.0.1
 // @description  Try to recreate the old YouTube player looks.
 // @author       ktg5
 // @match        *://*.youtube.com/*
@@ -25,7 +25,7 @@
 // @grant        unsafeWindow
 // ==/UserScript==
 
-var version = `2.0`;
+var version = `2.0.1`;
 
 // Default user config.
 var def_yt_html5 = {
@@ -596,7 +596,7 @@ function startMenu() {
                 <div class="blank"></div>
             `)
 
-            if (userConfig.v2FirstTime !== false || !userConfig.v2FirstTime) {
+            if (userConfig.v2FirstTime !== false) {
                 document.getElementById(`buttons`).insertAdjacentHTML(
                     `afterend`,
 
