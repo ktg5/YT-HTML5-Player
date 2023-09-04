@@ -1,11 +1,17 @@
 /* PLAYER BASE */
 
+:root {
+	--background: rgb(28, 28, 28);
+	--main-colour: #b91f1f;
+	--progress-bar-bg: rgb(66, 66, 66);
+}
+
 .ytp-chrome-controls {
 	border-top: 2px solid #181818;
 }
 
 .ytp-chrome-controls {
-	background: rgb(28, 28, 28);
+	background: var(--background);
 }
 
 .ytp-gradient-bottom {
@@ -20,7 +26,6 @@
 
 .ytp-chrome-bottom .ytp-progress-bar-container {
 	bottom: 34px !important;
-	scale: 103% 1;
 }
 
 .ytp-chapter-hover-container.ytp-exp-chapter-hover-container {
@@ -29,6 +34,27 @@
 
 .ytp-progress-bar-container:hover:not([aria-disabled=true]) .ytp-exp-chapter-hover-effect {
 	transform: scaleY(1) !important;
+}
+
+.ytp-chrome-bottom .ytp-progress-bar:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 7em;
+    height: 100%;
+    background: var(--progress-bar-bg);
+    margin-top: -10px;
+    right: 0;
+	bottom: 0px;
+    transform: scaleY(.6);
+}
+
+.ytp-chrome-bottom .ytp-progress-bar.finished:after {
+    background: var(--main-colour);
+}
+
+.ytp-chrome-bottom .ytp-progress-bar:hover:after {
+	transform: scaleY(1);
 }
 
 .ytp-progress-bar {
@@ -41,11 +67,7 @@
 }
 
 .ytp-progress-list {
-	background: rgb(66, 66, 66) !important;
-}
-
-.ytp-chapters-container {
-    left: 12px;
+	background: var(--progress-bar-bg) !important;
 }
 
 .ytp-timed-markers-container {
@@ -66,7 +88,7 @@
 }
 
 .ytp-play-progress.ytp-swatch-background-color, .ytp-hover-progress.ytp-hover-progress-light, .ytp-hover-progress-light {
-	background: #b91f1f;
+	background: var(--main-colour);
 }
 
 .ad-interrupting .ytp-play-progress.ytp-swatch-background-color {
@@ -179,7 +201,7 @@
 
 .ytp-scrubber-container {
 	top: 1px !important;
-    left: 0px !important;
+    left: -15px !important;
     margin-top: -5px;
 }
 
@@ -359,7 +381,7 @@
 }
 
 .ytp-volume-slider-handle::before {
-	background: #b91f1f;
+	background: var(--main-colour);
 }
 
 .ytp-big-mode .ytp-volume-panel .ytp-volume-slider-handle {

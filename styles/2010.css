@@ -3,6 +3,7 @@
 :root {
 	--background: linear-gradient(rgb(173 173 173), rgb(254 254 254));
 	--main-colour: #a32c2e;
+    --progress-bar-bg: rgb(34 34 34);
 }
 
 .ytp-chrome-controls {
@@ -22,8 +23,7 @@
 }
 
 .ytp-chrome-bottom .ytp-progress-bar-container {
-	bottom: 33px !important;
-    scale: 103% 1;
+	bottom: 34px !important;
 }
 
 .ytp-big-mode .ytp-chrome-bottom .ytp-progress-bar-container {
@@ -38,19 +38,30 @@
 	transform: scaleY(1) !important;
 }
 
-.ytp-progress-bar {
+.ytp-chrome-bottom .ytp-progress-bar {
 	transition: .5s;
     margin-bottom: 1px !important;
 	height: 10px !important;
 }
 
-.ytp-progress-list {
-	background: rgb(34 34 34) !important;
-    transform: scale(1) !important;
+.ytp-chrome-bottom .ytp-progress-bar:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 7em;
+    height: 10px;
+    background: var(--progress-bar-bg);
+    margin-top: -10px;
+    right: 0;
 }
 
-.ytp-chapters-container {
-    left: 12px;
+.ytp-chrome-bottom .ytp-progress-bar.finished:after {
+    background: var(--main-colour);
+}
+
+.ytp-progress-list {
+	background: var(--progress-bar-bg) !important;
+    transform: scale(1) !important;
 }
 
 .ytp-heat-map-container {
@@ -242,17 +253,13 @@
     background: linear-gradient(rgb(254 254 254), rgb(173 173 173)) !important;
 }
 /* igrone background & border for the following: */
-.ytp-button.ytp-settings-button,
-.ytp-button.ytp-subtitles-button,
-.ytp-button[data-tooltip-target-id="ytp-autonav-toggle-button"],
+.ytp-chrome-bottom .ytp-button.ytp-settings-button,
+.ytp-chrome-bottom .ytp-button.ytp-subtitles-button,
+.ytp-chrome-bottom .ytp-button[data-tooltip-target-id="ytp-autonav-toggle-button"],
 .ytp-chrome-bottom .ytp-chapter-title.ytp-button
 {
     background: none !important;
     border: none !important;
-}
-
-.ytp-autohide .ytp-chrome-top {
-    display: none;
 }
 
 .ytp-button svg path {
@@ -312,7 +319,9 @@
 .ytp-button.ytp-mute-button svg {
 	background: url('https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/volume.png') no-repeat center;
     background-size: 30px;
-	margin-bottom: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .ytp-button.ytp-mute-button:hover svg {
@@ -590,7 +599,7 @@
 }
 
 .ytp-chrome-top {
-	display: none;
+	display: none !important;
 }
 
 /* ################################# */

@@ -2,7 +2,8 @@
 
 :root {
 	--background: linear-gradient(rgb(38 38 38), rgb(12 12 12));
-	--main-colour: linear-gradient(180deg, #b22427, #751819) !important;
+	--main-colour: linear-gradient(180deg, #b22427, #751819);
+	--progress-bar-bg: rgb(34 34 34);
 }
 
 .ytp-chrome-controls {
@@ -25,7 +26,6 @@
 
 .ytp-chrome-bottom .ytp-progress-bar-container {
 	bottom: 34px !important;
-	scale: 103% 1;
 }
 
 .ytp-big-mode .ytp-chrome-bottom .ytp-progress-bar-container {
@@ -40,6 +40,26 @@
 	transform: scaleY(1) !important;
 }
 
+.ytp-chrome-bottom .ytp-progress-bar:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 7em;
+    height: 100%;
+    background: var(--progress-bar-bg);
+    margin-top: -10px;
+    right: 0;
+	bottom: -1px;
+}
+
+.ytp-chrome-bottom .ytp-progress-bar.finished:after {
+    background: var(--main-colour);
+}
+
+.ytp-chrome-bottom .ytp-progress-bar:hover:after {
+	bottom: 0;
+}
+
 .ytp-progress-bar {
 	transition: .5s;
 }
@@ -50,11 +70,7 @@
 }
 
 .ytp-progress-list {
-	background: rgb(34 34 34) !important;
-}
-
-.ytp-chapters-container {
-    left: 12px;
+	background: var(--progress-bar-bg) !important;
 }
 
 .ytp-timed-markers-container {
@@ -188,7 +204,7 @@
 
 .ytp-scrubber-container {
 	top: 1px !important;
-    left: 0px !important;
+    left: -15px !important;
     margin-top: -5px;
 }
 

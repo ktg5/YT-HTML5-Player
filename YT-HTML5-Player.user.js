@@ -1,9 +1,13 @@
 // ==UserScript==
 // @name         YouTube HTML5 Player
 // @namespace    https://github.com/ktg5/YT-HTML5-Player/
-// @version      2.0.1
+// @version      2.1.0
 // @description  Try to recreate the old YouTube player looks.
 // @author       ktg5
+// @match        http://*.youtube.com/*
+// @match        http://youtube.com/*
+// @match        https://*.youtube.com/*
+// @match        https://youtube.com/*
 // @match        *://*.youtube.com/*
 // @updateURL    https://github.com/ktg5/YT-HTML5-Player/raw/main/YT-HTML5-Player.user.js
 // @downloadURL  https://github.com/ktg5/YT-HTML5-Player/raw/main/YT-HTML5-Player.user.js
@@ -23,14 +27,15 @@
 // @grant        GM_setValue
 // @grant        GM_info
 // @grant        unsafeWindow
+// @noframes
 // ==/UserScript==
 
-var version = `2.0.1`;
+var version = `2.1.0`;
 
 // Default user config.
 var def_yt_html5 = {
-    // First-time ppl
-    v2FirstTime: true,
+    // First-time ppl & release note checking.
+    releaseNote: 0,
 
     // Basic settings.
     year: '2015',
@@ -84,8 +89,22 @@ function moveElement(element, targetDiv, pasteDiv) {
 
 
 // Make sure script reruns on page update.
+// And make check progress bar value in case to change it.
 var currentPath = window.location.href;
+var progressbar = document.getElementsByClassName('ytp-progress-bar')[0];
 setInterval(() => {
+    // Check progress bar
+    if (progressbar.ariaValueMax == progressbar.ariaValueNow) {
+        progressbar.classList.add('finished');
+        console.log('YT-HTML5-Player', `video finished, progress bar should be all main color.`);
+    } else {
+        if (progressbar.classList.contains('finished')) {
+            progressbar.classList.remove('finished');
+            console.log(`YT-HTML5-Player`, `video started, reerting back.`);
+        }
+    }
+
+    // Check window href
     if (window.location.href == currentPath) {
         return;
     } else {
@@ -96,7 +115,8 @@ setInterval(() => {
 }, 1000);
 
 // Start
-if (document.location.pathname == "/watch") startPlayer();
+var checkIfYoutube = document.location.pathname == "/watch" || window.location.href.startsWith('https://www.youtube.com/embed') == true;
+if (checkIfYoutube == true) startPlayer();
 startMenu();
 
 // You might be asking, "why is this a thing?"
@@ -135,20 +155,14 @@ function enableCustomTheme() {
     var outputCss = `/* hi this is the custom theme you set lolz */`;
     if (userConfig.controlsBack !== null) {
         outputCss += `
-        .ytp-chrome-controls {
-            background: ${userConfig.controlsBack} !important;
+        :root {
+            --background: ${userConfig.controlsBack} !important;
         }
         `
     } if (userConfig.progressBarColor !== null) {
         outputCss += `
-        .ytp-play-progress.ytp-swatch-background-color {
-            background: ${userConfig.progressBarColor} !important;
-        }
-        .ytp-hover-progress.ytp-hover-progress-light {
-            background: ${userConfig.progressBarColor} !important;
-        }
-        .ytp-hover-progress-light {
-            background: ${userConfig.progressBarColor} !important;
+        :root {
+            --main-colour: ${userConfig.progressBarColor} !important;
         }
         `
     } if (userConfig.volumeSliderBack !== null) {
@@ -160,6 +174,12 @@ function enableCustomTheme() {
     } if (userConfig.scrubberIcon !== null) {
         outputCss += `
         .ytp-scrubber-button {
+            background: url(${userConfig.scrubberIcon}) no-repeat center !important;
+        }
+        `
+    } if (userConfig.scrubberIconHover == null && userConfig.scrubberIcon !== null) {
+        outputCss += `
+        .ytp-scrubber-button:hover {
             background: url(${userConfig.scrubberIcon}) no-repeat center !important;
         }
         `
@@ -226,7 +246,7 @@ function startPlayer() {
     // Make sure player part of the script is loaded on "watch" pages.
     // Keep going until we hit it.
     const starter = setInterval(function () {
-        if (document.location.pathname == "/watch") {
+        if (checkIfYoutube == true) {
             switch (userConfig.year) {
                 case '2015':
                     // IMPORT CSS (if it wasn't already loaded)
@@ -289,12 +309,22 @@ function startPlayer() {
                         /* someother custom theme stuff for 2010 */
 
                         .ytp-chrome-controls {
-                            border-top: solid 2px #d1d1d163 !important;
+                            border-top: solid 2px #d1d1d180 !important;
+                        }
+
+                        .ytp-chrome-bottom .ytp-chrome-controls:before {
+                            position: absolute;
+                            content:"";
+                            height:100%;
+                            width:100%;
+                            top:0;
+                            left:0;
+                            background: linear-gradient(rgb(0 0 0 / 35%), rgb(255 255 255 / 35%));
                         }
 
                         .ytp-chrome-bottom .ytp-button {
-                            border: solid 1px #ffffff52 !important;
-                            background: linear-gradient(rgb(0 0 0 / 0%), rgb(255 255 255 / 50%)) !important;
+                            border: solid 1px rgb(255 255 255 / 35%);
+                            background: linear-gradient(rgb(255 255 255 / 35%), rgb(0 0 0 / 35%)) !important;
                         }
                         `)
                     }
@@ -308,7 +338,7 @@ function startPlayer() {
             // End Start Checker
             clearInterval(starter);
         };
-    }, 2500);
+    }, 1000);
 }
 
 
@@ -545,7 +575,7 @@ function startMenu() {
                         <h3>Reload page for changes to take effect!</h3>
                     </div></a>
 
-                    <h2>YT-HTML5-Player Menu</h2><div class="version"> v${version}</div>
+                    <h2>YT-HTML5-Player</h2><div class="version"> v${version}</div>
 
                     <h3>General Settings</h3>
 
@@ -578,51 +608,6 @@ function startMenu() {
                 </div>
             `);
 
-            document.getElementById(`menu-config-selection`).insertAdjacentHTML(
-                `afterend`,
-                
-                `
-                <button onclick='overWriteUserConfig(document.getElementById(\`menu-config-selection\`).value)'>
-                    Apply settings
-                </button>
-
-                <br>
-                <br>
-
-                <button class="nuke-all" onclick="resetConfig()">
-                    THE BIG NUKE BUTTON. (aka reset all settings) NO TURNING BACK WHEN THIS IS PRESSED.
-                </button>
-
-                <div class="blank"></div>
-            `)
-
-            if (userConfig.v2FirstTime !== false) {
-                document.getElementById(`buttons`).insertAdjacentHTML(
-                    `afterend`,
-
-                    `
-                    <!-- Message for first-time users -->
-                    <div id="yt-html5-first-message">
-                        <button onclick="this.parentElement.remove(); changeUserDB('v2FirstTime', false)"><img src='https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/x-1.png'></button>
-
-                        <h2>Yo, what's this button do?</h2>
-                        Thanks for installing YT-HTML5-Player v2! To answer the random
-                        question I made, you can use this button to access the menu
-                        for the YT-HTML5-Player userscript. 
-                        <br>
-                        You can access the year of player you'd like to use, toggles
-                        for stuff that might be useful for some, and create or
-                        import custom themes / configurations!
-                        <br>
-                        If you have any issues,
-                        <a href='https://github.com/ktg5/YT-HTML5-Player/issues'>please report them on the GitHub page!</a>
-                        <br>
-                        Have a good one!
-                    </div>
-                    `
-                )
-            }
-
             if (userConfig.customTheme === true) {
                 document.getElementById(`menu-custom-opinions`).insertAdjacentHTML(
                     `afterbegin`,
@@ -638,11 +623,12 @@ function startMenu() {
                     ${makeMenuOption('input', 'progressBarColor', 'Change the color of the Progress Bar', 'color')}
 
                     ${makeMenuOption('input', 'volumeSliderBack', 'Change the color of the Volume Silder', 'color')}
+                    <div class='menu-opinion-note'>If you want to use the exact same color as the Progress Bar for the Volume Silder, you don't need to change this value.</div>
 
                     ${makeMenuOption('input', 'scrubberIcon', 'Change the image of the Scrubber', 'url')}
 
                     ${makeMenuOption('input', 'scrubberIconHover', 'Change the image of the Scrubber <b>when hovering</b>', 'url')}
-                    <div class='menu-opinion-note'>If you want to, you can use the same image as the Scrubber when not hovering</div>
+                    <div class='menu-opinion-note'>If you want to use the same image for the value above, you don't need to change this value.</div>
 
                     ${makeMenuOption('input', 'scrubberSize', 'Change the size of the Scrubber', 'pxs')}
                     <div class='menu-opinion-note'>It is recommended to change this if you change the Scrubber icon; start low (Something like <kbd>12</kbd>) then go up</div>
@@ -667,6 +653,50 @@ function startMenu() {
                     `
                 )
             }
+
+            document.getElementById(`menu-config-selection`).insertAdjacentHTML(
+                `afterend`,
+                
+                `
+                <button onclick='overWriteUserConfig(document.getElementById(\`menu-config-selection\`).value)'>
+                    Apply settings
+                </button>
+
+                <br>
+                <br>
+
+                <button class="nuke-all" onclick="resetConfig()">
+                    THE BIG NUKE BUTTON. (aka reset all settings) NO TURNING BACK WHEN THIS IS PRESSED.
+                </button>
+
+                <div class="blank"></div>
+            `)
+
+            if (userConfig.releaseNote < 1 || !userConfig.releaseNote) {
+                document.getElementById(`buttons`).insertAdjacentHTML(
+                    `afterend`,
+
+                    `
+                    <!-- Message for first-time users -->
+                    <div id="yt-html5-release-notes" class="menu-message">
+                        <button onclick="this.parentElement.remove(); changeUserDB('releaseNote', 1)"><img src='https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/x-1.png'></button>
+
+                        <h2>YT-HTML5-Player has been updated to v${version}</h2>
+                        So what's new?
+                        <li>Usable in embeds once again!</li>
+                        <li>Reverted back Progress Bar patch + a tiny patch with it.</li>
+                        <li>Fixed styling and other stuff.</li>
+
+                        <br>
+
+                        As always, if you have any issues,
+                        <a href='https://github.com/ktg5/YT-HTML5-Player/issues'>please report them on the GitHub page!</a>
+                        <br>
+                        Enjoy!
+                    </div>
+                    `
+                )
+            }
         }
-    }, 3500)
+    }, 3000)
 }

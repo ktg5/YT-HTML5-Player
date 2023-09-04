@@ -17,14 +17,14 @@
 }
 
 
-#yt-html5-first-message {
+.menu-message {
     width: 22em;
     height: auto;
     border: solid 0.5em rgba(0, 0, 0, 0.15);
     border-radius: 1em;
     padding: 1em;
     background: white;
-    margin-top: 22em;
+    top: 3.5em;
     margin-right: 2em;
     right: 0;
     position: absolute;
@@ -34,13 +34,13 @@
     overflow: auto;
 }
 
-#yt-html5-first-message button {
+.menu-message button {
     position: absolute;
     right: 17px;
     cursor: pointer;
 }
 
-#yt-html5-first-message img {
+.menu-message img {
     width: 14px;
 }
 
