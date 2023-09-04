@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube HTML5 Player
 // @namespace    https://github.com/ktg5/YT-HTML5-Player/
-// @version      2.1.1
+// @version      2.1.2
 // @description  Try to recreate the old YouTube player looks.
 // @author       ktg5
 // @match        http://*.youtube.com/*
@@ -29,7 +29,7 @@
 // @grant        unsafeWindow
 // ==/UserScript==
 
-var version = `2.1.1`;
+var version = `2.1.2`;
 
 // Default user config.
 var def_yt_html5 = {
@@ -91,33 +91,38 @@ function moveElement(element, targetDiv, pasteDiv) {
 // And make check progress bar value in case to change it.
 var currentPath = window.location.href;
 var progressbar = document.getElementsByClassName('ytp-progress-bar')[0];
-setInterval(() => {
-    // Check progress bar
-    if (!progressbar) return; // For some reason, the userscript likes to run "multiple" times. Using @noframes in the userscript info will break embeds.
-    else if (progressbar.ariaValueMax == progressbar.ariaValueNow) {
-        progressbar.classList.add('finished');
-        console.log('YT-HTML5-Player', `video finished, progress bar should be all main color.`);
-    } else {
-        if (progressbar.classList.contains('finished')) {
-            progressbar.classList.remove('finished');
-            console.log(`YT-HTML5-Player`, `video started, reerting back.`);
-        }
-    }
 
+setInterval(() => {
     // Check window href
     if (window.location.href == currentPath) {
         return;
     } else {
-        if (document.location.pathname == "/watch") startPlayer();
+        startPlayer();
         startMenu();
+        progressBarChanger();
         currentPath = window.location.href;
     }
 }, 1000);
 
+function progressBarChanger() {
+    setInterval(() => {
+        // Check progress bar
+        if (progressbar.ariaValueMax == progressbar.ariaValueNow) {
+            progressbar.classList.add('finished');
+            console.log('YT-HTML5-Player', `video finished, progress bar should be all main color.`);
+        } else {
+            if (progressbar.classList.contains('finished')) {
+                progressbar.classList.remove('finished');
+                console.log(`YT-HTML5-Player`, `video started, reerting back.`);
+            }
+        }
+    }, 1000);
+}
+
 // Start
-var checkIfYoutube = document.location.pathname == "/watch" || window.location.href.startsWith('https://www.youtube.com/embed') == true;
-if (checkIfYoutube == true) startPlayer();
+startPlayer();
 startMenu();
+progressBarChanger();
 
 // You might be asking, "why is this a thing?"
 // You'd only understand if you were dealing
@@ -246,99 +251,101 @@ function startPlayer() {
     // Make sure player part of the script is loaded on "watch" pages.
     // Keep going until we hit it.
     const starter = setInterval(function () {
-        if (checkIfYoutube == true) {
-            switch (userConfig.year) {
-                case '2015':
-                    // IMPORT CSS (if it wasn't already loaded)
-                    if (loadedPlayerStyle == false) {
-                        GM_addStyle(GM_getResourceText(userConfig.year));
-                        loadedPlayerStyle = true;
-                    }
-    
-                    // IMPORT USER CUSTOMIZATION
-                    if (customTheme === true) {
-                        enableCustomTheme();
-                        // .ytp-scrubber-button.ytp-swatch-background-color {
-                        //     background-color: transparent !important;
-                        // }
-                    }
-    
-                    // #################################    
-                    /// WATCH LATER BUTTON
-                    var WatchLaterButton = document.getElementsByClassName("ytp-watch-later-button")[0];
+        switch (userConfig.year) {
+            case '2015':
+                // IMPORT CSS (if it wasn't already loaded)
+                if (loadedPlayerStyle == false) {
+                    GM_addStyle(GM_getResourceText(userConfig.year));
+                    loadedPlayerStyle = true;
+                }
+
+                // IMPORT USER CUSTOMIZATION
+                if (customTheme === true) {
+                    enableCustomTheme();
+                    // .ytp-scrubber-button.ytp-swatch-background-color {
+                    //     background-color: transparent !important;
+                    // }
+                }
+
+                // #################################    
+                /// WATCH LATER BUTTON
+                var WatchLaterButton = document.getElementsByClassName("ytp-watch-later-button")[0];
+                if (WatchLaterButton) {
                     var targetDiv1 = WatchLaterButton.parentElement;
                     var pastDiv1 = document.getElementsByClassName("ytp-subtitles-button")[0];
     
                     moveElement(WatchLaterButton, targetDiv1, pastDiv1);
-                break;
-    
-                case '2012':
-                    // IMPORT CSS (if it wasn't already loaded)
-                    if (loadedPlayerStyle == false) {
-                        GM_addStyle(GM_getResourceText(userConfig.year));
-                        loadedPlayerStyle = true;
-                    }
-    
-                    // IMPORT USER CUSTOMIZATION
-                    if (customTheme === true) {
-                        enableCustomTheme();
-                    }
-    
-                    // #################################
-    
-                    /// WATCH LATER BUTTON
-                    var WatchLaterButton = document.getElementsByClassName("ytp-watch-later-button")[0];
+                }
+            break;
+
+            case '2012':
+                // IMPORT CSS (if it wasn't already loaded)
+                if (loadedPlayerStyle == false) {
+                    GM_addStyle(GM_getResourceText(userConfig.year));
+                    loadedPlayerStyle = true;
+                }
+
+                // IMPORT USER CUSTOMIZATION
+                if (customTheme === true) {
+                    enableCustomTheme();
+                }
+
+                // #################################
+
+                /// WATCH LATER BUTTON
+                var WatchLaterButton = document.getElementsByClassName("ytp-watch-later-button")[0];
+                if (WatchLaterButton) {
                     var targetDiv1 = WatchLaterButton.parentElement;
                     var pastDiv1 = document.getElementsByClassName("ytp-subtitles-button")[0];
     
                     moveElement(WatchLaterButton, targetDiv1, pastDiv1);
-                break;
+                }
+            break;
 
-                case '2010':
-                    // IMPORT CSS (if it wasn't already loaded)
-                    if (loadedPlayerStyle == false) {
-                        GM_addStyle(GM_getResourceText(userConfig.year));
-                        loadedPlayerStyle = true;
+            case '2010':
+                // IMPORT CSS (if it wasn't already loaded)
+                if (loadedPlayerStyle == false) {
+                    GM_addStyle(GM_getResourceText(userConfig.year));
+                    loadedPlayerStyle = true;
+                }
+
+                // IMPORT USER CUSTOMIZATION
+                if (customTheme === true) {
+                    enableCustomTheme();
+
+                    GM_addStyle(`
+                    /* someother custom theme stuff for 2010 */
+
+                    .ytp-chrome-controls {
+                        border-top: solid 2px #d1d1d180 !important;
                     }
 
-                    // IMPORT USER CUSTOMIZATION
-                    if (customTheme === true) {
-                        enableCustomTheme();
-
-                        GM_addStyle(`
-                        /* someother custom theme stuff for 2010 */
-
-                        .ytp-chrome-controls {
-                            border-top: solid 2px #d1d1d180 !important;
-                        }
-
-                        .ytp-chrome-bottom .ytp-chrome-controls:before {
-                            position: absolute;
-                            content:"";
-                            height:100%;
-                            width:100%;
-                            top:0;
-                            left:0;
-                            background: linear-gradient(rgb(0 0 0 / 35%), rgb(255 255 255 / 35%));
-                        }
-
-                        .ytp-chrome-bottom .ytp-button {
-                            border: solid 1px rgb(255 255 255 / 35%);
-                            background: linear-gradient(rgb(255 255 255 / 35%), rgb(0 0 0 / 35%)) !important;
-                        }
-                        `)
+                    .ytp-chrome-bottom .ytp-chrome-controls:before {
+                        position: absolute;
+                        content:"";
+                        height:100%;
+                        width:100%;
+                        top:0;
+                        left:0;
+                        background: linear-gradient(rgb(0 0 0 / 35%), rgb(255 255 255 / 35%));
                     }
-                break;
-    
-                default:
-                    console.error(`YT-HTML5 ERROR:`, `no userConfig.year is selected, please fix that.`);
-                break;
-            };
-    
-            // End Start Checker
-            clearInterval(starter);
+
+                    .ytp-chrome-bottom .ytp-button {
+                        border: solid 1px rgb(255 255 255 / 35%);
+                        background: linear-gradient(rgb(255 255 255 / 35%), rgb(0 0 0 / 35%)) !important;
+                    }
+                    `)
+                }
+            break;
+
+            default:
+                console.error(`YT-HTML5 ERROR:`, `no userConfig.year is selected, please fix that.`);
+            break;
         };
-    }, 2000);
+
+        // End Start Checker
+        clearInterval(starter);
+    }, 1000);
 }
 
 
@@ -672,14 +679,15 @@ function startMenu() {
                 <div class="blank"></div>
             `)
 
-            if (userConfig.releaseNote < 1 || !userConfig.releaseNote) {
+            var currentNote = 1;
+            if (userConfig.releaseNote < currentNote || !userConfig.releaseNote) {
                 document.getElementById(`buttons`).insertAdjacentHTML(
                     `afterend`,
 
                     `
                     <!-- Message for first-time users -->
                     <div id="yt-html5-release-notes" class="menu-message">
-                        <button onclick="this.parentElement.remove(); changeUserDB('releaseNote', 1)"><img src='https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/x-1.png'></button>
+                        <button onclick="this.parentElement.remove(); changeUserDB('releaseNote', ${currentNote})"><img src='https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/x-1.png'></button>
 
                         <h2>YT-HTML5-Player has been updated to v${version}</h2>
                         So what's new?
