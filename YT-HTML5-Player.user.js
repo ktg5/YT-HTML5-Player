@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube HTML5 Player
 // @namespace    https://github.com/ktg5/YT-HTML5-Player/
-// @version      2.1.0
+// @version      2.1.1
 // @description  Try to recreate the old YouTube player looks.
 // @author       ktg5
 // @match        http://*.youtube.com/*
@@ -27,10 +27,9 @@
 // @grant        GM_setValue
 // @grant        GM_info
 // @grant        unsafeWindow
-// @noframes
 // ==/UserScript==
 
-var version = `2.1.0`;
+var version = `2.1.1`;
 
 // Default user config.
 var def_yt_html5 = {
@@ -94,7 +93,8 @@ var currentPath = window.location.href;
 var progressbar = document.getElementsByClassName('ytp-progress-bar')[0];
 setInterval(() => {
     // Check progress bar
-    if (progressbar.ariaValueMax == progressbar.ariaValueNow) {
+    if (!progressbar) return; // For some reason, the userscript likes to run "multiple" times. Using @noframes in the userscript info will break embeds.
+    else if (progressbar.ariaValueMax == progressbar.ariaValueNow) {
         progressbar.classList.add('finished');
         console.log('YT-HTML5-Player', `video finished, progress bar should be all main color.`);
     } else {
@@ -338,7 +338,7 @@ function startPlayer() {
             // End Start Checker
             clearInterval(starter);
         };
-    }, 1000);
+    }, 2000);
 }
 
 
