@@ -32,6 +32,7 @@
     font-size: 14px;
     animation: fadeIn ease .15s;
     overflow: auto;
+    z-index: 9999;
 }
 
 .menu-message button {
@@ -56,7 +57,7 @@
     border-radius: 1em;
     padding: 1em;
     background: white;
-    margin-top: 34.5em;
+    margin-top: 4em;
     margin-right: 2em;
     right: 0;
     position: absolute;
@@ -64,6 +65,7 @@
     font-size: 14px;
     animation: fadeIn ease .15s;
     overflow: auto;
+    z-index: 9999;
 }
 
 #yt-html5-menu h2 {
@@ -168,13 +170,12 @@
     background: red;
     color: white;
     text-align: center;
-    right: 4em;
-    top: 31.7em;
+    top: 32.15em;
     z-index: 1;
 }
 
 #yt-html5-menu .blank {
-    height: 40px;
+    height: 70px;
 }
 
 /* keyframes */

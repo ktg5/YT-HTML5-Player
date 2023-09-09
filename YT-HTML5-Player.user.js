@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube HTML5 Player
 // @namespace    https://github.com/ktg5/YT-HTML5-Player/
-// @version      2.1.2
+// @version      2.1.3
 // @description  Try to recreate the old YouTube player looks.
 // @author       ktg5
 // @match        http://*.youtube.com/*
@@ -29,7 +29,7 @@
 // @grant        unsafeWindow
 // ==/UserScript==
 
-var version = `2.1.2`;
+var version = `2.1.3`;
 
 // Default user config.
 var def_yt_html5 = {
@@ -575,7 +575,12 @@ function startMenu() {
                         <img src="https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/menu-icon.png">
                     </button>
                 </div>
+            `);
 
+            document.getElementById(`content`).insertAdjacentHTML(
+                `beforebegin`,
+
+                `
                 <!-- Menu -->
                 <div id="yt-html5-menu" class="menu-off">
                     <a><div class="reload-page">
@@ -613,7 +618,8 @@ function startMenu() {
                         ${collectedUserConfig}
                     </textarea>
                 </div>
-            `);
+                `
+            )
 
             if (userConfig.customTheme === true) {
                 document.getElementById(`menu-custom-opinions`).insertAdjacentHTML(
@@ -679,10 +685,10 @@ function startMenu() {
                 <div class="blank"></div>
             `)
 
-            var currentNote = 1;
+            var currentNote = 2;
             if (userConfig.releaseNote < currentNote || !userConfig.releaseNote) {
-                document.getElementById(`buttons`).insertAdjacentHTML(
-                    `afterend`,
+                document.getElementById(`content`).insertAdjacentHTML(
+                    `beforebegin`,
 
                     `
                     <!-- Message for first-time users -->
@@ -691,9 +697,7 @@ function startMenu() {
 
                         <h2>YT-HTML5-Player has been updated to v${version}</h2>
                         So what's new?
-                        <li>Usable in embeds once again!</li>
-                        <li>Reverted back Progress Bar patch + a tiny patch with it.</li>
-                        <li>Fixed styling and other stuff.</li>
+                        <li>Added / fixed capability issues with <a href="https://github.com/lightbeam24/CustomTube" target="_blank">CustomTube</a>.</li>
 
                         <br>
 
