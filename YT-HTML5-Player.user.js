@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube HTML5 Player
 // @namespace    https://github.com/ktg5/YT-HTML5-Player/
-// @version      2.1.3
+// @version      2.1.4
 // @description  Try to recreate the old YouTube player looks.
 // @author       ktg5
 // @match        http://*.youtube.com/*
@@ -29,7 +29,7 @@
 // @grant        unsafeWindow
 // ==/UserScript==
 
-var version = `2.1.3`;
+var version = `2.1.4`;
 
 // Default user config.
 var def_yt_html5 = {
