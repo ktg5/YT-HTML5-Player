@@ -18,8 +18,8 @@ on the GitHUb repo! Much thanks! */
     fill: gray;
 }
 
-#sponsorBlockDurationAfterSkips {
-    color: #969696 !important;
+.ytp-time-display #sponsorBlockDurationAfterSkips {
+    color: var(--alt-progress-text) !important;
     text-shadow: none;
 }
 
@@ -30,5 +30,10 @@ resize the player when not in theater mode,
 the following lines of code should fix this.
 */
 ytd-app[static] #movie_player[aria-label="YouTube Video Player"] .ytp-chrome-bottom {
+    width: 100% !important;
+}
+
+/* Truffle */
+body[data-mogul-theater-mode] .html5-video-player .ytp-chrome-bottom {
     width: 100% !important;
 }

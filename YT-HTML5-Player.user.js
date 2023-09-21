@@ -1,13 +1,9 @@
 // ==UserScript==
 // @name         YouTube HTML5 Player
 // @namespace    https://github.com/ktg5/YT-HTML5-Player/
-// @version      2.1.4
+// @version      2.1.5
 // @description  Try to recreate the old YouTube player looks.
 // @author       ktg5
-// @match        http://*.youtube.com/*
-// @match        http://youtube.com/*
-// @match        https://*.youtube.com/*
-// @match        https://youtube.com/*
 // @match        *://*.youtube.com/*
 // @updateURL    https://github.com/ktg5/YT-HTML5-Player/raw/main/YT-HTML5-Player.user.js
 // @downloadURL  https://github.com/ktg5/YT-HTML5-Player/raw/main/YT-HTML5-Player.user.js
@@ -29,7 +25,7 @@
 // @grant        unsafeWindow
 // ==/UserScript==
 
-var version = `2.1.4`;
+var version = `2.1.5`;
 
 // Default user config.
 var def_yt_html5 = {
@@ -78,9 +74,11 @@ GM_addStyle(CSS3rd);
 // MOVING ELEMENTS
 function moveElement(element, targetDiv, pasteDiv) {
     console.log(`moveElement function: ${targetDiv.contains(element)}`)
-    if (targetDiv.contains(element)) {
+    if (pasteDiv.contains(element)) {
+        return;
+    } else if (targetDiv.contains(element)) {
         pasteDiv.parentNode.insertBefore(targetDiv.removeChild(element), pasteDiv.parentNode.firstElementChild);
-        moveElement(element, targetDiv, pasteDiv);
+        return;
     } else {
         return;
     }
@@ -685,7 +683,7 @@ function startMenu() {
                 <div class="blank"></div>
             `)
 
-            var currentNote = 2;
+            var currentNote = 3;
             if (userConfig.releaseNote < currentNote || !userConfig.releaseNote) {
                 document.getElementById(`content`).insertAdjacentHTML(
                     `beforebegin`,
@@ -695,18 +693,58 @@ function startMenu() {
                     <div id="yt-html5-release-notes" class="menu-message">
                         <button onclick="this.parentElement.remove(); changeUserDB('releaseNote', ${currentNote})"><img src='https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/x-1.png'></button>
 
-                        <h2>YT-HTML5-Player has been updated to v${version}</h2>
-                        So what's new?
-                        <li>Added / fixed capability issues with <a href="https://github.com/lightbeam24/CustomTube" target="_blank">CustomTube</a>.</li>
-
+                        <h2>YT-HTML5-Player is moving<br>on!</h2>
+                        <b>
+                        It's finally time to move on from the userscript-madness,
+                        and transfer over to an browser extension sunlight.
+                        </b>
                         <br>
-
-                        As always, if you have any issues,
-                        <a href='https://github.com/ktg5/YT-HTML5-Player/issues'>please report them on the GitHub page!</a>
                         <br>
-                        Enjoy!
+                        Ok seriously,
+                        <b>
+                        YT-HTML5-Player's development has moved
+                        over to <a href="https://github.com/ktg5/PlayerTube">PlayerTube</a>!
+                        Everything on this userscript is on the new browser
+                        extension,
+                        which is now available on
+                        <a href="https://chrome.google.com/webstore/detail/playertube/clepldejdgjigblladmahdigbllohioe">Chrome</a>
+                        and
+                        <a href="https://addons.mozilla.org/en-US/firefox/addon/playertube/">Firefox</a>!
+                        </b>
+                        <br>
+                        Some issues you might have with this userscript could
+                        be fixed with the new extension.
+                        <br>
+                        <br>
+                        <b>
+                        The YT-HTML5-Player GitHub repository will archived
+                        sometime before 2024 and it's development has been
+                        stopped since this recent update.
+                        </b>
+                        <br>
+                        <br>
+                        Thank you everyone for download this userscript and
+                        helping out with it's development, if you reported
+                        an issue or not! See you in the next chapter!
                     </div>
                     `
+                    // `
+                    // <!-- Message for first-time users -->
+                    // <div id="yt-html5-release-notes" class="menu-message">
+                    //     <button onclick="this.parentElement.remove(); changeUserDB('releaseNote', ${currentNote})"><img src='https://raw.githubusercontent.com/ktg5/YT-HTML5-Player/main/img/2010%20icons/x-1.png'></button>
+
+                    //     <h2>YT-HTML5-Player has been updated to v${version}</h2>
+                    //     So what's new?
+                    //     <li>Added / fixed capability issues with <a href="https://github.com/lightbeam24/CustomTube" target="_blank">CustomTube</a>.</li>
+
+                    //     <br>
+
+                    //     As always, if you have any issues,
+                    //     <a href='https://github.com/ktg5/YT-HTML5-Player/issues'>please report them on the GitHub page!</a>
+                    //     <br>
+                    //     Enjoy!
+                    // </div>
+                    // `
                 )
             }
         }
