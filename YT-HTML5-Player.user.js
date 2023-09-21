@@ -723,7 +723,7 @@ function startMenu() {
                         </b>
                         <br>
                         <br>
-                        Thank you everyone for download this userscript and
+                        Thank you everyone for downloading this userscript and
                         helping out with it's development, if you reported
                         an issue or not! See you in the next chapter!
                     </div>
