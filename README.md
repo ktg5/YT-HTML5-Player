@@ -1,3 +1,10 @@
+# YT-HTML5-Player has moved to PlayerTube!
+YT-HTML5-Player was recently transformed into a browser extension in the form of [PlayerTube](https://github.com/ktg5/PlayerTube)!
+
+You can download the latest stable build from either [Chrome's](https://chrome.google.com/webstore/detail/playertube/clepldejdgjigblladmahdigbllohioe) or [Firefox's](https://addons.mozilla.org/en-US/firefox/addon/playertube/) web-store, or [download the latest Beta / Dev build here!](https://github.com/ktg5/PlayerTube#beta--dev-builds)
+
+Thank you everyone for downloading this userscript and helping out with it's development, if you reported an issue or not! See you in the next chapter!
+
 <h1 align="center">YT-HTML5-Player <kbd>2.1.5</kbd></h1>
 <div font-size="24px" align="center">Try to recreate all the old YouTube player looks.</div>
 
